@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary": "#1a0010", "error": "#ff4444", "on-secondary-fixed": "#001a1a", "tertiary-container": "#665200", "on-secondary-container": "#c0fff4", "on-tertiary-fixed": "#1a1000", "tertiary": "#ffe04a", "surface-dim": "#0f0f1a", "surface": "#0f0f1a", "surface-container": "#141422", "inverse-primary": "#8c0038", "surface-tint": "#ff2d78", "secondary-container": "#004d3d", "inverse-surface": "#e8e0f0", "primary-container": "#b3004e", "on-secondary": "#001a1a", "on-secondary-fixed-variant": "#004d4d", "secondary-fixed-dim": "#00e6b8", "primary": "#ff2d78", "outline-variant": "#302840", "secondary": "#00ffcc", "on-error-container": "#ffa0a0", "on-tertiary": "#1a1000", "secondary-fixed": "#c0fff4", "on-primary-container": "#ffe0ec", "on-surface": "#e8e0f0", "background": "#0a0a12", "surface-container-lowest": "#0a0a12", "on-tertiary-container": "#fff0c0", "on-primary-fixed-variant": "#8c0038", "tertiary-fixed": "#fff0c0", "on-surface-variant": "#a098b0", "inverse-on-surface": "#0a0a12", "on-primary-fixed": "#3d0020", "surface-variant": "#1e1e30", "outline": "#5a5068", "surface-container-low": "#111118", "on-tertiary-fixed-variant": "#665200", "on-background": "#e8e0f0", "primary-fixed-dim": "#ff80aa", "error-container": "#3d0f0f", "surface-container-highest": "#28283e", "tertiary-fixed-dim": "#ffe04a", "on-error": "#1a0000", "surface-bright": "#1a1a2e", "primary-fixed": "#ffe0ec", "surface-container-high": "#1e1e30" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: {}, fontFamily: { "headline": ["Sora"], "display": ["Sora"], "body": ["Inter"], "label": ["Space Grotesk"] }, fontSize: {} } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body text-on-surface flex flex-col min-h-screen selection:bg-primary selection:text-on-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]"><div class="h-16 px-3 flex items-center justify-between gap-2"><div class="flex items-center gap-1.5 min-w-0"><button aria-label="Back" class="w-11 h-11 rounded-lg flex items-center justify-center text-on-surface hover:text-secondary hover:bg-surface-variant/40 transition-colors shrink-0" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><img alt="Brand logo. - Primary color: #ff2d78
+- Font: sora
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-7 w-auto object-contain shrink-0 hidden sm:block" src="https://lh3.googleusercontent.com/aida/AEtjO1XpMZujaKE24uF3rRuSSKcZerC9wCIJmJqMb0-QGK_kZhsD0xixP_SnOdGUiGkManPOlAfqrLPAr8_wHcBhyT2t6OYs8iPlALKJMO2OyX-5oYRHw12n107ImZFLBHhgDR11D5u-q3DJ6MYqFNTD9deaDNGQ2ETVj_WdD3IOrLxPyHI0RvAgVP7YyHKvpZUkei47APFhHFxkMbFJ0NLt0WsDOEI0OM_k4dQHAypo3YocjfxS6rurLWpsCnY"/><h1 class="font-headline font-bold text-sm tracking-tight text-on-surface truncate">Saved Collections</h1></div><div class="flex items-center gap-1 shrink-0"><button aria-label="Action" class="w-11 h-11 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-variant/40 transition-colors"><span class="material-symbols-outlined text-[20px]">tune</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-secondary/50" src="https://lh3.googleusercontent.com/aida/AEtjO1WUt3nQKGKSImsSwuvfxBUwJhgNTnkbjrooIsZ_KmOw-SYqCgNre8XgPfXf8WUjRYTr6o211sJ_nsVgNjkGnQUMw-LvGVwAmBOuqDkt-JHIrN3gVaEd0jvbJsz3QkvyZIThkDyT6GyCoLRrPVDoOxAfSxknZu5dUW-7F1X2duEV3T_Y9C1DABFrrYB5jYcZsMk5ShHI1IhAK0m4qhCcGaP8aMcPBytX3gjynIO33mxyFF1N2X6_sw2BM1I"/></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full px-4 pb-12 space-y-6">
+<!-- Interactive Top Action / Quick Bar -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary shadow-[0_0_10px_#00ffcc] animate-pulse"></span>
+<span class="font-label text-xs uppercase tracking-widest text-secondary font-bold">Neural Cache Online</span>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-primary hover:text-white transition-all shadow-[0_0_12px_rgba(255,45,120,0.25)] hover:shadow-[0_0_16px_rgba(255,45,120,0.5)] active:scale-95 group" id="create-folder-btn">
+<span class="material-symbols-outlined text-lg transition-transform group-hover:rotate-90 duration-300">add</span>
+<span class="font-label text-xs font-semibold tracking-wider">NEW FOLDER</span>
+</button>
+</div>
+<!-- Interactive Search / Filter Bar -->
+<div class="relative w-full">
+<div class="flex items-center px-3.5 py-2.5 rounded-xl bg-surface-container shadow-inner">
+<span class="material-symbols-outlined text-outline text-xl mr-2.5">terminal</span>
+<input class="bg-transparent border-0 text-on-surface placeholder:text-outline text-xs font-body focus:outline-none w-full tracking-wide" id="filter-input" placeholder="Query tags, memory nodes, items..." type="text"/>
+<span class="material-symbols-outlined text-outline-variant hover:text-secondary cursor-pointer text-lg">filter_alt</span>
+</div>
+</div>
+<!-- Category Filter Pill Selector -->
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+<button class="tab-pill px-4 py-2 rounded-xl text-xs font-label font-bold tracking-wider transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-variant">
+      All Posts <span class="ml-1 text-[10px] opacity-70">384</span>
+</button>
+<button class="tab-pill active px-4 py-2 rounded-xl text-xs font-label font-bold tracking-wider transition-all whitespace-nowrap bg-primary-container text-on-primary-container shadow-[0_0_14px_rgba(255,45,120,0.35)]">
+      Collections <span class="ml-1 text-[10px] text-primary-fixed">6</span>
+</button>
+<button class="tab-pill px-4 py-2 rounded-xl text-xs font-label font-bold tracking-wider transition-all whitespace-nowrap bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-variant">
+      Audio Tracks <span class="ml-1 text-[10px] opacity-70">24</span>
+</button>
+</div>
+<!-- Collections Grid (2-column layout) -->
+<div class="grid grid-cols-2 gap-3.5 pt-1" id="collections-grid">
+<!-- Card 1: Cyber Aesthetics (4-mini grid) -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container hover:bg-surface-container-high transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.6)] cursor-pointer">
+<div class="grid grid-cols-2 grid-rows-2 gap-0.5 w-full h-36 bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cyberpunk night alleyway flooded in magenta and cyan neon illumination with rain reflection puddles on asphalt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeTJGOu9TUH1YFLMQ8DYNs-w8Ej8OoruIo25V0g6qBCL2KCmsIXffRjrQt0hpJPFwhIgSD6Z9-1TY0zLLM87UjCOP0pA1k46nXQaj3A7ubDs5r5WEuX6dqPJ3dW2HPVZ0qLUMPDZEgSJn3RYaC_P4IdexJN7jCNX-TA0yZVRXRUQwAGo3LbwcPukHuU_kPtdDLEDbPWFxN4c8VlKdaz1BjOF0rmoBR82xpRkpsNo_v0blflo8Dip0o"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Holographic glitch art portrait with chromatic aberration and glowing electric pink digital artifacts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC16PvilHjvwPcQwwum_Xait3bo96GQKQs4H2gXJuqKGgkfDmcB1ceT9qjHjLeO375jnXOa6WJy2Z4Z_6zjRmrA3mIggbja9Sm5k9dPWcgs8T462PVvQ6I94faI93yCylSDUgXW3I5aezMnWcTrw9MkvCUf2NzKxurQtADk-YGL2-pGNJAIoRpKgdFhQvmnU9EiqHvwTXMjlyucruk_TpL3XJZxUr4mBUbwrAlNxtldgsz2jbc6VwzM"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic Tokyo metropolis skyscrapers crowned with giant luminous billboard advertisements in dense purple fog" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkEJ7O_r_5lcrwKPjHtlFyw7fWC8syaEPqtZr8FMD6eKp_eH_1EbDJxMt5MKAgENRdFze9jnqlAHeXosnbduR8MZyLFRy2brq2s3rsJipvND7Zxxx_r9rBUSZEmmaz6AGiAKOu0TXZDCqcw59-u35x-WQtxrutz_RcTZBC5t08frEC61ZKI5HyvzA9sAb6uQGrBVKvFqdvleQvJ8QxwMmGJRGa29-y52Xb0tToXWNyl21-MeP0wkis"/>
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Cybernetic augmented female silhouette staring at a glowing neon sphere in a retro-futuristic arcade corridor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqzHdcs6QdnguZbQ5cIu7RqveqP6W-khxfi_p_fVYW_IlymgpigBY7ZXsEyZT7QKAFv_W4d9u6rgtVMW3WjVkAn9X5GShP4O9wjKnyf_2ce2VOxMBXJB_EXcBZiQEWWgx4cRhI19IzzFqdmYfhPtzSVAGkGZj6LMHM0rTUV6YaK0F4rRrnnAIWUSwEuYXO_pLyKOUvrIbYVyAA42mbC7KnCjdz17B3Zc44ewpJbSvBaSnr4r_WFkjj"/>
+</div>
+<div class="p-3 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<h2 class="font-headline font-bold text-xs tracking-tight text-on-surface group-hover:text-primary transition-colors truncate">Cyber Aesthetics</h2>
+<span class="material-symbols-outlined text-[13px] text-tertiary shrink-0" title="Private Encrypted Node">lock</span>
+</div>
+<p class="font-label text-[10px] text-on-surface-variant tracking-wider">142 saved items</p>
+</div>
+<div class="mt-2.5 flex items-center justify-between pt-2 border-t-0 bg-surface-variant/40 rounded px-1.5 py-1">
+<span class="font-label text-[9px] uppercase tracking-widest text-secondary font-bold">Node #01</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#00ffcc]"></span>
+</div>
+</div>
+</div>
+<!-- Card 2: Hardware & Mod Inspo -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container hover:bg-surface-container-high transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.6)] cursor-pointer">
+<div class="relative w-full h-36 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Extreme close-up of a biomechanical cybernetic hand prosthetic with exposed hydraulic fiber wires glowing with neon blue LED pulses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChKWPQBV1Cnw7Wp6ZeheA4MsJ-JdSPN5WVYOEUsb6TgdrVBhaG80B3sr8PjV8PBEHa8H18CCnjrJE69fDPP3RSiw41Fpd-YPB5ZShOUGbX0t31hwfFk1ibQ70Bqbp2fwNNDlpEmQ4ECGkqenADHDs_o-c3hjxzkI-oneHuvMG6DQEcyhaodaPeqo0T3O4TCUrW989zAYGdB3SPF6jE7gzkCexHvDuQGef6vChQJdsEsssnv0ofMF1W"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-surface/80 backdrop-blur-md">
+<span class="material-symbols-outlined text-[12px] text-tertiary">lock</span>
+</div>
+</div>
+<div class="p-3 flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<h2 class="font-headline font-bold text-xs tracking-tight text-on-surface group-hover:text-primary transition-colors truncate">Hardware &amp; Mod</h2>
+<span class="text-[9px] font-label px-1 py-0.2 rounded bg-primary-container text-on-primary-container">PRO</span>
+</div>
+<p class="font-label text-[10px] text-on-surface-variant tracking-wider">89 saved items</p>
+</div>
+<div class="mt-2.5 flex items-center justify-between pt-2 border-t-0 bg-surface-variant/40 rounded px-1.5 py-1">
+<span class="font-label text-[9px] uppercase tracking-widest text-secondary font-bold">Node #02</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#00ffcc]"></span>
+</div>
+</div>
+</div>
+<!-- Card 3: Synth & Audio Gear -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container hover:bg-surface-container-high transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.6)] cursor-pointer">
+<div class="relative w-full h-36 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dark aesthetic modular audio synthesizer wall plugged with glowing multi-colored neon patch cords and illuminated digital VU meters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiv4fOXb35dc-Y_AGNXTcGqRefJ0SeVus4p_asoLxvuZkqqR0nUsgVl0q41Lx-3pHmRsMs7TuUnu6rrndvwYBo5pC3Yb8xfqxdvmNlNen2IjZ7DnPLnEdth3_UCzSEDu1DhpHmxH_OJz9YLAle_dx10gtrH57V9F-sQNSL5FdekKuUv54uxUBe6bVkK5nVj8qfdxR_c5i6gkm_8DapArcjFIzYfgMb7gHvgJ9augN-FOks1BV21ZCr"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface/80 backdrop-blur-md">
+<span class="material-symbols-outlined text-[12px] text-secondary">graphic_eq</span>
+<span class="font-label text-[8px] tracking-wider text-secondary">AUDIO</span>
+</div>
+</div>
+<div class="p-3 flex flex-col justify-between flex-grow">
+<div>
+<h2 class="font-headline font-bold text-xs tracking-tight text-on-surface group-hover:text-primary transition-colors truncate mb-1">Synth &amp; Audio Gear</h2>
+<p class="font-label text-[10px] text-on-surface-variant tracking-wider">56 saved items</p>
+</div>
+<div class="mt-2.5 flex items-center justify-between pt-2 border-t-0 bg-surface-variant/40 rounded px-1.5 py-1">
+<span class="font-label text-[9px] uppercase tracking-widest text-secondary font-bold">Node #03</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#00ffcc]"></span>
+</div>
+</div>
+</div>
+<!-- Card 4: Shinjuku Night Run Drops -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container hover:bg-surface-container-high transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.6)] cursor-pointer">
+<div class="relative w-full h-36 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Tactical cyberpunk streetwear model wearing an oversized matte black techwear jacket and custom glowing neon magenta sneakers against a dark Tokyo alleyway" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrTiuBKzi2Zd0bi52kiyOGR8yg7NlX64tLcCGgU68fbigHw9ndLZgD02WwGUAZ9WB6tnNAqxD7PdaujcNESlZmDKczDh6Be3K1uH4RK9rBBp5Oa0VnwRnu_Sqzbp2ZYkMH7dvXlvYhtztV0Gt-8gfDx5S7FI36T9TA86jB_MBBSbxq5TTe2hxCwr2-piKdFPpVLd781gljSKNNDfKJWsHUtf9NRlUDVLJMSAf3XDnW3h2QHUd6n-f1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary-container font-label text-[9px] font-bold">
+          DROPS
+        </div>
+</div>
+<div class="p-3 flex flex-col justify-between flex-grow">
+<div>
+<h2 class="font-headline font-bold text-xs tracking-tight text-on-surface group-hover:text-primary transition-colors truncate mb-1">Shinjuku Night Run</h2>
+<p class="font-label text-[10px] text-on-surface-variant tracking-wider">38 saved items</p>
+</div>
+<div class="mt-2.5 flex items-center justify-between pt-2 border-t-0 bg-surface-variant/40 rounded px-1.5 py-1">
+<span class="font-label text-[9px] uppercase tracking-widest text-secondary font-bold">Node #04</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#00ffcc]"></span>
+</div>
+</div>
+</div>
+<!-- Card 5: AR HUD Concepts -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container hover:bg-surface-container-high transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.6)] cursor-pointer">
+<div class="relative w-full h-36 bg-surface-container-lowest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="First person point-of-view glowing cyan holographic augmented reality HUD overlay displaying retinal scanning coordinates and telemetry data over a dark Tokyo metropolis" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV5zwQ38hVllzH4UxQxpH0rug2mrIoSRU7FvBjtsvsHyRKa3trGuuPGG2Gry4K_DRjLB0xP_s9G_znWabXB_nEwLH6t4oxncGMj5PgBY0GfeuJwlKRLk0IQRbS3A_9-cwC0UWBWDN5PwVngtIkkykhzy5ji_ef5yAY3YC6gNwDXf3qF4rbDfy2F-Yg5RH7Ac5meeCARCLxPnbTxVRzrXTzcdDVy381mz5GhZNHh1j04lJ9sqNBeFzF"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent opacity-80"></div>
+<div class="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface/80 backdrop-blur-md">
+<span class="material-symbols-outlined text-[12px] text-primary">visibility</span>
+</div>
+</div>
+<div class="p-3 flex flex-col justify-between flex-grow">
+<div>
+<h2 class="font-headline font-bold text-xs tracking-tight text-on-surface group-hover:text-primary transition-colors truncate mb-1">AR HUD Concepts</h2>
+<p class="font-label text-[10px] text-on-surface-variant tracking-wider">31 saved items</p>
+</div>
+<div class="mt-2.5 flex items-center justify-between pt-2 border-t-0 bg-surface-variant/40 rounded px-1.5 py-1">
+<span class="font-label text-[9px] uppercase tracking-widest text-secondary font-bold">Node #05</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#00ffcc]"></span>
+</div>
+</div>
+</div>
+<!-- Card 6: Quick Saves -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container hover:bg-surface-container-high transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.6)] cursor-pointer">
+<div class="relative w-full h-36 bg-surface-container-low flex flex-col items-center justify-center p-3 text-center overflow-hidden">
+<div class="absolute inset-0 opacity-15 bg-[radial-gradient(#00ffcc_1px,transparent_1px)] [background-size:12px_12px]"></div>
+<div class="w-11 h-11 rounded-full bg-surface-variant flex items-center justify-center text-secondary mb-2 group-hover:scale-110 transition-transform shadow-[0_0_12px_rgba(0,255,204,0.3)]">
+<span class="material-symbols-outlined text-xl">bookmark_add</span>
+</div>
+<span class="font-label text-[9px] text-on-surface-variant uppercase tracking-widest">Unsorted Cache</span>
+</div>
+<div class="p-3 flex flex-col justify-between flex-grow">
+<div>
+<h2 class="font-headline font-bold text-xs tracking-tight text-on-surface group-hover:text-primary transition-colors truncate mb-1">Quick Saves</h2>
+<p class="font-label text-[10px] text-on-surface-variant tracking-wider">28 items</p>
+</div>
+<div class="mt-2.5 flex items-center justify-between pt-2 border-t-0 bg-surface-variant/40 rounded px-1.5 py-1">
+<span class="font-label text-[9px] uppercase tracking-widest text-outline font-bold">Default</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Neural Sync Status Banner (Interactive Micro-HUD) -->
+<div class="w-full rounded-xl bg-surface-container-low p-3.5 flex items-center justify-between shadow-lg">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg">memory</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<p class="font-headline text-xs font-semibold text-on-surface">Neural Storage Capacity</p>
+<span class="font-label text-[9px] text-secondary font-bold">64%</span>
+</div>
+<p class="font-body text-[11px] text-on-surface-variant">384 items synced across 6 encrypted clusters</p>
+</div>
+</div>
+<button class="w-7 h-7 rounded-lg bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors" title="Sync Cache">
+<span class="material-symbols-outlined text-base">sync</span>
+</button>
+</div>
+<!-- Floating Glassmorphism Pro-Tip Card -->
+<div class="relative w-full rounded-xl bg-surface-container/85 backdrop-blur-xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.8)] overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full bg-primary/10 blur-xl pointer-events-none"></div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container flex items-center justify-center text-tertiary shrink-0 mt-0.5 shadow-[0_0_12px_rgba(255,224,74,0.3)]">
+<span class="material-symbols-outlined text-lg">bolt</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline text-xs font-bold text-on-surface mb-0.5 tracking-tight flex items-center gap-1.5">
+          Fast Routing Tip
+          <span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+</h3>
+<p class="font-body text-xs text-on-surface-variant leading-relaxed">
+          Long-press any post on your Home Feed or Explore to instantly dispatch it into your targeted neural folder.
+        </p>
+</div>
+</div>
+</div>
+<!-- Protocol Security Footer -->
+<div class="flex items-center justify-center gap-1.5 pt-2 pb-6 text-center">
+<span class="material-symbols-outlined text-secondary text-sm">enhanced_encryption</span>
+<span class="font-label text-[10px] text-on-surface-variant tracking-wider uppercase">
+      All bookmarks encrypted with zero-knowledge protocol
+    </span>
+</div>
+</div>
+<script>
+  // Simple interactive tab switcher
+  const tabs = document.querySelectorAll('.tab-pill');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_14px_rgba(255,45,120,0.35)]');
+        t.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      tab.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      tab.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_14px_rgba(255,45,120,0.35)]');
+    });
+  });
+
+  // Client-side quick filter feedback
+  const filterInput = document.getElementById('filter-input');
+  const cards = document.querySelectorAll('#collections-grid > div');
+  if (filterInput) {
+    filterInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.querySelector('h2')?.innerText.toLowerCase() || '';
+        if (title.includes(q)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // Create folder button micro-animation trigger
+  const createBtn = document.getElementById('create-folder-btn');
+  if (createBtn) {
+    createBtn.addEventListener('click', () => {
+      const originalText = createBtn.innerHTML;
+      createBtn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">refresh</span><span class="font-label text-xs font-semibold">INITIALIZING...</span>';
+      setTimeout(() => {
+        createBtn.innerHTML = originalText;
+      }, 700);
+    });
+  }
+</script></main></body></html>

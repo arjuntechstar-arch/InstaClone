@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-primary": "#1a0010", "error": "#ff4444", "on-secondary-fixed": "#001a1a", "tertiary-container": "#665200", "on-secondary-container": "#c0fff4", "on-tertiary-fixed": "#1a1000", "tertiary": "#ffe04a", "surface-dim": "#0f0f1a", "surface": "#0f0f1a", "surface-container": "#141422", "inverse-primary": "#8c0038", "surface-tint": "#ff2d78", "secondary-container": "#004d3d", "inverse-surface": "#e8e0f0", "primary-container": "#b3004e", "on-secondary": "#001a1a", "on-secondary-fixed-variant": "#004d4d", "secondary-fixed-dim": "#00e6b8", "primary": "#ff2d78", "outline-variant": "#302840", "secondary": "#00ffcc", "on-error-container": "#ffa0a0", "on-tertiary": "#1a1000", "secondary-fixed": "#c0fff4", "on-primary-container": "#ffe0ec", "on-surface": "#e8e0f0", "background": "#0a0a12", "surface-container-lowest": "#0a0a12", "on-tertiary-container": "#fff0c0", "on-primary-fixed-variant": "#8c0038", "tertiary-fixed": "#fff0c0", "on-surface-variant": "#a098b0", "inverse-on-surface": "#0a0a12", "on-primary-fixed": "#3d0020", "surface-variant": "#1e1e30", "outline": "#5a5068", "surface-container-low": "#111118", "on-tertiary-fixed-variant": "#665200", "on-background": "#e8e0f0", "primary-fixed-dim": "#ff80aa", "error-container": "#3d0f0f", "surface-container-highest": "#28283e", "tertiary-fixed-dim": "#ffe04a", "on-error": "#1a0000", "surface-bright": "#1a1a2e", "primary-fixed": "#ffe0ec", "surface-container-high": "#1e1e30" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: {}, fontFamily: { "headline": ["Sora"], "display": ["Sora"], "body": ["Inter"], "label": ["Space Grotesk"] }, fontSize: {} } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body text-on-surface flex flex-col min-h-screen selection:bg-primary selection:text-on-primary"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)]"><div class="h-16 px-3 flex items-center justify-between gap-2"><div class="flex items-center gap-1.5 min-w-0"><button aria-label="Back" class="w-11 h-11 rounded-lg flex items-center justify-center text-on-surface hover:text-secondary hover:bg-surface-variant/40 transition-colors shrink-0" onclick="history.back()"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button><img alt="Brand logo. - Primary color: #ff2d78
+- Font: sora
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-7 w-auto object-contain shrink-0 hidden sm:block" src="https://lh3.googleusercontent.com/aida/AEtjO1XpMZujaKE24uF3rRuSSKcZerC9wCIJmJqMb0-QGK_kZhsD0xixP_SnOdGUiGkManPOlAfqrLPAr8_wHcBhyT2t6OYs8iPlALKJMO2OyX-5oYRHw12n107ImZFLBHhgDR11D5u-q3DJ6MYqFNTD9deaDNGQ2ETVj_WdD3IOrLxPyHI0RvAgVP7YyHKvpZUkei47APFhHFxkMbFJ0NLt0WsDOEI0OM_k4dQHAypo3YocjfxS6rurLWpsCnY"/><h1 class="font-headline font-bold text-sm tracking-tight text-on-surface truncate">Direct Chat Thread</h1></div><div class="flex items-center gap-1 shrink-0"><button aria-label="Action" class="w-11 h-11 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-variant/40 transition-colors"><span class="material-symbols-outlined text-[20px]">tune</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-secondary/50" src="https://lh3.googleusercontent.com/aida/AEtjO1WUt3nQKGKSImsSwuvfxBUwJhgNTnkbjrooIsZ_KmOw-SYqCgNre8XgPfXf8WUjRYTr6o211sJ_nsVgNjkGnQUMw-LvGVwAmBOuqDkt-JHIrN3gVaEd0jvbJsz3QkvyZIThkDyT6GyCoLRrPVDoOxAfSxknZu5dUW-7F1X2duEV3T_Y9C1DABFrrYB5jYcZsMk5ShHI1IhAK0m4qhCcGaP8aMcPBytX3gjynIO33mxyFF1N2X6_sw2BM1I"/></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-background min-h-screen"><div class="flex flex-col w-full max-w-2xl mx-auto px-3.5 pb-24 space-y-4">
+<!-- Neural Link Active Sub-Header Bar -->
+<section class="mt-2 w-full bg-surface-container rounded-xl p-3 shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-3 min-w-0">
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-lg object-cover" data-alt="Futuristic anime cyberpunk female hacker portrait with glowing cyan augmented-reality visor, hot pink dual braided neon hair strands, chrome neck cyberware, in high-contrast neon tokyo noir style, volumetric atmospheric mist and electric teal reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdNK1xxGrY9ZqWQ_3EkqocDWqgdmGIXVTqBQIF2Ve8weiaWB1YXwZAOJdrxXJcSUE5oDcMhdwYyb7XRNUTsgouNTi5mugO7UXiuHec4oTSHWeNtZJ0ZNMHUMDUPcYWF_NfLXSkZ6zWqEtlmctuACP2RlNTw_zx68SdZJnJsKoQGJUAe_xbOSB3DbeVJSk62X70qrLshHbMxUKjRFaj-Z87OYlocBPYsCivE7WIF5vg6VTyXj1i7cJr"/>
+<span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full bg-secondary shadow-[0_0_8px_#00ffcc] border-2 border-background"></span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline font-bold text-sm tracking-wide text-on-surface truncate">@k1ra_neo</span>
+<span class="material-symbols-outlined text-secondary text-[16px] shrink-0" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="font-label text-[11px] text-secondary font-medium tracking-tight flex items-center gap-1">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+          Neural Mesh Active
+        </p>
+</div>
+</div>
+<!-- Communication Quick Access -->
+<div class="flex items-center gap-1 shrink-0 text-on-surface-variant">
+<button aria-label="Neural Audio Call" class="w-9 h-9 rounded-lg bg-surface-bright flex items-center justify-center hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-[19px]">call</span>
+</button>
+<button aria-label="Holographic Video Feed" class="w-9 h-9 rounded-lg bg-surface-bright flex items-center justify-center hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-[19px]">videocam</span>
+</button>
+<button aria-label="Thread Security Info" class="w-9 h-9 rounded-lg bg-surface-bright flex items-center justify-center hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[19px]">shield_lock</span>
+</button>
+</div>
+</section>
+<!-- Quantum Security & Ephemeral Banner -->
+<div class="w-full bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between gap-2 shadow-sm">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">lock</span>
+<p class="font-label text-[11px] text-on-surface-variant leading-tight truncate">
+        Quantum-Encrypted Neural Link • <span class="text-tertiary">24h Purge Active</span>
+</p>
+</div>
+<span class="font-label text-[10px] tracking-wider text-secondary uppercase shrink-0 font-bold bg-secondary-container/30 text-secondary px-2 py-0.5 rounded">E2EE v4.1</span>
+</div>
+<!-- Timeline Divider -->
+<div class="flex items-center justify-center my-2">
+<div class="px-3 py-1 bg-surface-container rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-label text-[10px] tracking-widest text-on-surface-variant uppercase font-medium">CYBER CYCLE 02:45</span>
+</div>
+</div>
+<!-- Chat Log Stream -->
+<div class="space-y-4">
+<!-- Received Message 1 -->
+<div class="flex items-end gap-2.5 max-w-[88%] sm:max-w-[78%]">
+<img class="w-7 h-7 rounded object-cover shrink-0 mb-1" data-alt="Tiny avatar icon of cyberpunk hacker girl with high-tech glowing augmented cyan visor in electric magenta nighttime lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmyNM-qsP-BnJX8BHovE6M_agczo-RVcvgxWXOlQO-6NKOh_APKeBWc8NvuxaJgK_n6ZyMWz4MGSougoD-3H_eU_mlVnMzQpMljsukNbMS9lQWEW62rJCGxwslnMh4kIviBvztRMNg2Ud2foAmWWLBS_1sYnur-Blr2pGgtcp6n4kRsubeIM8tTVq0bVFmNO4uUpW90LFJ48-A02kk7FzZ6_geY2gxcnDNiOfehucm_S6C-IU3vt_J"/>
+<div class="space-y-1">
+<div class="relative bg-surface-container-high rounded-xl rounded-bl-none p-3.5 text-on-surface shadow-md">
+<p class="text-[13px] leading-relaxed">
+            Did you flash the new optical firmware yet? Sector 7 neon reflections are insane tonight ⚡️
+          </p>
+<div class="flex items-center justify-end gap-1.5 mt-1.5">
+<span class="font-label text-[10px] text-on-surface-variant">02:46</span>
+</div>
+<!-- Reaction Badge -->
+<div class="absolute -bottom-2.5 right-3 bg-surface-bright rounded-full px-2 py-0.5 flex items-center gap-1 shadow-md">
+<span class="text-[11px]">❤️</span>
+<span class="font-label text-[10px] text-primary font-bold">1</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sent Message 1 -->
+<div class="flex flex-col items-end self-end max-w-[88%] sm:max-w-[78%] ml-auto space-y-1">
+<div class="bg-primary-container text-on-primary-container rounded-xl rounded-br-none p-3.5 shadow-md">
+<p class="text-[13px] leading-relaxed">
+          Just finished syncing! Uploaded the test clips to the neural feed.
+        </p>
+<div class="flex items-center justify-end gap-1.5 mt-1.5">
+<span class="font-label text-[10px] text-on-primary-container/70">02:48</span>
+<span class="material-symbols-outlined text-[15px] text-secondary">done_all</span>
+</div>
+</div>
+</div>
+<!-- Received Holographic Media Attachment -->
+<div class="flex items-end gap-2.5 max-w-[92%] sm:max-w-[82%]">
+<img class="w-7 h-7 rounded object-cover shrink-0 mb-1" data-alt="Cyberpunk girl avatar icon with glowing teal neural optic wires" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOnVIouloXZ_4atK25cr0kFmTllYe6w8nij4m7xhxGnriSxfUArGrEf9cM5jGEEvaK-9Qg94pHYPBct6gGA0OP7UgrAhMZSf9SXMOx9iusJwnRNg3g5RLF629sB2-vlwH6cvHpAUFf98y66_LWUxslorXt5I55w5Ebn2MoRhmgFcMGQKAvKJz5rRShFH-IfgidXs2Lz6C5ARlBQlF7DmFyXwE-i1FCJwT8x1SeU5SC1FQP3fG8Vue8"/>
+<div class="space-y-1.5 w-full">
+<div class="bg-surface-container rounded-xl rounded-bl-none overflow-hidden p-2.5 shadow-md space-y-2">
+<!-- Hologram Media Viewport -->
+<div class="relative rounded-lg overflow-hidden h-44 w-full bg-surface-container-lowest flex items-center justify-center group cursor-pointer">
+<img class="w-full h-full object-cover opacity-90 transition-transform duration-300 group-hover:scale-105" data-alt="Futuristic low-slung electric sports hover-vehicle drifting sideways on wet rain-slick asphalt in downtown Neo-Tokyo, hot magenta underglow lights, electric cyan street sign reflections, glowing wireframe mesh trails, cinematic dynamic action shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjwRcj54uFRVXzZLha8_vsnb_G_V_ovDi8M_d2OmKUQLO2jvL6_J1bDVpx5rB3Ur3o0sTF4jqmUaZvPsXeQhb2a1NlB2YTdEvbIuwoIRW7Q-OIhXEtCwlPeLzlCAnggwkzmX9LN2sMtKksElWIAQNUYdigYIXsmtoSTHzjPX9Qs9Ry7Qb_361MqbBFNI5VEf1boT8_9cDgjMQ0BKA10ewqdigeWRjFYfscczZIyXa9rCHW755lX4de"/>
+<!-- Hologram HUD Overlay Layer -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent"></div>
+<div class="absolute top-2 left-2 bg-surface-dim/80 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-label font-bold text-secondary flex items-center gap-1 shadow">
+<span class="material-symbols-outlined text-[12px] animate-spin">cyclone</span>
+              HOLO_RAW
+            </div>
+<!-- Play trigger button -->
+<button aria-label="Play Hologram Stream" class="absolute w-12 h-12 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 shadow-[0_0_16px_rgba(255,45,120,0.5)] transition-transform">
+<span class="material-symbols-outlined text-[28px] translate-x-0.5" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[11px] font-label text-on-surface">
+<span class="truncate">hologram_capture_99.raw</span>
+<span class="text-on-surface-variant shrink-0">4.2 MB</span>
+</div>
+</div>
+<p class="text-[13px] px-1 text-on-surface">
+            Check out this drift run 🔥 Optical sensors locked at 240fps.
+          </p>
+<div class="flex items-center justify-end px-1">
+<span class="font-label text-[10px] text-on-surface-variant">02:50</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sent Audio Memo with Cyber Waveform Player -->
+<div class="flex flex-col items-end self-end max-w-[90%] sm:max-w-[80%] ml-auto space-y-1">
+<div class="bg-surface-container-high rounded-xl rounded-br-none p-3 shadow-md w-72 sm:w-80">
+<div class="flex items-center gap-2.5">
+<!-- Audio Play Toggle -->
+<button aria-label="Play Voice Memo" class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary shrink-0 shadow-[0_0_12px_rgba(255,45,120,0.4)] active:scale-95 transition-transform" id="audio-play-btn">
+<span class="material-symbols-outlined text-[22px]" id="audio-play-icon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Waveform Visualizer -->
+<div class="flex-1 flex flex-col gap-1.5 min-w-0">
+<div class="flex items-end gap-0.5 h-7 w-full px-1">
+<span class="w-1 bg-secondary rounded-full h-3 animate-pulse"></span>
+<span class="w-1 bg-secondary rounded-full h-5"></span>
+<span class="w-1 bg-secondary rounded-full h-2"></span>
+<span class="w-1 bg-secondary rounded-full h-6"></span>
+<span class="w-1 bg-secondary rounded-full h-4"></span>
+<span class="w-1 bg-primary rounded-full h-7"></span>
+<span class="w-1 bg-primary rounded-full h-5"></span>
+<span class="w-1 bg-secondary rounded-full h-6"></span>
+<span class="w-1 bg-secondary rounded-full h-3"></span>
+<span class="w-1 bg-secondary rounded-full h-5"></span>
+<span class="w-1 bg-secondary rounded-full h-2"></span>
+<span class="w-1 bg-outline-variant rounded-full h-4"></span>
+<span class="w-1 bg-outline-variant rounded-full h-6"></span>
+<span class="w-1 bg-outline-variant rounded-full h-3"></span>
+<span class="w-1 bg-outline-variant rounded-full h-5"></span>
+<span class="w-1 bg-outline-variant rounded-full h-2"></span>
+<span class="w-1 bg-outline-variant rounded-full h-4"></span>
+<span class="w-1 bg-outline-variant rounded-full h-1"></span>
+</div>
+<!-- Audio Progress Bar -->
+<div class="w-full bg-surface-container-lowest h-1 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-secondary to-primary h-full w-[45%]"></div>
+</div>
+</div>
+<span class="font-label text-[11px] text-secondary font-medium shrink-0">0:28</span>
+</div>
+<div class="flex items-center justify-between mt-2 pt-1.5 text-on-surface-variant font-label text-[10px]">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[13px]">graphic_eq</span>
+            Neural Audio Memo
+          </span>
+<div class="flex items-center gap-1">
+<span>02:51</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">done_all</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Neural Synthesizing Typing Indicator -->
+<div class="flex items-center gap-2 pt-1">
+<div class="w-6 h-6 rounded bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[14px] animate-spin">memory</span>
+</div>
+<div class="bg-surface-container rounded-lg px-3 py-1.5 flex items-center gap-2 shadow-sm">
+<span class="font-label text-[11px] text-on-surface-variant">
+<span class="text-secondary font-medium">@k1ra_neo</span> is synthesizing neural text
+        </span>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-bounce" style="animation-delay: 0ms;"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-bounce" style="animation-delay: 150ms;"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-bounce" style="animation-delay: 300ms;"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Terminal Chat Input Dock (Fixed to Bottom viewport edge safely) -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-xl pb-safe shadow-[0_-8px_24px_rgba(0,0,0,0.6)]">
+<div class="max-w-2xl mx-auto px-3.5 py-2.5 space-y-2">
+<!-- Quick Macro Chips -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-secondary text-[11px] font-label whitespace-nowrap shrink-0 transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-secondary">flash_on</span>
+          Ping Location
+        </button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-primary text-[11px] font-label whitespace-nowrap shrink-0 transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary">key</span>
+          Rotate Keys
+        </button>
+<button class="px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-tertiary text-[11px] font-label whitespace-nowrap shrink-0 transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-tertiary">timer</span>
+          Self-Destruct: 24h
+        </button>
+</div>
+<!-- Main Input Controls -->
+<form class="flex items-center gap-1.5" id="cyber-chat-form" onsubmit="event.preventDefault();">
+<!-- Attachment Matrix Button -->
+<button aria-label="Add Hologram or Data Package" class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-secondary flex items-center justify-center shrink-0 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<!-- Media Capture Quick Action -->
+<button aria-label="Cyber Shutter Feed" class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-bright text-on-surface-variant hover:text-secondary flex items-center justify-center shrink-0 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</button>
+<!-- Dynamic Encrypted Text Field -->
+<div class="flex-1 relative flex items-center">
+<input class="w-full bg-surface-container text-on-surface placeholder:text-on-surface-variant/60 text-[13px] font-body rounded-lg py-2.5 pl-3 pr-16 focus:outline-none focus:bg-surface-container-high transition-colors" id="chat-input" placeholder="Transmit encrypted message..." type="text"/>
+<div class="absolute right-1.5 flex items-center gap-0.5 text-on-surface-variant">
+<button aria-label="Hologram Sticker Package" class="w-7 h-7 rounded flex items-center justify-center hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">token</span>
+</button>
+<button aria-label="Record Neural Voice" class="w-7 h-7 rounded flex items-center justify-center hover:text-secondary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+</div>
+</div>
+<!-- Glowing Hot Pink Transmit Button -->
+<button aria-label="Transmit Message" class="w-10 h-10 rounded-lg bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-[0_0_14px_rgba(255,45,120,0.5)] active:scale-95 transition-all" id="send-trigger" type="submit">
+<span class="material-symbols-outlined text-[20px] font-bold">send</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const playBtn = document.getElementById('audio-play-btn');
+    const playIcon = document.getElementById('audio-play-icon');
+    let isPlaying = false;
+
+    if (playBtn && playIcon) {
+      playBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        playIcon.textContent = isPlaying ? 'pause' : 'play_arrow';
+      });
+    }
+
+    const chatForm = document.getElementById('cyber-chat-form');
+    const chatInput = document.getElementById('chat-input');
+
+    if (chatForm && chatInput) {
+      chatForm.addEventListener('submit', () => {
+        const val = chatInput.value.trim();
+        if (val) {
+          chatInput.value = '';
+          chatInput.placeholder = 'Message packet transmitted...';
+          setTimeout(() => {
+            chatInput.placeholder = 'Transmit encrypted message...';
+          }, 2000);
+        }
+      });
+    }
+  })();
+</script></main></body></html>

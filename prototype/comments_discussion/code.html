@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0a0a12;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#ff2d78","tertiary-fixed":"#fff0c0","tertiary-container":"#665200","on-secondary-container":"#c0fff4","on-secondary-fixed":"#001a1a","surface-bright":"#1a1a2e","primary-fixed":"#ffe0ec","on-secondary":"#001a1a","error-container":"#3d0f0f","on-primary-container":"#ffe0ec","secondary":"#00ffcc","on-primary-fixed-variant":"#8c0038","on-surface":"#e8e0f0","surface-container-lowest":"#0a0a12","secondary-fixed":"#c0fff4","surface-container-high":"#1e1e30","on-error":"#1a0000","surface-container-highest":"#28283e","on-tertiary-container":"#fff0c0","primary-fixed-dim":"#ff80aa","on-secondary-fixed-variant":"#004d4d","outline-variant":"#302840","on-primary-fixed":"#3d0020","on-background":"#e8e0f0","background":"#0a0a12","inverse-on-surface":"#0a0a12","outline":"#5a5068","surface-container-low":"#111118","on-primary":"#1a0010","tertiary-fixed-dim":"#ffe04a","primary":"#ff2d78","surface-container":"#141422","on-error-container":"#ffa0a0","on-tertiary-fixed":"#1a1000","inverse-surface":"#e8e0f0","surface-variant":"#1e1e30","surface":"#0f0f1a","error":"#ff4444","secondary-fixed-dim":"#00e6b8","primary-container":"#b3004e","inverse-primary":"#8c0038","on-tertiary":"#1a1000","surface-dim":"#0f0f1a","tertiary":"#ffe04a","on-surface-variant":"#a098b0","secondary-container":"#004d3d","on-tertiary-fixed-variant":"#665200"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{},"fontFamily":{"headline":["Sora"],"display":["Sora"],"body":["Inter"],"label":["Space Grotesk"]},"fontSize":{}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-background font-body text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-14 px-4 flex items-center justify-between"><a class="w-10 h-10 -ml-1 flex items-center justify-center text-on-surface hover:text-primary transition-colors" data-path="home-feed" href="#"><span class="material-symbols-outlined text-[24px]">arrow_back</span></a><h1 class="font-headline font-semibold text-base tracking-wide text-on-surface drop-shadow-[0_0_6px_rgba(255,45,120,0.3)]">Comments &amp; Discussion</h1><div class="flex items-center gap-1"><button class="h-8 px-3 rounded bg-transparent border border-primary/50 text-primary font-label text-xs tracking-wider uppercase font-semibold hover:border-primary hover:shadow-[0_0_12px_rgba(255,45,120,0.4)] transition-all flex items-center justify-center gap-1"><span class="text-[11px]">Share</span><span class="material-symbols-outlined text-[14px]">send</span></button></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background"><div class="flex flex-col w-full text-on-surface select-none pb-24">
+<!-- Drag Handle Indicator -->
+<div class="w-full flex items-center justify-center pt-2 pb-1">
+<div class="w-11 h-1 rounded-full bg-surface-container-highest shadow-[0_0_8px_rgba(255,45,120,0.25)]"></div>
+</div>
+<!-- Post Context / Author Pinned Banner -->
+<div class="px-4 py-3">
+<div class="bg-surface-container rounded-xl p-3 flex gap-3 shadow-sm relative overflow-hidden">
+<!-- Ambient corner glow -->
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Author Avatar -->
+<div class="relative shrink-0 w-11 h-11">
+<div class="w-11 h-11 rounded-full overflow-hidden bg-surface-container-high p-0.5">
+<img class="w-full h-full object-cover rounded-full" data-alt="Cyberpunk female portrait with dual-tone neon pink and cyan hair, neon city reflection in eyes, wearing a dark sleek tactile high-collar jacket against rain-slicked Tokyo streets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJx8KV2ZjOjwlTXV7h4yNh8JbO2RXjURe3aSU5pz1eAClm9A8XuoKp_tn81Vc4qX6tjIFS8nM2M7ASmbwLHeiE9t-LOsOZho-w5WwJ1VfG56M_V5KIdleLef2MSBdQ4YkoNJBZPq2hsJvsuvqf6oVwCkzqdaSqH0jcksiFgHX1wjLP9E5LocrpnFnbvgAa7VIW-YEYQtJy2msmJZ-IeQlG6n0pqfR8tY5MaHel2Oy9mbTBh-4k0sGq"/>
+</div>
+<span class="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-surface flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<!-- Author Metadata & Caption Excerpt -->
+<div class="flex-1 min-w-0 flex flex-col justify-center">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-headline font-semibold text-xs tracking-wide text-on-surface">@k1ra_neo</span>
+<span class="text-[10px] uppercase font-label font-bold px-1.5 py-0.2 rounded-full bg-primary/15 text-primary">Creator</span>
+<span class="text-[11px] text-on-surface-variant font-label ml-auto">2h ago</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant mt-1 leading-snug line-clamp-2">
+          Rainy midnight runs testing the new optical implants. Chromatic dispersion at max. <span class="text-tertiary">⚡️ #cyberpunk</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Neural Filter Chips -->
+<div class="w-full overflow-x-auto px-4 py-2 flex items-center gap-2 no-scrollbar">
+<button class="shrink-0 h-7 px-3 rounded-full bg-surface-container-highest text-primary font-label text-xs font-bold tracking-wider flex items-center gap-1.5 shadow-[0_0_10px_rgba(255,45,120,0.2)]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+      Top Neural (24)
+    </button>
+<button class="shrink-0 h-7 px-3 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label text-xs tracking-wider transition-colors">
+      Newest
+    </button>
+<button class="shrink-0 h-7 px-3 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface font-label text-xs tracking-wider transition-colors">
+      From Creators
+    </button>
+<button class="shrink-0 h-7 px-3 rounded-full bg-surface-container text-secondary font-label text-xs tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+      Verified Only
+    </button>
+</div>
+<!-- Comments Stream Container -->
+<div class="flex flex-col px-4 pt-2 gap-4">
+<!-- Thread 1 (Pinned Comment) -->
+<div class="flex flex-col gap-2">
+<!-- Pin Pill Header -->
+<div class="flex items-center gap-1.5 text-primary text-[11px] font-label font-medium pl-1">
+<span class="material-symbols-outlined text-[13px] rotate-45" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+<span>Pinned by <span class="font-semibold text-primary">@k1ra_neo</span></span>
+</div>
+<!-- Main Comment Body -->
+<div class="flex items-start gap-3 bg-surface-container/60 p-3 rounded-xl">
+<div class="shrink-0 w-9 h-9 rounded-full overflow-hidden bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="Cybernetic Android anime style male profile with polished obsidian chrome skull casing and neon cyan illuminated optic visor glowing sharply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJE2Y2VhpRyCT-dyRn3-iAZ69_QJNMtqufw9FZTSPhO50nFZprD7jxnpsMLI7PfkhxE6pLi_XMirD8gpBDP5wm6EaVDLbPhZvuRtWvZthKMx14si9b4cKTGs4xvFMr66I_ov_2S-h1I_irVVC8UhXQ_y19J4pAnVtghGLRmLMqUP7EaZF1NdLgXChjVRchSRMofNMk4nqfBlReSQDdumHzio7Lp7Vk-BFxzc3sVv_ucKAS5ChCTpxb"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="font-headline font-semibold text-xs text-on-surface tracking-wide">@mech_automata</span>
+<span class="material-symbols-outlined text-secondary text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant">1h ago</span>
+</div>
+<p class="font-body text-xs text-on-surface mt-1 leading-relaxed">
+            The optic dispersion shader on those implants is absurd. Are you running 60fps locked or uncapped?
+          </p>
+<div class="flex items-center gap-4 mt-2.5">
+<button class="flex items-center gap-1 text-[11px] font-label text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-[14px]">reply</span>
+              Reply
+            </button>
+<button class="flex items-center gap-1 text-[11px] font-label text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[14px]">translate</span>
+              Neural Translate
+            </button>
+</div>
+</div>
+<!-- Like Action -->
+<button class="shrink-0 flex flex-col items-center justify-center gap-0.5 text-primary hover:scale-105 active:scale-95 transition-transform pt-0.5">
+<span class="material-symbols-outlined text-[18px] drop-shadow-[0_0_6px_rgba(255,45,120,0.6)]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label text-[10px] font-bold">1.4k</span>
+</button>
+</div>
+<!-- Nested Threaded Reply from Author -->
+<div class="flex items-start gap-2.5 pl-6 relative">
+<!-- Structural Cyber Node Line -->
+<div class="absolute left-3 -top-2 w-3 h-6 rounded-bl-lg bg-transparent border-l-2 border-b-2 border-outline-variant/60 pointer-events-none"></div>
+<div class="shrink-0 w-7 h-7 rounded-full overflow-hidden bg-primary/20 p-0.5 relative z-10">
+<img class="w-full h-full object-cover rounded-full" data-alt="Cyberpunk female portrait with dual-tone neon pink and cyan hair, glowing cyber accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOxlm7FVZrLafWTgjIJVKuHL0bNOHzrYiOCKURrsODgoo34G3D-3o2KWMtGrJzrqchPEVAxYOg_19_dMc3ToRKR_4i6cOS_6dGw4zZYFTkb6JqYyyz8ZxFIIrfOT-9lxrrzivALHb6TkWd3KAaPRDx5NVSlJxEOXpU2DmZy3aX1MJROLECAeSJU_14ClPFaP1u3O1mX3xgxhm6GPhgt33zDKkNEliCt1Jo1i3IKVSTgdHsec1oPYnV"/>
+</div>
+<div class="flex-1 min-w-0 bg-surface-container-low p-2.5 rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-headline font-semibold text-[11px] text-on-surface tracking-wide">@k1ra_neo</span>
+<span class="text-[9px] uppercase font-label font-bold px-1 rounded-sm bg-primary/20 text-primary">OP</span>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant">45m ago</span>
+</div>
+<p class="font-body text-xs text-on-surface mt-1 leading-snug">
+            Locked 60fps to prevent optic overheating in the rain 🌧️⚡️
+          </p>
+<div class="flex items-center gap-3 mt-2">
+<button class="text-[10px] font-label text-on-surface-variant hover:text-secondary">Reply</button>
+</div>
+</div>
+<!-- Reply Heart -->
+<button class="shrink-0 flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors pt-1">
+<span class="material-symbols-outlined text-[15px]">favorite</span>
+<span class="font-label text-[9px]">342</span>
+</button>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="flex items-start gap-3 bg-surface-container/40 p-3 rounded-xl">
+<div class="shrink-0 w-9 h-9 rounded-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Futuristic racer helmet with illuminated glowing visor displaying holographic telemetry, neon yellow decals, dark cyberpunk city background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_dippRzH5GWwC2Iv6mHoAD23H9vadYRFcvS7zN1X5cEW1wqjLVKI0kwKpmauB7BDbKkAsW8HXgmDFs3qoPEFpt__a1szJylWmuO8qOzN8pygxL6pS3pImvCFUmHIw4rK1XVFioUfEXKHG3ZZy8Y3_fMF-e6DNKPGDFNHyJEwAYBr3GgZlnUxVqQhHnFsbrpkpwNZB3wQV6aQQ4isWp9HZ_mmaCtmhuo4v7lu44sTxgf6RW9iqSu_b"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline font-semibold text-xs text-on-surface tracking-wide">@shibuya_speed_unit</span>
+<span class="font-label text-[10px] text-on-surface-variant">1h ago</span>
+</div>
+<p class="font-body text-xs text-on-surface mt-1 leading-relaxed">
+          Spotted your drift trail past Sector 7! The holographic reflection off the asphalt was insane 🔥
+        </p>
+<div class="flex items-center gap-4 mt-2">
+<button class="flex items-center gap-1 text-[11px] font-label text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-[14px]">reply</span>
+            Reply
+          </button>
+</div>
+</div>
+<button class="shrink-0 flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors pt-0.5">
+<span class="material-symbols-outlined text-[17px]">favorite</span>
+<span class="font-label text-[10px]">856</span>
+</button>
+</div>
+<!-- Comment 3 & Nested Response -->
+<div class="flex flex-col gap-2">
+<div class="flex items-start gap-3 bg-surface-container/40 p-3 rounded-xl">
+<div class="shrink-0 w-9 h-9 rounded-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Cybernetic gothic heroine portrait with metallic silver dreadlocks, augmented ocular cybernetic lens, neon magenta ambient rim light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhUL8pxJbH9UaIFTdIpCJwlUE6e72tZtHLV5e8kUVTMetbS2MziqQqnBYOR1CA6i0NEoNR37FsGNNGsDUoqEofXRuU5bf_d_9zcpGNn70NPI95CfbwBFS0iJxLmKzSXdrX4oFqsS72VzOeL2Tjiyww6q9HwATwD9yO2XnY8_z8eJwCHJRmQwoWQF7KhL-grobR1ezM-t2RL4_nIOhBRaE_Gag21mR_lSU06gqjsyNIR_HBMKwusaRj"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline font-semibold text-xs text-on-surface tracking-wide">@cyber_valkyrie</span>
+<span class="font-label text-[10px] text-on-surface-variant">30m ago</span>
+</div>
+<p class="font-body text-xs text-on-surface mt-1 leading-relaxed">
+            Need the firmware patch link ASAP! My visor had chromatic aberrations all night.
+          </p>
+<div class="flex items-center gap-4 mt-2">
+<button class="flex items-center gap-1 text-[11px] font-label text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-[14px]">reply</span>
+              Reply
+            </button>
+</div>
+</div>
+<button class="shrink-0 flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors pt-0.5">
+<span class="material-symbols-outlined text-[17px]">favorite</span>
+<span class="font-label text-[10px]">124</span>
+</button>
+</div>
+<!-- Nested Reply -->
+<div class="flex items-start gap-2.5 pl-6 relative">
+<div class="absolute left-3 -top-2 w-3 h-6 rounded-bl-lg bg-transparent border-l-2 border-b-2 border-outline-variant/60 pointer-events-none"></div>
+<div class="shrink-0 w-7 h-7 rounded-full overflow-hidden bg-primary/20 p-0.5 relative z-10">
+<img class="w-full h-full object-cover rounded-full" data-alt="Cyberpunk female portrait with dual-tone neon pink and cyan hair, glowing cyber accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSb7pRlCUwta4bNjv2KMjr82uvw0vJwCxK0i1XKQTb-wwQB1l0uNbIQJj-ALrnM7aWtODmzXR_wF28fEO3gdZ-wUbyCfrA2r7Dot8LVB3Z9EuNewYUR7ZcO861iLfBVGkBrDYxl6137bb7EHtZfkhs-Na4WAu7g2gKEmyRawkhmQKRTGgTq1_v5UdQdg6hzDqck-LeZrqSysvewizwyPsoz6JdtNGp9MiCUrUVX56ZAvYHG4zho6Hp"/>
+</div>
+<div class="flex-1 min-w-0 bg-surface-container-low p-2.5 rounded-xl">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="font-headline font-semibold text-[11px] text-on-surface">@k1ra_neo</span>
+<span class="text-[9px] uppercase font-label font-bold px-1 rounded-sm bg-primary/20 text-primary">OP</span>
+</div>
+<span class="font-label text-[10px] text-on-surface-variant">18m ago</span>
+</div>
+<p class="font-body text-xs text-secondary mt-1 leading-snug">
+            Dropped the patch in bio linktree! Check v2.4 🔗
+          </p>
+</div>
+</div>
+</div>
+<!-- Comment 4 -->
+<div class="flex items-start gap-3 bg-surface-container/40 p-3 rounded-xl">
+<div class="shrink-0 w-9 h-9 rounded-full overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Retro anime style portrait of a sleek netrunner with dark bob cut hair, blue translucent augmented reality glasses, neon lit city backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyUb083Zqd8xe992LgA35XrjBrHLhhm7P3ZEy8ZfzCeuXvfkFzIjVjz-9Vt98EeFTQ4jiID9kYyrdNwMO60gcPmLNg-ZgtU71mj9awGjMnp3zb3UIz7QjurWkZTH_l7JND_t55NulWD9vShQo_TBg6sn4_keJnW7Wng5A1X62iW-Tx1SJNKXpXSvQK_olIpP8Su4GEbHIaMYXSTv-c0pQC0E3DEBliX98v_9cQuOtBs86oPiF_b_PD"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-headline font-semibold text-xs text-on-surface tracking-wide">@rei_kusanagi</span>
+<span class="font-label text-[10px] text-on-surface-variant">15m ago</span>
+</div>
+<p class="font-body text-xs text-on-surface mt-1 leading-relaxed">
+          Aesthetic perfection. Shibuya underground never sleeps.
+        </p>
+<div class="flex items-center gap-4 mt-2">
+<button class="flex items-center gap-1 text-[11px] font-label text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-[14px]">reply</span>
+            Reply
+          </button>
+</div>
+</div>
+<button class="shrink-0 flex flex-col items-center justify-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors pt-0.5">
+<span class="material-symbols-outlined text-[17px]">favorite</span>
+<span class="font-label text-[10px]">48</span>
+</button>
+</div>
+</div>
+<!-- Sticky Bottom Interaction Console -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-xl px-4 pt-2.5 pb-safe flex flex-col gap-2 shadow-[0_-4px_24px_rgba(0,0,0,0.5)]">
+<!-- Quick Reaction Tap Matrix -->
+<div class="flex items-center justify-between px-2 py-1 bg-surface-container-low rounded-full overflow-x-auto no-scrollbar">
+<button aria-label="Heart" class="p-1 text-base hover:scale-125 transition-transform active:scale-90">❤️</button>
+<button aria-label="Fire" class="p-1 text-base hover:scale-125 transition-transform active:scale-90">🔥</button>
+<button aria-label="Cyber arm" class="p-1 text-base hover:scale-125 transition-transform active:scale-90">🦾</button>
+<button aria-label="Lightning" class="p-1 text-base hover:scale-125 transition-transform active:scale-90">⚡️</button>
+<button aria-label="Alien monster" class="p-1 text-base hover:scale-125 transition-transform active:scale-90">👾</button>
+<button aria-label="Clap" class="p-1 text-base hover:scale-125 transition-transform active:scale-90">👏</button>
+<button aria-label="Hundred" class="p-1 text-base hover:scale-125 transition-transform active:scale-90">💯</button>
+</div>
+<!-- Input Bar -->
+<div class="flex items-center gap-2 pb-1.5">
+<!-- Active User Avatar -->
+<div class="shrink-0 w-9 h-9 rounded-full overflow-hidden p-0.5 bg-gradient-to-tr from-primary via-secondary to-tertiary">
+<img alt="Active user avatar" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida/AEtjO1WUt3nQKGKSImsSwuvfxBUwJhgNTnkbjrooIsZ_KmOw-SYqCgNre8XgPfXf8WUjRYTr6o211sJ_nsVgNjkGnQUMw-LvGVwAmBOuqDkt-JHIrN3gVaEd0jvbJsz3QkvyZIThkDyT6GyCoLRrPVDoOxAfSxknZu5dUW-7F1X2duEV3T_Y9C1DABFrrYB5jYcZsMk5ShHI1IhAK0m4qhCcGaP8aMcPBytX3gjynIO33mxyFF1N2X6_sw2BM1I"/>
+</div>
+<!-- Cyber Input Container -->
+<div class="flex-1 flex items-center bg-surface-container rounded-full px-3 py-1.5 gap-2 shadow-inner">
+<input class="bg-transparent text-xs font-body text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none flex-1 min-w-0" placeholder="Transcribe neural comment..." type="text"/>
+<!-- Media / Audio Actions -->
+<button class="text-on-surface-variant hover:text-secondary transition-colors flex items-center justify-center p-0.5" title="Neural audio transmit">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center p-0.5" title="Holo sticker">
+<span class="material-symbols-outlined text-[18px]">sticker</span>
+</button>
+</div>
+<!-- Glowing Cyan Transmit Button -->
+<button class="w-9 h-9 shrink-0 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-[0_0_12px_rgba(0,255,204,0.4)] hover:shadow-[0_0_18px_rgba(0,255,204,0.7)] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">send</span>
+</button>
+</div>
+</div>
+</div></main></body></html>

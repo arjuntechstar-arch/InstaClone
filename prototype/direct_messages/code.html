@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0a0a12;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#ff2d78","tertiary-fixed":"#fff0c0","tertiary-container":"#665200","on-secondary-container":"#c0fff4","on-secondary-fixed":"#001a1a","surface-bright":"#1a1a2e","primary-fixed":"#ffe0ec","on-secondary":"#001a1a","error-container":"#3d0f0f","on-primary-container":"#ffe0ec","secondary":"#00ffcc","on-primary-fixed-variant":"#8c0038","on-surface":"#e8e0f0","surface-container-lowest":"#0a0a12","secondary-fixed":"#c0fff4","surface-container-high":"#1e1e30","on-error":"#1a0000","surface-container-highest":"#28283e","on-tertiary-container":"#fff0c0","primary-fixed-dim":"#ff80aa","on-secondary-fixed-variant":"#004d4d","outline-variant":"#302840","on-primary-fixed":"#3d0020","on-background":"#e8e0f0","background":"#0a0a12","inverse-on-surface":"#0a0a12","outline":"#5a5068","surface-container-low":"#111118","on-primary":"#1a0010","tertiary-fixed-dim":"#ffe04a","primary":"#ff2d78","surface-container":"#141422","on-error-container":"#ffa0a0","on-tertiary-fixed":"#1a1000","inverse-surface":"#e8e0f0","surface-variant":"#1e1e30","surface":"#0f0f1a","error":"#ff4444","secondary-fixed-dim":"#00e6b8","primary-container":"#b3004e","inverse-primary":"#8c0038","on-tertiary":"#1a1000","surface-dim":"#0f0f1a","tertiary":"#ffe04a","on-surface-variant":"#a098b0","secondary-container":"#004d3d","on-tertiary-fixed-variant":"#665200"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{},"fontFamily":{"headline":["Sora"],"display":["Sora"],"body":["Inter"],"label":["Space Grotesk"]},"fontSize":{}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.25)]"><div class="h-14 px-4 flex items-center justify-between"><a class="w-10 h-10 -ml-1 flex items-center justify-center text-on-surface hover:text-primary transition-colors" data-path="home-feed" href="#"><span class="material-symbols-outlined text-[24px]">arrow_back</span></a><h1 class="font-headline font-semibold text-base tracking-wide text-on-surface drop-shadow-[0_0_6px_rgba(255,45,120,0.3)]">Direct Messages Inbox</h1><div class="w-10 h-10 flex items-center justify-center"><button class="w-10 h-10 flex items-center justify-center text-on-surface hover:text-secondary transition-colors"><span class="material-symbols-outlined text-[20px]">more_vert</span></button></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-background"><div class="flex flex-col w-full text-on-surface select-none pb-8">
+<!-- Search Input Container -->
+<div class="px-4 py-2 w-full">
+<div class="relative w-full flex items-center bg-surface-container-high rounded-full px-3.5 py-2.5 shadow-sm transition-all focus-within:shadow-[0_0_15px_rgba(0,255,204,0.18)]">
+<span class="material-symbols-outlined text-[20px] text-secondary mr-2.5 transition-transform duration-200">manage_search</span>
+<input class="w-full bg-transparent text-sm font-body text-on-surface placeholder:text-on-surface-variant focus:outline-none tracking-tight" placeholder="Search messages, cyborg handles..." type="text"/>
+<button class="flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors" title="Filter Frequency">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Neural Notes / Status Tray -->
+<div class="w-full pt-2 pb-3 overflow-x-auto no-scrollbar">
+<div class="flex items-start gap-4 px-4 min-w-max">
+<!-- Current User Note (Create / Active) -->
+<div class="flex flex-col items-center w-20 relative cursor-pointer group">
+<!-- Floating Cyber Thought Bubble -->
+<div class="mb-1.5 px-2.5 py-1 bg-surface-container-highest rounded-full shadow-[0_0_8px_rgba(255,45,120,0.35)] relative flex items-center gap-1 max-w-[84px] animate-pulse">
+<span class="text-[10px] font-label text-primary-fixed truncate">Overclocking ⚡️</span>
+<!-- Little speech bubble stem -->
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-surface-container-highest rotate-45"></div>
+</div>
+<!-- Avatar Ring -->
+<div class="relative p-0.5 rounded-full bg-gradient-to-tr from-primary to-secondary shadow-[0_0_12px_rgba(255,45,120,0.4)]">
+<img class="w-14 h-14 rounded-full object-cover bg-surface-container-low" data-alt="Cyberpunk female user avatar portrait with augmented neural implants, neon pink rim lighting and sleek chrome visor against high tech dark Tokyo bedroom background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3uGaOyPULJzczBETDn3dyztxW3qsvHT6-e6xJDbNr7a3vA_gMaxgLW4bCjbKVtyylt_DM_rgTUQs92KXx6etqqno0bx8aHhpvLqDrGYu8M7_hqolpAgbrt-DiY-PZgWJB85PLkOkZe2l58wG2DmXp90i4RnkfO9d0ruIMeZSfuKHNTU3GOpZmHexFppNNu4x_AOornULqucz0ws6RWy47UQpe7_jJ4b_nLo26FOPvgWJR98xpG0AO"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_0_6px_rgba(255,45,120,0.8)]">
+<span class="material-symbols-outlined text-[12px] font-bold">add</span>
+</div>
+</div>
+<span class="text-[11px] font-label text-on-surface-variant mt-1.5 truncate">Your Note</span>
+</div>
+<!-- Friend 1: In VR Club -->
+<div class="flex flex-col items-center w-20 relative cursor-pointer group">
+<div class="mb-1.5 px-2 py-1 bg-surface-container-highest rounded-full shadow-[0_0_8px_rgba(0,255,204,0.3)] relative flex items-center gap-1 max-w-[84px]">
+<span class="text-[10px] font-label text-secondary truncate">In VR club 🪩</span>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-surface-container-highest rotate-45"></div>
+</div>
+<div class="relative p-0.5 rounded-full bg-gradient-to-tr from-secondary to-surface-bright shadow-[0_0_10px_rgba(0,255,204,0.3)]">
+<img class="w-14 h-14 rounded-full object-cover bg-surface-container-low" data-alt="Close up cyberpunk man portrait wearing glowing cybernetic augmented eyewear, neon teal reflections on his skin, moody nightlife atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsC5FDSNzSqWqgsI6PILYUZz8Y0hNMn_iOQCTokv4hufG6ldHLg6PV-WBlmj5giUgPiC90O4VBoIM15q9W6PgQE1rFWJIEhREVFoSIhENimG5O15rg0dBQvQMFhwX-ImC23DAVPd81YBK6ljsDFvDZzOSbUxRsofsElJF-QQmslJq2oixJhNq5AnttAmdW1NmtZhg6dMRwMdtYUCb-JZEElqtL7XPeJTRFma_28TmSDCuTJPOp6O9j"/>
+<div class="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-secondary shadow-[0_0_6px_rgba(0,255,204,0.9)]"></div>
+</div>
+<span class="text-[11px] font-label text-on-surface mt-1.5 truncate">k1ra_neo</span>
+</div>
+<!-- Friend 2: Rendering assets -->
+<div class="flex flex-col items-center w-20 relative cursor-pointer group">
+<div class="mb-1.5 px-2 py-1 bg-surface-container-highest rounded-full relative flex items-center gap-1 max-w-[84px]">
+<span class="text-[10px] font-label text-on-surface-variant truncate">Rendering...</span>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-surface-container-highest rotate-45"></div>
+</div>
+<div class="relative p-0.5 rounded-full bg-gradient-to-tr from-primary to-surface-bright shadow-[0_0_8px_rgba(255,45,120,0.25)]">
+<img class="w-14 h-14 rounded-full object-cover bg-surface-container-low" data-alt="Futuristic android robotic face with delicate porcelain plating and glowing magenta fiber optic hair strands" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_SPTlMuVbm4u8CWYs3TasQCRkbT1g-Izjd8ez5ekHgoUdLt9wzRNvQd_oC0_CPOq7FF1v2uFPthb6SAKs8k37eOwE5cbN1Qajhlv_qjp8NCCc5haCsXuTqqTy0uzifHFpxaOteciHnx1U8Fpbp_2ZMFyKiwE4jAajlKaxgRoLQLcGZOO7yoA21ylE4UMgEQwickk2XAUBAgKUy8ZnWiP82yEuIQDhp7TmqS2FUIWwA0PYCRQN63qc"/>
+<div class="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_6px_rgba(255,45,120,0.8)]"></div>
+</div>
+<span class="text-[11px] font-label text-on-surface mt-1.5 truncate">mech_ai</span>
+</div>
+<!-- Friend 3: Offline in Sector 4 -->
+<div class="flex flex-col items-center w-20 relative cursor-pointer group opacity-75">
+<div class="mb-1.5 px-2 py-1 bg-surface-container-high rounded-full relative flex items-center gap-1 max-w-[84px]">
+<span class="text-[10px] font-label text-on-surface-variant truncate">Sector 4 💤</span>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-surface-container-high rotate-45"></div>
+</div>
+<div class="relative p-0.5 rounded-full bg-surface-container-highest">
+<img class="w-14 h-14 rounded-full object-cover bg-surface-container-low grayscale-[40%]" data-alt="Edgy street samurai female rider wearing a carbon fiber helmet tilted up, dark atmospheric rain streaked background with distant neon city lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyHO3cFqIC_dbrXxkPee6dPl8bjqwh9JZgJsiuKpQwqusNuv-bKTwppNDyz36R4UrzuqHcHdNQTLSdlDPv13my9STOTQMaP7JxEVNuw1wB-BKJZ5h_vSK7y1EN5xm0vaLwMGmYkH68xmcwB03Rmkk36-W9M-pX8qkEE49vTyq8mS_0Wz76FhO_o8FERs57hjKkfbbmFKi2a7vt9eoeflUXQPiY7yIhddCUx81e-DUfJUqYquDhsPgj"/>
+</div>
+<span class="text-[11px] font-label text-on-surface-variant mt-1.5 truncate">valkyrie</span>
+</div>
+<!-- Friend 4: Shibuya Drift -->
+<div class="flex flex-col items-center w-20 relative cursor-pointer group">
+<div class="mb-1.5 px-2 py-1 bg-surface-container-highest rounded-full shadow-[0_0_8px_rgba(255,45,120,0.3)] relative flex items-center gap-1 max-w-[84px]">
+<span class="text-[10px] font-label text-primary truncate">Grid race 🏁</span>
+<div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-surface-container-highest rotate-45"></div>
+</div>
+<div class="relative p-0.5 rounded-full bg-gradient-to-tr from-primary to-secondary">
+<img class="w-14 h-14 rounded-full object-cover bg-surface-container-low" data-alt="Cyberpunk street racer driver portrait in leather jacket with glowing neon LED badges, moody purple and cyan ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDegTA7tA0I94hcmgkI_HJf2xuwrIOD3TtQhnSGZiLFfA0Rux1mc3qlXzyxNPnNxmApbvD9u6TvsExnQtB8CMr2Zs8T74KYGwD9mEGoPicl78KxujlBdREucMcxKaKLJkc-Rxpj8DvjMEFbq8j4Lxpx-e2V6IE84L4bQkPi0hH2s7M1ImLEFrVAcEM4LJake2ws7wd3MRybPltfA_gbHapRgH_08LQWW9IXPIijPY01z_6jf9iibGV8"/>
+<div class="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-secondary shadow-[0_0_6px_rgba(0,255,204,0.9)]"></div>
+</div>
+<span class="text-[11px] font-label text-on-surface mt-1.5 truncate">shibuya_spd</span>
+</div>
+</div>
+</div>
+<!-- Feed Category / Signal Filter Segment -->
+<div class="px-4 py-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<!-- Active Pill -->
+<button class="px-3.5 py-1.5 rounded-full text-xs font-label font-bold bg-surface-container-highest text-secondary shadow-[0_0_10px_rgba(0,255,204,0.25)] flex items-center gap-1.5">
+<span>Primary</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+<span class="text-[10px] opacity-80">(3)</span>
+</button>
+<!-- Inactive Pill -->
+<button class="px-3.5 py-1.5 rounded-full text-xs font-label font-medium bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors">
+        General
+      </button>
+<!-- Requests Pill with Hot Pink Accent -->
+<button class="px-3.5 py-1.5 rounded-full text-xs font-label font-medium bg-surface-container text-primary-fixed-dim hover:text-primary transition-colors flex items-center gap-1">
+<span>Requests</span>
+<span class="px-1.5 py-0.2 rounded-full bg-primary/20 text-primary text-[10px] font-bold">14</span>
+</button>
+</div>
+<!-- Quick action filter -->
+<button class="p-1 text-on-surface-variant hover:text-secondary transition-colors" title="Message Settings">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</button>
+</div>
+<!-- Messages List -->
+<div class="flex flex-col mt-1">
+<!-- Message Item 1: Unread Hologram Clip -->
+<div class="group px-4 py-3 flex items-center gap-3.5 bg-surface-container-low/40 hover:bg-surface-container transition-all cursor-pointer relative overflow-hidden">
+<!-- Subtle Active Signal Line -->
+<div class="absolute left-0 top-2 bottom-2 w-0.5 bg-secondary shadow-[0_0_8px_rgba(0,255,204,0.9)]"></div>
+<!-- Avatar with Neon Online Dot -->
+<div class="relative shrink-0">
+<img class="w-13 h-13 rounded-full object-cover bg-surface-container-high" data-alt="Profile picture of cyberpunk female hacker k1ra with vivid cyan highlights in her bob haircut, futuristic ear gear, illuminated by holographic screens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpcXA61MBobq9WPKuJRqeiI4bbv3EFAlNK5N3sq-iC7cKsaHAY5X1wzTM-r4NEa-wExi03wpbgkH2823oCv3j78O3C03tcIeCuDcPXuw_W2SRqc3c0XFhpe5TkDllrjpnHYDbUoeFHCoqoq1e3tE7uzfoaJrkOp8lol60Uwxr87BL5RdPld4ds4ENuC_FlkOdqKD9lUqNya81CA9NCoM8fSd0niXZgatxhY6M-KT45643ZcKv6u7Qa"/>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-secondary shadow-[0_0_6px_rgba(0,255,204,1)]"></div>
+</div>
+<!-- Content -->
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between mb-0.5">
+<div class="flex items-center gap-1.5 truncate">
+<span class="font-headline font-bold text-sm text-on-surface truncate">k1ra_neo</span>
+<span class="material-symbols-outlined text-secondary text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-label text-[11px] text-secondary font-bold shrink-0">2m</span>
+</div>
+<p class="font-body text-xs text-on-surface font-semibold flex items-center gap-1 truncate">
+<span class="material-symbols-outlined text-secondary text-[14px]">view_in_ar</span>
+<span class="text-secondary drop-shadow-[0_0_6px_rgba(0,255,204,0.3)]">Sent a hologram clip</span>
+<span class="text-on-surface-variant font-normal">• Tap to view</span>
+</p>
+</div>
+<!-- Unread Indicator Pip -->
+<div class="shrink-0 flex items-center pl-1">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_8px_rgba(0,255,204,0.9)]"></div>
+</div>
+</div>
+<!-- Message Item 2: Shibuya Speed Unit (High Priority Unread) -->
+<div class="group px-4 py-3 flex items-center gap-3.5 bg-surface-container-low/20 hover:bg-surface-container transition-all cursor-pointer relative overflow-hidden">
+<div class="absolute left-0 top-2 bottom-2 w-0.5 bg-primary shadow-[0_0_8px_rgba(255,45,120,0.9)]"></div>
+<div class="relative shrink-0">
+<img class="w-13 h-13 rounded-full object-cover bg-surface-container-high" data-alt="Cyberpunk street racing crew emblem, glowing hot pink neon stylized tachometer with sharp kanji typography against dark carbon fiber texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClh0Mct4oCaGG1baZ-rxTwrpIlJHpTuAQjQSiNxijSkIt_bECZYwO6WkyYLH0aas3-w3gzxcc0iDJ3MTETQOgKTapJoj0GhoAtPOlvNxPld7MPESh335cYXdy2QMRNEQT1grTgSvkXX0s5b0wL_AQ7DqEpqTs37A5gNh9_GXCqS21hD4FdPWIWjAEObJ7oZUhB1d-wT2KoT3ev4oYyctO1rCEuN1_H4RqLKvVmLDbjDvzuRRPEHzuB"/>
+<div class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-primary shadow-[0_0_6px_rgba(255,45,120,0.9)]"></div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-headline font-bold text-sm text-on-surface truncate">shibuya_speed_unit</span>
+<span class="font-label text-[11px] text-primary font-bold shrink-0">18m</span>
+</div>
+<p class="font-body text-xs text-on-surface font-semibold truncate leading-relaxed">
+          The underground race starts at 0200. You in? 🏎️🔥
+        </p>
+</div>
+<div class="shrink-0 flex items-center pl-1">
+<div class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(255,45,120,0.9)]"></div>
+</div>
+</div>
+<!-- Message Item 3: Mech Automata (Read + Quick Camera Reply) -->
+<div class="group px-4 py-3 flex items-center gap-3.5 hover:bg-surface-container transition-all cursor-pointer">
+<div class="relative shrink-0">
+<img class="w-13 h-13 rounded-full object-cover bg-surface-container-high" data-alt="Futuristic cybernetic lab worker engineer wearing industrial techwear jacket and optical lens apparatus over right eye, dark slate backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuqx6quadLYiqo87h4GdDoKY20VaatgBNTMLCfrLZMP4s4QwVaEDU_387BN90i9QuryjrwYTWGyoQk3WUONTO2jiCcsO0tv1DmZylYWCayV0UcT2qenDsA3yAJrA9YnUz06e6p8U_5hI1aNjBTTe5UU8pG7nnTv1sTCUgTWhnagxEc35WlwVYYHbhKRxtxOu4h5-Ci_91hqz_wglyNiqmmxckRzC4Qumn3N3I5Xf6z2RPwXCVA6DXM"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-headline font-medium text-sm text-on-surface-variant truncate">mech_automata</span>
+<span class="font-label text-[11px] text-on-surface-variant shrink-0">1h</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant truncate">
+          Uploaded the new Kurogane schematics to your drive.
+        </p>
+</div>
+<!-- Quick Action / Camera icon shortcut -->
+<button class="shrink-0 p-2 text-on-surface-variant hover:text-secondary hover:bg-surface-container-highest rounded-full transition-colors" title="Send Visual Reply">
+<span class="material-symbols-outlined text-[19px]">photo_camera</span>
+</button>
+</div>
+<!-- Message Item 4: Cyber Valkyrie (Liked Message) -->
+<div class="group px-4 py-3 flex items-center gap-3.5 hover:bg-surface-container transition-all cursor-pointer">
+<div class="relative shrink-0">
+<img class="w-13 h-13 rounded-full object-cover bg-surface-container-high" data-alt="Cyberpunk woman warrior with violet neon buzzcut and chrome cheek implants sitting inside an illuminated high-speed maglev transit car" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVgtlwk-Iiu_TGQsY4tgG6W_BrlznnWxMgqc5dHE8akuQpaBv0yjy5LVRAmyZHhtGUPJLc_4-cL9LBavOr6qu-DgjlWGnY6q699WCJN4rw-yxWVbN89ND3Rii5Y7AY3uqYRJ7MCkn2L9r4dJi1DOC6DWkffux9qRWFU3rPFKXRt0joE72fsy8jlghrikpdz62WOThZ_jxoz6rYJaPr4ujT3GkQUGiZPRWr-VHtoGiDa9-bUQsmm8xC"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-headline font-medium text-sm text-on-surface-variant truncate">cyber_valkyrie</span>
+<span class="font-label text-[11px] text-on-surface-variant shrink-0">3h</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-primary text-[14px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span>Liked a message</span>
+</p>
+</div>
+<div class="shrink-0 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+</div>
+</div>
+<!-- Message Item 5: Group Chat Multi-avatar Stack -->
+<div class="group px-4 py-3 flex items-center gap-3.5 hover:bg-surface-container transition-all cursor-pointer">
+<!-- Multi Avatar Cluster -->
+<div class="relative shrink-0 w-13 h-13">
+<img class="w-8 h-8 rounded-full object-cover absolute top-0 left-0 bg-surface-container-high ring-2 ring-background z-10" data-alt="Digital hologram artist avatar silhouette glowing with pink wireframe polygon mesh lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY2u9oHFQheyMb1V1jAobFaXsEKfVeLdzYw4Uu7sghkeD1zvNcVhrVnXkYeaBmGNvg2WNtgvnIQxBg-BH6EN6LYnO26FmmFQC-ve5UJhJcmzEW0r-byk-JJ2nCJPTQ2bo1_rSrdaYHwOu22X6JTxI_dPyp-ug9wNKG61Pgpd6VWeVAXDDL4wJvXUydwMD6hKwergQsDeD1tqPJCFYqiA7oxP0ig-RmNqndbzEMXeick7FrNIruz9QR"/>
+<img class="w-8 h-8 rounded-full object-cover absolute bottom-0 right-0 bg-surface-container-highest ring-2 ring-background" data-alt="Cyberpunk synthesizer producer avatar with yellow holographic sunglasses and headset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIpiHGnHJe0R1In0Ik1FcHnSG-PxS22qgnUf8WqoLx62u8kbOkVE5CiYUqrwTxuNFAJZsgyNvoI8kj3VAD4kIIs86SSqJ0we_ZTZwqcFqqvRFYT8_5nyIGQjJygqJpCNiiLJvtIWph4yeSJnA2JLVLXpjwlql5WQ9lNbntTULZPxTqlfBdUH-mYUy2GuBgUHTjrfA73L3NG1QBnQyzNuiaqx4iPLtofugjGPMcnlz-lBd0KxfHJJ5C"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between mb-0.5">
+<div class="flex items-center gap-1.5 truncate">
+<span class="font-headline font-semibold text-sm text-on-surface truncate">Neo-Shinjuku Holo-Artists</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[14px]">group</span>
+</div>
+<span class="font-label text-[11px] text-on-surface-variant shrink-0">5h</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant truncate">
+<span class="text-on-surface font-medium">Ren:</span> Who is taking the midnight drone shots?
+        </p>
+</div>
+<button class="shrink-0 p-2 text-on-surface-variant hover:text-secondary rounded-full transition-colors" title="Mute Notification Relay">
+<span class="material-symbols-outlined text-[18px]">volume_off</span>
+</button>
+</div>
+<!-- Message Item 6: Rei Kusanagi -->
+<div class="group px-4 py-3 flex items-center gap-3.5 hover:bg-surface-container transition-all cursor-pointer">
+<div class="relative shrink-0">
+<img class="w-13 h-13 rounded-full object-cover bg-surface-container-high" data-alt="Elegant cyberpunk assassin avatar with sleek black hair, luminous synth-skin, neon indigo rim lights in dark Tokyo alley" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDop1VzoUs0otIzIFrgO4jDbnWra4oamFAjPo1SXnckQgKTV_BBP3JhVW89JR_67z5PMSc69wCGpQPs4xzpt174BdBamoEDMGHLhPHfBgBvZHkvCqiW1CxmmhOX0bjPg5O8K9NnzRmlG0yzyJs6u8TVv9aJmlMfBQJT_QmaXMLaU9A4jOqT2GLmSE27IGtIT8HzkBV8gJf5hwA5yPjQsiDewmwXY6aOk-8KnZddgFZaAftJ6JJxJx3A"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-headline font-medium text-sm text-on-surface-variant truncate">rei_kusanagi</span>
+<span class="font-label text-[11px] text-on-surface-variant shrink-0">Yesterday</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant truncate">
+          See you at the synthwave festival ⚡️
+        </p>
+</div>
+<div class="shrink-0 text-on-surface-variant opacity-60">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+</div>
+</div>
+</div>
+<!-- Broadcast Channels Preview Card -->
+<div class="px-4 mt-5">
+<div class="p-3.5 rounded-xl bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer relative overflow-hidden shadow-lg group">
+<!-- Cyan ambient glow in background corner -->
+<div class="absolute -right-8 -bottom-8 w-28 h-28 bg-secondary/10 rounded-full blur-xl pointer-events-none group-hover:bg-secondary/20 transition-all"></div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">podcasts</span>
+<span class="font-label uppercase text-[10px] tracking-widest text-secondary font-bold">Broadcast Channel</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container text-[10px] font-label font-bold">
+          LIVE RELAY
+        </span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Abstract glowing holographic grid wave with neon cyan pulse lines radiating outwards in a dark cyberpunk synth studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsm_EigZUqEf3342ZrTeCdUe-fKJvnXWTBMKofCRAmEN_0rpZPNKZ3G7H2zSeuCiQPSAANQyN5z5RYdn9omw9quskTp_AgsmYTB34SbSqtcky83_6GqzCN-eRo6uUyUb-f5p2PtGQD86Njml72Uu-CpNVncRqGKwrgKNpCpDiANmpa7S62Bz6k3WA85hW9juknY2tMgRVPnWKaI-OhTZvhoMT-qlFKtZ5FWqC2FnDH_TtRXijs-0cY"/>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-headline font-bold text-sm text-on-surface truncate">Neon Tokyo Underground</span>
+<div class="flex items-center gap-2 text-xs text-on-surface-variant font-body">
+<span class="text-secondary font-medium font-label">12.4k cyborgs</span>
+<span>•</span>
+<span class="truncate">Master Hacker dropped a new patch...</span>
+</div>
+</div>
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container-highest text-secondary hover:bg-secondary hover:text-on-secondary text-xs font-label font-bold transition-all shadow-[0_0_8px_rgba(0,255,204,0.15)]">
+          Tune In
+        </button>
+</div>
+</div>
+</div>
+<!-- Ambient Footer Touch / Frequency Decal -->
+<div class="mt-6 flex flex-col items-center justify-center gap-1 opacity-50 pointer-events-none">
+<div class="flex items-center gap-1.5">
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+<span class="w-1 h-1 rounded-full bg-primary"></span>
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label text-[9px] tracking-widest uppercase text-on-surface-variant">Quantum-Encrypted Neural Comms</span>
+</div>
+</div>
+<script>
+  // Micro-interaction for filter chips switching
+  document.querySelectorAll('button[class*="rounded-full font-label"]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      // Clean previous active state visual toggle if needed
+      const parent = this.parentElement;
+      if (parent && parent.children.length > 1) {
+        // Simple feedback flash
+        this.style.transform = 'scale(0.96)';
+        setTimeout(() => { this.style.transform = 'scale(1)'; }, 120);
+      }
+    });
+  });
+</script></main></body></html>

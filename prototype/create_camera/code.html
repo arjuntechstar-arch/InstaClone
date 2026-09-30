@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_blank" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0a0a12;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#ff2d78","tertiary-fixed":"#fff0c0","tertiary-container":"#665200","on-secondary-container":"#c0fff4","on-secondary-fixed":"#001a1a","surface-bright":"#1a1a2e","primary-fixed":"#ffe0ec","on-secondary":"#001a1a","error-container":"#3d0f0f","on-primary-container":"#ffe0ec","secondary":"#00ffcc","on-primary-fixed-variant":"#8c0038","on-surface":"#e8e0f0","surface-container-lowest":"#0a0a12","secondary-fixed":"#c0fff4","surface-container-high":"#1e1e30","on-error":"#1a0000","surface-container-highest":"#28283e","on-tertiary-container":"#fff0c0","primary-fixed-dim":"#ff80aa","on-secondary-fixed-variant":"#004d4d","outline-variant":"#302840","on-primary-fixed":"#3d0020","on-background":"#e8e0f0","background":"#0a0a12","inverse-on-surface":"#0a0a12","outline":"#5a5068","surface-container-low":"#111118","on-primary":"#1a0010","tertiary-fixed-dim":"#ffe04a","primary":"#ff2d78","surface-container":"#141422","on-error-container":"#ffa0a0","on-tertiary-fixed":"#1a1000","inverse-surface":"#e8e0f0","surface-variant":"#1e1e30","surface":"#0f0f1a","error":"#ff4444","secondary-fixed-dim":"#00e6b8","primary-container":"#b3004e","inverse-primary":"#8c0038","on-tertiary":"#1a1000","surface-dim":"#0f0f1a","tertiary":"#ffe04a","on-surface-variant":"#a098b0","secondary-container":"#004d3d","on-tertiary-fixed-variant":"#665200"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{},"fontFamily":{"headline":["Sora"],"display":["Sora"],"body":["Inter"],"label":["Space Grotesk"]},"fontSize":{}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body text-on-surface flex flex-col min-h-screen"><main class="flex flex-col relative w-full min-h-screen pt-safe pb-safe bg-background"><div class="flex flex-col w-full relative h-[830px] overflow-hidden select-none bg-background">
+<!-- Dynamic Viewfinder Feed -->
+<div class="absolute inset-0 z-0 bg-cover bg-center" data-alt="First person perspective view through a futuristic cybernetic camera sensor of a bustling rain-slicked Tokyo street in Shinjuku at midnight. Radiant holographic neon signs in hot pink and electric cyan reflect off puddles. Futuristic pedestrians carry clear umbrellas, cybernetic light trails blur past, towering neon skyscrapers pierce misty purple clouds with high-tech atmospheric haze." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnyig58Bvw0i_3rbg9b8En7hf5egzJpJjbkfoFrjnAUdt8AnO5kw10n2-bhnct1pajSUq25ApCJ-OKxk1aZX3oPl5XnTBwwjr2fceBwZqWklWEeOfikn8q2Iz--0AqTnanITvPinwMfhKuMtsOLXwSXtvbbCB5jj4jke6a4hSQmOw-7t5oKljtlPxmc5cwQ_suYsb1QP9vzDoFyqNmDUyw-BusOI__UImxuZMHB0qZ5WZPOqhlxAZF')">
+<!-- Camera Sensor HUD Matrix Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background/95 pointer-events-none"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-background/20 to-background/70 pointer-events-none"></div>
+<!-- AR Targeting Mesh / Reticle -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+<div class="w-64 h-64 relative flex items-center justify-center">
+<!-- Center Target Ring -->
+<svg class="w-full h-full animate-[spin_28s_linear_infinite]" viewbox="0 0 200 200">
+<circle cx="100" cy="100" fill="none" r="88" stroke="#00ffcc" stroke-dasharray="8 12" stroke-opacity="0.6" stroke-width="1"></circle>
+<circle cx="100" cy="100" fill="none" r="70" stroke="#ff2d78" stroke-dasharray="4 8" stroke-opacity="0.5" stroke-width="0.75"></circle>
+<circle cx="100" cy="100" fill="none" r="42" stroke="#ffe04a" stroke-dasharray="2 18" stroke-opacity="0.8" stroke-width="1"></circle>
+</svg>
+<!-- Center Crosshair Precision Box -->
+<div class="absolute w-12 h-12 flex items-center justify-center">
+<div class="w-2 h-0.5 bg-secondary shadow-[0_0_8px_#00ffcc]"></div>
+<div class="h-2 w-0.5 bg-secondary shadow-[0_0_8px_#00ffcc] absolute"></div>
+</div>
+<!-- AR Lock Indicators -->
+<div class="absolute top-2 right-2 text-[9px] font-label text-secondary tracking-widest flex items-center gap-1 bg-surface-container/60 px-1.5 py-0.5 rounded backdrop-blur-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+          TRACKING: FACE_01
+        </div>
+<div class="absolute bottom-2 left-2 text-[8px] font-label text-primary tracking-widest bg-surface-container/60 px-1.5 py-0.5 rounded backdrop-blur-md">
+          EXP +0.33 // ISO 400
+        </div>
+</div>
+</div>
+</div>
+<!-- Foreground Cyber Viewfinder UI Interface -->
+<div class="relative z-10 flex flex-col justify-between h-full w-full p-4 pointer-events-none">
+<!-- TOP BAR: Status & Meta HUD Controls -->
+<div class="flex items-center justify-between w-full pointer-events-auto pt-1">
+<!-- Close / Back Button -->
+<button aria-label="Close Viewfinder" class="w-10 h-10 rounded-full bg-surface-container/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary transition-colors active:scale-90">
+<span class="material-symbols-outlined text-2xl leading-none">close</span>
+</button>
+<!-- Center Dynamic Track Pill -->
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high/90 backdrop-blur-md text-xs font-label text-on-surface hover:text-secondary transition-all active:scale-95 shadow-[0_0_12px_rgba(0,255,204,0.15)]">
+<span class="material-symbols-outlined text-secondary text-base animate-pulse">music_note</span>
+<span class="font-medium tracking-wide truncate max-w-[130px]">KAVINSKY — NIGHTCALL (REMIX)</span>
+<span class="material-symbols-outlined text-xs text-on-surface-variant">expand_more</span>
+</button>
+<!-- Right HUD Controls: Flash & Specs -->
+<div class="flex items-center gap-2">
+<button aria-label="Toggle Flash" class="w-10 h-10 rounded-full bg-surface-container/80 backdrop-blur-md flex items-center justify-center text-tertiary active:scale-90 transition-transform shadow-[0_0_10px_rgba(255,224,74,0.25)]">
+<span class="material-symbols-outlined text-xl">flash_on</span>
+</button>
+<button aria-label="Camera Settings" class="w-10 h-10 rounded-full bg-surface-container/80 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-xl">tune</span>
+</button>
+</div>
+</div>
+<!-- SUB-HUD: Precision Mode Banner -->
+<div class="flex justify-between items-center w-full px-1 pointer-events-auto">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container/70 backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_6px_#ff2d78]"></span>
+<span class="text-[10px] font-label font-bold tracking-widest text-on-surface">NIGHT VISION 4K</span>
+<span class="text-[9px] font-label text-secondary ml-1.5">60 FPS</span>
+</div>
+<div class="text-[10px] font-label text-on-surface-variant bg-surface-container/70 backdrop-blur-sm px-2 py-1 rounded tracking-widest">
+        REC <span class="text-primary font-bold">00:15:00</span>
+</div>
+</div>
+<!-- MIDDLE ROW: Left Vertical Story Tools + Spatial Frame -->
+<div class="flex items-start justify-between w-full flex-grow py-3">
+<!-- Left Vertical Tool Strip -->
+<div class="flex flex-col gap-3 pointer-events-auto p-1.5 rounded-2xl bg-surface-container/60 backdrop-blur-md">
+<!-- Aa Text Tool -->
+<button aria-label="Add Text" class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface hover:text-secondary hover:bg-surface-bright/50 transition-all active:scale-90 group">
+<span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">title</span>
+</button>
+<!-- Glitch / Loop Tool -->
+<button aria-label="Glitch Loop" class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface hover:text-primary hover:bg-surface-bright/50 transition-all active:scale-90 group">
+<span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">all_inclusive</span>
+</button>
+<!-- Layout Tool -->
+<button aria-label="Grid Layout" class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface hover:text-secondary hover:bg-surface-bright/50 transition-all active:scale-90 group">
+<span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">grid_view</span>
+</button>
+<!-- Dual Cam -->
+<button aria-label="Dual Sensor" class="w-9 h-9 rounded-xl flex items-center justify-center text-on-surface hover:text-tertiary hover:bg-surface-bright/50 transition-all active:scale-90 group">
+<span class="material-symbols-outlined text-lg group-hover:scale-110 transition-transform">cameraswitch</span>
+</button>
+<!-- AR Visor FX Tool -->
+<button aria-label="Cyber Visor Filters" class="w-9 h-9 rounded-xl flex items-center justify-center text-primary bg-primary/10 shadow-[inset_0_0_10px_rgba(255,45,120,0.3)] transition-all active:scale-90 group">
+<span class="material-symbols-outlined text-lg group-hover:rotate-45 transition-transform" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+</button>
+<!-- Expand Tools Chevron -->
+<button aria-label="More tools" class="w-9 h-5 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-base">keyboard_arrow_down</span>
+</button>
+</div>
+<!-- Right Side Live Telemetry Stream -->
+<div class="flex flex-col items-end gap-1.5 opacity-80 pointer-events-none text-[9px] font-label text-on-surface-variant">
+<div class="px-2 py-0.5 rounded bg-surface-container/60 backdrop-blur-sm flex items-center gap-1.5">
+<span class="text-secondary">AI DOWNSAMPLE</span> [ACTIVE]
+        </div>
+<div class="px-2 py-0.5 rounded bg-surface-container/60 backdrop-blur-sm">
+          NEURAL VISOR 1.4.9
+        </div>
+</div>
+</div>
+<!-- BOTTOM SECTION: Filter Carousel, Trigger, Mode Slider -->
+<div class="flex flex-col w-full gap-3 pointer-events-auto pb-1">
+<!-- AR Filter Horizontal Selector Carousel -->
+<div class="relative w-full flex items-center justify-center">
+<!-- Active Filter Indicator Pin -->
+<div class="absolute -top-6 text-[10px] font-label font-bold tracking-widest text-primary flex items-center gap-1 drop-shadow-[0_0_6px_#ff2d78]">
+<span class="material-symbols-outlined text-xs">radar</span>
+          CYBER_CHROME_V2
+        </div>
+<div class="flex items-center justify-center gap-4 py-1 overflow-x-hidden max-w-full">
+<!-- Filter Item 1 -->
+<div class="flex flex-col items-center opacity-40 hover:opacity-80 transition-opacity cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="text-[9px] font-label font-bold">VHS</span>
+</div>
+<span class="text-[8px] font-label mt-1 text-on-surface-variant">RETRO88</span>
+</div>
+<!-- Filter Item 2 -->
+<div class="flex flex-col items-center opacity-65 hover:opacity-90 transition-opacity cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-surface-bright flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-base">blur_on</span>
+</div>
+<span class="text-[8px] font-label mt-1 text-on-surface-variant">SYNTH</span>
+</div>
+<!-- Filter Item ACTIVE (Center) -->
+<div class="flex flex-col items-center cursor-pointer scale-110">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest p-1 flex items-center justify-center shadow-[0_0_20px_rgba(255,45,120,0.5)]">
+<div class="w-full h-full rounded-full bg-gradient-to-tr from-primary to-secondary flex items-center justify-center p-0.5">
+<div class="w-full h-full rounded-full bg-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl animate-spin" style="animation-duration: 8s;">lens_blur</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter Item 4 -->
+<div class="flex flex-col items-center opacity-65 hover:opacity-90 transition-opacity cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-surface-bright flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-base">filter_vintage</span>
+</div>
+<span class="text-[8px] font-label mt-1 text-on-surface-variant">NEON_HUD</span>
+</div>
+<!-- Filter Item 5 -->
+<div class="flex flex-col items-center opacity-40 hover:opacity-80 transition-opacity cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="text-[9px] font-label font-bold">RAW</span>
+</div>
+<span class="text-[8px] font-label mt-1 text-on-surface-variant">MATRIX</span>
+</div>
+</div>
+</div>
+<!-- MAIN CONTROLS: Gallery Thumbnail, Record Shutter, Flip Camera -->
+<div class="flex items-center justify-between px-6 pt-1">
+<!-- Gallery Thumbnail -->
+<button aria-label="Open Camera Roll" class="relative w-12 h-12 rounded-xl overflow-hidden p-0.5 bg-surface-container-high group active:scale-95 transition-transform">
+<div class="w-full h-full rounded-lg bg-cover bg-center overflow-hidden" data-alt="Cyberpunk render thumbnail of a high tech mecha helmet with glowing violet visor on a dark neon backdrop." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzb_S4e7vbBFyjbTDm8vcOfjXZYn2pEPOKKUWxQbBVYbymsG0IzH4IOseLPiQpqcicE7Hoc4G4IH7_Dp_g0ya38qePc_wfCIQIlbLW7F8TEJtwLKPfQa5D-jyKa9sfL9OVcLBXhhq3ryzauRAbqE7Pg_7Y-P7CJUmeKF2-EqNkHPHkcprA1alb9dmtObtZJ9h7UBTK3Zfz9N_RTe2oyL0qb8AGdAoUmgunzQq4Ov7sKZrWSjZ0NM9z')">
+<div class="w-full h-full bg-secondary/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="absolute -top-1 -right-1 w-3.5 h-3.5 bg-secondary rounded-full flex items-center justify-center shadow-[0_0_6px_#00ffcc]">
+<span class="material-symbols-outlined text-[8px] text-background font-bold">add</span>
+</div>
+</button>
+<!-- Dynamic Shutter / Capture Trigger -->
+<button aria-label="Capture Reel or Photo" class="relative group w-20 h-20 flex items-center justify-center cursor-pointer active:scale-90 transition-all focus:outline-none" id="shutterBtn">
+<!-- Pulse Outer Ring -->
+<div class="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-primary opacity-75 group-hover:opacity-100 group-hover:shadow-[0_0_24px_rgba(255,45,120,0.8)] transition-all animate-spin" style="animation-duration: 6s;"></div>
+<!-- Mid Spacing Gap -->
+<div class="absolute inset-1.5 rounded-full bg-surface"></div>
+<!-- Core Trigger Button -->
+<div class="relative w-14 h-14 rounded-full bg-primary flex items-center justify-center group-hover:scale-95 transition-transform shadow-[inset_0_0_12px_rgba(255,255,255,0.4)]">
+<div class="w-4 h-4 rounded-full bg-white/90 shadow-[0_0_8px_#ffffff]"></div>
+</div>
+</button>
+<!-- Lens Flip / Switch Camera -->
+<button aria-label="Flip Camera Lens" class="w-12 h-12 rounded-full bg-surface-container-high/90 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary active:rotate-180 transition-all shadow-[0_0_10px_rgba(0,255,204,0.15)] active:scale-90" id="flipBtn">
+<span class="material-symbols-outlined text-2xl">flip_camera_ios</span>
+</button>
+</div>
+<!-- CAMERA MODE SLIDER -->
+<div class="flex items-center justify-center gap-7 pt-2 pb-1 font-label text-xs tracking-wider">
+<button class="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">POST</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">STORY</button>
+<div class="relative flex flex-col items-center">
+<button class="text-primary font-bold text-sm tracking-widest drop-shadow-[0_0_8px_#ff2d78] cursor-pointer">REEL</button>
+<div class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_6px_#ff2d78] mt-1"></div>
+</div>
+<button class="text-on-surface-variant hover:text-secondary transition-colors cursor-pointer">LIVE</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Camera trigger & tactile interaction script
+  document.getElementById('shutterBtn')?.addEventListener('click', function() {
+    const core = this.querySelector('.bg-primary');
+    if (core) {
+      core.classList.add('scale-75', 'bg-secondary');
+      setTimeout(() => {
+        core.classList.remove('scale-75', 'bg-secondary');
+      }, 200);
+    }
+  });
+
+  document.getElementById('flipBtn')?.addEventListener('click', function() {
+    this.classList.toggle('rotate-180');
+  });
+</script></main></body></html>

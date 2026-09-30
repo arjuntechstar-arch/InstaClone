@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0a0a12;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#ff2d78","tertiary-fixed":"#fff0c0","tertiary-container":"#665200","on-secondary-container":"#c0fff4","on-secondary-fixed":"#001a1a","surface-bright":"#1a1a2e","primary-fixed":"#ffe0ec","on-secondary":"#001a1a","error-container":"#3d0f0f","on-primary-container":"#ffe0ec","secondary":"#00ffcc","on-primary-fixed-variant":"#8c0038","on-surface":"#e8e0f0","surface-container-lowest":"#0a0a12","secondary-fixed":"#c0fff4","surface-container-high":"#1e1e30","on-error":"#1a0000","surface-container-highest":"#28283e","on-tertiary-container":"#fff0c0","primary-fixed-dim":"#ff80aa","on-secondary-fixed-variant":"#004d4d","outline-variant":"#302840","on-primary-fixed":"#3d0020","on-background":"#e8e0f0","background":"#0a0a12","inverse-on-surface":"#0a0a12","outline":"#5a5068","surface-container-low":"#111118","on-primary":"#1a0010","tertiary-fixed-dim":"#ffe04a","primary":"#ff2d78","surface-container":"#141422","on-error-container":"#ffa0a0","on-tertiary-fixed":"#1a1000","inverse-surface":"#e8e0f0","surface-variant":"#1e1e30","surface":"#0f0f1a","error":"#ff4444","secondary-fixed-dim":"#00e6b8","primary-container":"#b3004e","inverse-primary":"#8c0038","on-tertiary":"#1a1000","surface-dim":"#0f0f1a","tertiary":"#ffe04a","on-surface-variant":"#a098b0","secondary-container":"#004d3d","on-tertiary-fixed-variant":"#665200"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{},"fontFamily":{"headline":["Sora"],"display":["Sora"],"body":["Inter"],"label":["Space Grotesk"]},"fontSize":{}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-4 flex items-center justify-between"><div class="flex items-center gap-2"><span class="font-headline font-bold text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary via-surface-tint to-secondary drop-shadow-[0_0_8px_rgba(255,45,120,0.5)]">TOKYO.GRAM</span><span class="hidden">Reels</span></div><div class="flex items-center gap-1"><button class="w-11 h-11 flex items-center justify-center relative text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[24px]">favorite</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#ff2d78]"></span></button><button class="w-11 h-11 flex items-center justify-center relative text-on-surface hover:text-secondary transition-colors"><span class="material-symbols-outlined text-[24px]">send</span><span class="absolute top-1.5 right-1.5 min-w-[16px] h-4 px-1 rounded-full bg-secondary text-on-secondary font-label text-[10px] font-bold flex items-center justify-center shadow-[0_0_8px_#00ffcc]">4</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ml-1" src="https://lh3.googleusercontent.com/aida/AEtjO1WsqngmXAEQ8AumlYFjWD3bvdBWydF7p0yTUtziK_RnKYuGqE1PH3veqW0VuV1G9VlrdlOlRMy9_9NoV4Pdvv5_4GFAOLoU8ocCmQQxc8lZqq4TXgYqQZm0e5VD1T-cpUUuboqBa0xkaPbmGtn-sQMyAt6dg3BkBVrw4UMmOnxKuJd9Gr7y2kv6oaeBn_w50OJgHFTpJDhCOjGbyRr3AKMVI1STrGQGMvmw8crmgdQeM8HRskgQF5DNbg"/></div></div></header><main class="flex flex-col relative w-full pt-14 pb-20 bg-background"><div class="flex flex-col w-full relative select-none">
+<!-- Reel Video Viewport Simulation Container -->
+<div class="relative w-full aspect-[9/16] max-h-[724px] overflow-hidden rounded-xl bg-surface-container-lowest shadow-2xl" id="reel-container">
+<!-- Background Simulated Video Scene -->
+<div class="absolute inset-0 bg-cover bg-center scale-105 transition-transform duration-700 ease-out" data-alt="Cinematic cyberpunk Neo-Tokyo rooftop drone shot at night in heavy rain. A cybernetic katana warrior in iridescent glowing techwear stands on a ledge looking out over a sprawling megacity bathed in hot pink and electric cyan neon holograms, dense volumetric fog, wet reflections, and towering cybernetic skyscrapers." id="video-frame" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNEUtSfL_J-fa4rRqqwo9YYFSkqe6Nl9PsynhDXV-cLTU0u4mKUnu2Pk9MjCbtQ9aCPRR5UcoagXIUCqEluYJLuPrENEScpvPDSYaN3OvrHaudMATEt_X57PjIHJQT_QxZ8MF8yBOy73KjPRzs4BfbrNnx3HRFQ7k3hPmRJgm9y2VwOJZdbMsT-YtZHQPBLRsSasu-PkDf1zYIR5Pz0NCy7Bn4z6Mvl60mzavjCyIB3nqjQKhAn8wC')">
+<!-- Atmospheric Cyberpunk Grid & Vignette Overlays -->
+<div class="absolute inset-0 bg-gradient-to-b from-surface-container-lowest/80 via-transparent to-surface-container-lowest/95 pointer-events-none"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-surface-container-lowest/30 to-surface-container-lowest/90 pointer-events-none"></div>
+<!-- Subtle Ambient Scanlines Overlay -->
+<div class="absolute inset-0 opacity-15 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,255,204,0.1)_50%)] bg-[length:100%_4px]"></div>
+</div>
+<!-- Heart Explosion Particle Container -->
+<div class="pointer-events-none absolute inset-0 flex items-center justify-center z-30 opacity-0 scale-50 transition-all duration-300" id="heart-burst">
+<span class="material-symbols-outlined text-[96px] text-primary drop-shadow-[0_0_24px_#ff2d78]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<!-- Top Overlay: Title, Sound & Camera Bar -->
+<div class="absolute top-0 left-0 right-0 p-4 pt-3 flex items-center justify-between z-20">
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-lg tracking-wider text-on-surface flex items-center gap-1.5 drop-shadow-[0_0_10px_rgba(255,45,120,0.6)]">
+          REELS
+          <span class="inline-block w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_#00ffcc]"></span>
+</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-surface-container/60 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary active:scale-95 transition-all" id="sound-btn">
+<span class="material-symbols-outlined text-[20px]" id="sound-icon">volume_up</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container/60 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</button>
+</div>
+</div>
+<!-- Right-Side Floating Action Rail -->
+<div class="absolute right-3 bottom-14 flex flex-col items-center gap-5 z-20">
+<!-- Like Button -->
+<div class="flex flex-col items-center gap-1">
+<button class="w-12 h-12 rounded-full bg-surface-container/70 backdrop-blur-md flex items-center justify-center text-on-surface active:scale-125 transition-transform duration-200" id="like-btn">
+<span class="material-symbols-outlined text-[28px] transition-colors duration-200" id="like-icon">favorite</span>
+</button>
+<span class="font-label text-xs font-semibold tracking-tight text-on-surface/90" id="like-count">342.8K</span>
+</div>
+<!-- Comment Button -->
+<div class="flex flex-col items-center gap-1">
+<button class="w-12 h-12 rounded-full bg-surface-container/70 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+</button>
+<span class="font-label text-xs font-semibold tracking-tight text-on-surface/90">2,419</span>
+</div>
+<!-- Share / Paper Plane -->
+<div class="flex flex-col items-center gap-1">
+<button class="w-12 h-12 rounded-full bg-surface-container/70 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-secondary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[26px]">send</span>
+</button>
+<span class="font-label text-xs font-semibold tracking-tight text-on-surface/90">89.2K</span>
+</div>
+<!-- Remix / Sparks Icon -->
+<div class="flex flex-col items-center gap-1">
+<button class="w-12 h-12 rounded-full bg-surface-container/70 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-tertiary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[26px]">auto_awesome</span>
+</button>
+<span class="font-label text-[10px] tracking-wider uppercase text-on-surface/80">Remix</span>
+</div>
+<!-- More Menu Button -->
+<button class="w-10 h-10 rounded-full bg-surface-container/50 backdrop-blur-md flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[22px]">more_horiz</span>
+</button>
+<!-- Spinning Glowing Vinyl Disc Audio Indicator -->
+<div class="relative mt-1 group">
+<!-- Floating Cyber Audio Note Particles -->
+<div class="absolute -top-3 -left-3 pointer-events-none animate-bounce text-secondary drop-shadow-[0_0_6px_#00ffcc] opacity-80">
+<span class="material-symbols-outlined text-[14px]">music_note</span>
+</div>
+<div class="absolute -top-1 -right-2 pointer-events-none animate-pulse text-primary drop-shadow-[0_0_6px_#ff2d78] opacity-75">
+<span class="material-symbols-outlined text-[16px]">graphic_eq</span>
+</div>
+<div class="w-11 h-11 rounded-full p-0.5 bg-gradient-to-tr from-primary via-surface to-secondary animate-spin [animation-duration:5s] shadow-[0_0_12px_rgba(0,255,204,0.4)]">
+<div class="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover scale-110 opacity-85" data-alt="Cyberpunk vinyl album badge in neon colors featuring a stylized holographic geisha crest under magenta glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5EgVpurJkbiKfHM9n7mVPblKi4IKugczl9ag72hnEhVnerzC4d9AbCR6ZF25PUmToTuDa8m6Ab4a1M-qCOr54ySZIHtnyNDPQGG2xbUEmyj0hwPS6ol4BioWFxs1ZX5LgSLJgr9LzoBZO5Us4TfgQGp1Id6Y5OAEK5EipEqgLO3Rbr5OABXDERtQigQfo0L2C94mABQ1vyAXDHh9mJ1TIHKZwQgyTt7vuj8XAyJcxDVaTzOsqY94r"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Overlay Content: Creator info, caption, audio ticker -->
+<div class="absolute bottom-2 left-0 right-16 p-4 flex flex-col gap-2.5 z-20 pointer-events-auto">
+<!-- Creator Row -->
+<div class="flex items-center gap-2.5">
+<div class="relative w-10 h-10 rounded-full p-[2px] bg-gradient-to-r from-primary to-secondary shadow-[0_0_8px_rgba(255,45,120,0.6)]">
+<img class="w-full h-full rounded-full object-cover" data-alt="Close up avatar profile of a cyberpunk female operative with asymmetrical lilac hair, luminescent neon eyeliner, and futuristic neural interface port." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDYL-s3CJmDNWyo9oFTLQcTcMMmDSDX16cVLaV8JAiEf5hOANlIlFhMrIG_fHBMew7uINwdkUTnQZHrqhZXDT9_Vsc9QT5_2YB129koT0xmOAXubxSV5CXPKxdCW1yvuNCDRnuh_6vFZ0ilBgiotbKUFvexnrkgewP1NCudkAtLem7NiHc5DEu8515aiEL_oZZq1JXfpLsC-aOHPcMrY8OLnH18EQH2tQmHccJSgvJruXR52uw23B8"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_6px_#00ffcc]"></span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-sm tracking-wide text-on-surface drop-shadow-[0_0_6px_rgba(232,224,240,0.4)]">@cyber_valkyrie</span>
+<button class="px-2.5 py-0.5 rounded-full bg-surface-container-high/90 text-on-surface hover:text-primary font-label text-[11px] font-bold tracking-wider uppercase transition-all shadow-[0_0_8px_rgba(255,45,120,0.2)] active:scale-95" id="follow-btn">
+            + Follow
+          </button>
+</div>
+</div>
+<!-- Caption -->
+<p class="font-body text-xs leading-relaxed text-on-surface/95 drop-shadow line-clamp-2">
+        Chasing the neon sunrise above Sector 7 before the grid reset. Who's pulling all-nighters this weekend? 🌆✨
+      </p>
+<!-- Audio Marquee Ticker -->
+<div class="flex items-center gap-2 text-on-surface/90 pt-0.5 overflow-hidden">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 animate-pulse">music_note</span>
+<div class="overflow-hidden whitespace-nowrap w-full">
+<div class="inline-block animate-[marquee_12s_linear_infinite] font-label text-xs tracking-wider text-secondary">
+<span>Tokyo Glitch • Cyberpunk Overdrive (Original Mix)</span>
+<span class="mx-4 text-on-surface/40">✦</span>
+<span>Tokyo Glitch • Cyberpunk Overdrive (Original Mix)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Progress / Scrub Bar -->
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-surface-variant/40 z-30 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-secondary shadow-[0_0_8px_#00ffcc] w-2/5 transition-all duration-300" id="progress-bar" style="width: 31.4%;"></div>
+</div>
+</div>
+<!-- Interactive Controls Script -->
+<script>
+    (() => {
+      // Like state handling
+      const likeBtn = document.getElementById('like-btn');
+      const likeIcon = document.getElementById('like-icon');
+      const likeCount = document.getElementById('like-count');
+      const heartBurst = document.getElementById('heart-burst');
+      const container = document.getElementById('reel-container');
+      let liked = false;
+
+      function triggerLike() {
+        liked = !liked;
+        if (liked) {
+          likeIcon.style.fontVariationSettings = "'FILL' 1";
+          likeIcon.classList.add('text-primary');
+          likeIcon.style.textShadow = '0 0 12px #ff2d78';
+          likeCount.textContent = '342.9K';
+          likeCount.classList.add('text-primary');
+
+          // Burst animation
+          heartBurst.classList.remove('opacity-0', 'scale-50');
+          heartBurst.classList.add('opacity-100', 'scale-125');
+          setTimeout(() => {
+            heartBurst.classList.remove('opacity-100', 'scale-125');
+            heartBurst.classList.add('opacity-0', 'scale-50');
+          }, 600);
+        } else {
+          likeIcon.style.fontVariationSettings = "'FILL' 0";
+          likeIcon.classList.remove('text-primary');
+          likeIcon.style.textShadow = 'none';
+          likeCount.textContent = '342.8K';
+          likeCount.classList.remove('text-primary');
+        }
+      }
+
+      likeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerLike();
+      });
+
+      // Double-tap to like on frame
+      let lastTap = 0;
+      container.addEventListener('click', (e) => {
+        const currentTime = new Date().getTime();
+        const tapLength = currentTime - lastTap;
+        if (tapLength < 300 && tapLength > 0) {
+          if (!liked) triggerLike();
+        }
+        lastTap = currentTime;
+      });
+
+      // Follow Toggle
+      const followBtn = document.getElementById('follow-btn');
+      let following = false;
+      followBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        following = !following;
+        if (following) {
+          followBtn.textContent = 'Following';
+          followBtn.classList.remove('text-on-surface');
+          followBtn.classList.add('text-secondary', 'bg-secondary/20');
+        } else {
+          followBtn.textContent = '+ Follow';
+          followBtn.classList.remove('text-secondary', 'bg-secondary/20');
+          followBtn.classList.add('text-on-surface');
+        }
+      });
+
+      // Sound mute/unmute toggle
+      const soundBtn = document.getElementById('sound-btn');
+      const soundIcon = document.getElementById('sound-icon');
+      let muted = false;
+      soundBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        muted = !muted;
+        soundIcon.textContent = muted ? 'volume_off' : 'volume_up';
+        soundIcon.classList.toggle('text-error', muted);
+      });
+
+      // Progress bar loop animation
+      const progressBar = document.getElementById('progress-bar');
+      let progress = 35;
+      setInterval(() => {
+        progress = (progress + 0.4) % 100;
+        progressBar.style.width = progress + '%';
+      }, 100);
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.4)]" data-active-classes="text-primary [text-shadow:0_0_8px_currentColor]"><div class="flex justify-around items-center h-16 px-2"><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="home-feed" href="#"><span class="material-symbols-outlined text-[26px]">home</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="explore-search" href="#"><span class="material-symbols-outlined text-[26px]">search</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-12 h-12 transition-all text-primary [text-shadow:0_0_8px_currentColor]" data-path="reels" href="#"><span class="material-symbols-outlined text-[26px]">movie</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="cyber-shop" href="#"><span class="material-symbols-outlined text-[26px]">local_mall</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="user-profile" href="#"><span class="material-symbols-outlined text-[26px]">person</span></a></div></nav></body></html>

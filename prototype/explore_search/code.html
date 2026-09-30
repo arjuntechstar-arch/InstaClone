@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0a0a12;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#ff2d78","tertiary-fixed":"#fff0c0","tertiary-container":"#665200","on-secondary-container":"#c0fff4","on-secondary-fixed":"#001a1a","surface-bright":"#1a1a2e","primary-fixed":"#ffe0ec","on-secondary":"#001a1a","error-container":"#3d0f0f","on-primary-container":"#ffe0ec","secondary":"#00ffcc","on-primary-fixed-variant":"#8c0038","on-surface":"#e8e0f0","surface-container-lowest":"#0a0a12","secondary-fixed":"#c0fff4","surface-container-high":"#1e1e30","on-error":"#1a0000","surface-container-highest":"#28283e","on-tertiary-container":"#fff0c0","primary-fixed-dim":"#ff80aa","on-secondary-fixed-variant":"#004d4d","outline-variant":"#302840","on-primary-fixed":"#3d0020","on-background":"#e8e0f0","background":"#0a0a12","inverse-on-surface":"#0a0a12","outline":"#5a5068","surface-container-low":"#111118","on-primary":"#1a0010","tertiary-fixed-dim":"#ffe04a","primary":"#ff2d78","surface-container":"#141422","on-error-container":"#ffa0a0","on-tertiary-fixed":"#1a1000","inverse-surface":"#e8e0f0","surface-variant":"#1e1e30","surface":"#0f0f1a","error":"#ff4444","secondary-fixed-dim":"#00e6b8","primary-container":"#b3004e","inverse-primary":"#8c0038","on-tertiary":"#1a1000","surface-dim":"#0f0f1a","tertiary":"#ffe04a","on-surface-variant":"#a098b0","secondary-container":"#004d3d","on-tertiary-fixed-variant":"#665200"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{},"fontFamily":{"headline":["Sora"],"display":["Sora"],"body":["Inter"],"label":["Space Grotesk"]},"fontSize":{}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-4 flex items-center justify-between"><div class="flex items-center gap-2"><span class="font-headline font-bold text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary via-surface-tint to-secondary drop-shadow-[0_0_8px_rgba(255,45,120,0.5)]">TOKYO.GRAM</span><span class="hidden">Explore Search</span></div><div class="flex items-center gap-1"><button class="w-11 h-11 flex items-center justify-center relative text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[24px]">favorite</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#ff2d78]"></span></button><button class="w-11 h-11 flex items-center justify-center relative text-on-surface hover:text-secondary transition-colors"><span class="material-symbols-outlined text-[24px]">send</span><span class="absolute top-1.5 right-1.5 min-w-[16px] h-4 px-1 rounded-full bg-secondary text-on-secondary font-label text-[10px] font-bold flex items-center justify-center shadow-[0_0_8px_#00ffcc]">4</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ml-1" src="https://lh3.googleusercontent.com/aida/AEtjO1WsqngmXAEQ8AumlYFjWD3bvdBWydF7p0yTUtziK_RnKYuGqE1PH3veqW0VuV1G9VlrdlOlRMy9_9NoV4Pdvv5_4GFAOLoU8ocCmQQxc8lZqq4TXgYqQZm0e5VD1T-cpUUuboqBa0xkaPbmGtn-sQMyAt6dg3BkBVrw4UMmOnxKuJd9Gr7y2kv6oaeBn_w50OJgHFTpJDhCOjGbyRr3AKMVI1STrGQGMvmw8crmgdQeM8HRskgQF5DNbg"/></div></div></header><main class="flex flex-col relative w-full pt-14 pb-20 bg-background"><div class="flex flex-col w-full text-on-surface">
+<!-- Search Header Panel -->
+<div class="sticky top-0 z-30 px-3 pt-2 pb-2 bg-surface/90 backdrop-blur-md">
+<div class="relative flex items-center gap-2">
+<div class="relative flex-1 flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-secondary pointer-events-none text-[20px] drop-shadow-[0_0_8px_#00ffcc]">search</span>
+<input class="w-full h-11 pl-11 pr-10 bg-surface-container text-on-surface placeholder:text-outline text-xs tracking-wider rounded-xl font-label focus:outline-none focus:bg-surface-container-high focus:text-secondary-fixed transition-all" placeholder="Search cyborgs, tags, synth audio..." type="text"/>
+<button aria-label="Audio search" class="absolute right-2.5 p-1 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+</button>
+</div>
+<button aria-label="Scan QR or Matrix code" class="h-11 w-11 shrink-0 rounded-xl bg-surface-container flex items-center justify-center text-primary hover:text-primary-fixed hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-[20px] drop-shadow-[0_0_8px_#ff2d78]">qr_code_scanner</span>
+</button>
+</div>
+<!-- Category Pill Carousel -->
+<div class="flex items-center gap-2 overflow-x-auto pt-2.5 pb-1 no-scrollbar scroll-smooth">
+<button class="category-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-label tracking-wide bg-primary/20 text-primary-fixed shadow-[0_0_12px_rgba(255,45,120,0.25)] flex items-center gap-1.5 active:scale-95 transition-all">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+        All Matrix
+      </button>
+<button class="category-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-label tracking-wide bg-surface-container text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all">
+        ⚡ Cyberpunk
+      </button>
+<button class="category-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-label tracking-wide bg-surface-container text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all">
+        Synthwave
+      </button>
+<button class="category-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-label tracking-wide bg-surface-container text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all">
+        Holograms
+      </button>
+<button class="category-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-label tracking-wide bg-surface-container text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all">
+        Streetwear
+      </button>
+<button class="category-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-label tracking-wide bg-surface-container text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all">
+        AR Shaders
+      </button>
+<button class="category-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-label tracking-wide bg-surface-container text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all">
+        Tokyo 2099
+      </button>
+<button class="category-pill shrink-0 px-3.5 py-1.5 rounded-full text-xs font-label tracking-wide bg-surface-container text-on-surface-variant hover:text-secondary hover:bg-surface-container-high active:scale-95 transition-all">
+        Night Life
+      </button>
+</div>
+</div>
+<!-- Live Pulse Strip -->
+<div class="px-3 py-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[16px] animate-spin" style="animation-duration: 4s;">radar</span>
+<span class="text-[11px] font-label tracking-widest uppercase text-on-surface-variant">Live Grid Feeds</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#00ffcc]"></span>
+<span class="text-[10px] font-label text-secondary tracking-wider">NEO-SHINJUKU : ONLINE</span>
+</div>
+</div>
+<!-- Explore Dynamic Mosaic Grid (Instagram 3-Column Composition) -->
+<div class="px-2 pb-6 space-y-1">
+<!-- BLOCK 1: Left 2x2 Big Reel + Right 2 Stacked Square Tiles -->
+<div class="grid grid-cols-3 gap-1">
+<!-- Big Featured 2x2 Reel -->
+<div class="col-span-2 row-span-2 relative aspect-[2/2] rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Futuristic cyberpunk Tokyo street in heavy rain with neon pink and cyan billboards glowing, a mysterious female cyborg in high-tech reflective streetwear holding a glowing translucent umbrella, cinematic atmospheric volumetric fog, hyper-detailed reflections in asphalt puddles, night photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzFOeaeE95eBzxZkAG-wbW7CXARGqzupZiNV1_ikrnHOPJDTGNCYSElri59jQq7XBzh8FFT5i7x3p8j2YslReuIiy6l3FrYkBVrxFZBAD5cvEVt9FmjF9j16-EmYiYFLId0J9xD0Skn46VksqdVoZvBIQlcdCuCmNkNtMQoXQx-WAGMZz4EFWaDZmpFD9PsPSBdFKa4Y3PuIAA-IOTlhJmn4VR9e0pqPJ8O6e2K58omkP9oBhT5plo')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<!-- Top Badges -->
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-surface/80 backdrop-blur-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_6px_#ff2d78]"></span>
+<span class="text-[10px] font-label font-bold text-primary tracking-wider uppercase">Trending Reel</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="material-symbols-outlined text-white text-[20px] drop-shadow-[0_0_8px_rgba(0,0,0,0.8)]">movie</span>
+</div>
+<!-- Reel Stats / Play Prompt -->
+<div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-end justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-headline font-bold text-on-surface drop-shadow-md">@rei_kusanagi</span>
+<div class="flex items-center gap-1 mt-0.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[14px]">visibility</span>
+<span class="text-[11px] font-label text-secondary tracking-wider drop-shadow-[0_0_6px_#00ffcc]">842K</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary/20 backdrop-blur-md flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Right Stack Item 1: Cyber Cat -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Futuristic robotic cybernetic cat with glowing turquoise optical eyes, carbon-fiber plating, sitting on an illuminated glass desk covered in holographic code readouts, neon studio lighting in deep purple and cyan, high-tech companion concept art." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD3AHO_XtrGvQiqwdCFJczPfywKWRzyX56aQAHgtaUad24PQKtVXNKBwpS_ezVqOq0_UFoBf2Z0S7l0IrJL3vaqjsY2_H55YRytehO5fcDmzGShzYH_VBH21bhvZdz1KatxqEzzfHP0iTgDGbeQ3CKCAzte3dSu6hDlDCtfyYYK7P_l4KFGoiqohurhTRS65CBJRaQaUBGIUwFWgqQkKOMRIzt-4vUMBOYrKSsQTXcfI8gXC-k9ZrRw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white/90 text-[18px] drop-shadow-md">photo_library</span>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-on-surface-variant opacity-80 group-hover:text-secondary group-hover:opacity-100 transition-all">#MechaPets</div>
+</div>
+<!-- Right Stack Item 2: Neon Ramen Stand -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Cozy narrow Tokyo cyberpunk ramen stall at night, steaming bowls of noodles, warm amber lantern glow clashing with vibrant electric magenta neon signs, rain dripping from canvas awnings, intimate atmospheric street photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCzWwGKYq1RVvP-y9611TJxs_YDecsx51kB4BT43munN-vUEM0sPo3if0Zt1V1FKYAyEaQQNJljy__wuvZDi3bcgjbmV6dzH2N5McsCZvX0N2PxBHJakDhX0m_R0toUQBX5-1LWUUG_CO-TOlihV9DWkwHJFIrslv2nr_IusLq87fdWVWZ8bhujAy72Oy62CD8A8HyZlv50UVO2_hI2CzUmfMwudBFBR2o572h0z89qqvnEwVzcvok6')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white/90 text-[18px] drop-shadow-md">movie</span>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-on-surface-variant opacity-80 group-hover:text-primary transition-all">#NeoEats</div>
+</div>
+</div>
+<!-- BLOCK 2: 3 Standard Uniform Tiles -->
+<div class="grid grid-cols-3 gap-1">
+<!-- Tile 1: Holographic Alleyway -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Narrow dark cyber-alleyway illuminated by huge floating 3D holographic koi fish swimming through the air, vibrant pink and cyan glowing water ripples projected onto wet concrete walls, high contrast cinematic photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDD2TLkkQKc6P_P6XsO44B45Px2FwshDC5eDhk9FIk9dc-wpvL3VRpIUOBa2hLFPRbUcZ0BdqHcWXP3GlX_vZW2g43KRupxdcs4gopKlh9yy0RFjjlGKEESTUkbEfSqk7ZaZm0Q6C2fzzLy7lHXFnTcyDvfSMeowk2vs_p7I6XZmiP9R9OCUrIRkWD-KU8Uk2kCyC0GXHB-XkPJYMbZzneko5dNWllaYVWZr1YveH7qVPPiJRrPEtMC')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white/90 text-[18px] drop-shadow-md">photo_library</span>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-on-surface-variant">#HoloArt</div>
+</div>
+<!-- Tile 2: Katana Duel -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Two masked street samurai clashing with glowing electric plasma katanas on a wet rooftop, bright hot pink and electric blue sparks erupting at the blade point, dark stormy Tokyo skyscrapers in the background, high action cinematography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCC3Y_sWrr8qHsqJ_SlOsQAxP32UmiJcFqw970V3jd3KPcRTtCchOzpeZ2ny1PeV5F-nHARi7OILmiy3gSYLkvkA3kzvcZBwnWkmIlf08jl94jvY7ujRg4UmPEfQW8Ba6eU7FznmGjQeu0h28s8EROBdUaotwPuHscmIIyTgeWWiyfrNlj6mhqmNI5osFlJq78cpzPhmThrAMeuBJqzVx0V0P5UFBlBq_xBgjBigGb1zpDa2Hxm1Hpl')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white/90 text-[18px] drop-shadow-md">movie</span>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">bolt</span>320K
+        </div>
+</div>
+<!-- Tile 3: Cyberpunk Sneaker Drop -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Floating futuristic high-top sneaker with transparent sole filled with pulsing neon liquid light, mechanical strap lacing system, glossy studio render against dark vaporwave gradient background, cyberpunk streetwear hypebeast aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFQs0B8MD5RDi_yyus10AYMdYxl8vAjk_lD2XYRQxn6P9desbrBEiTLggLx4KebsY2Rn38L9YdQu5etJdcj1yNTn3kJxJchG2QGEtRESJ3bj797yQDs1gBsbiD2vjToXrFAqhb7IRz_Nq7WEqP18qq_NScitKKTYdmbMrfzGcaUtnQSwKyKI_MZuytQJXy65cWB0my39bqw6Zj8paDjgK_IuaTVeuURWQfEiptzz58Nz_uBwEtjxjT')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-primary/80 backdrop-blur-xs text-[9px] font-label font-bold text-on-primary">DROP</div>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-on-surface-variant">#Kicks2099</div>
+</div>
+</div>
+<!-- BLOCK 3: Left 2 Stacked Square Tiles + Right 2x2 Reel Spotlight -->
+<div class="grid grid-cols-3 gap-1">
+<!-- Left Stack Item 1: Drone Skyline Shot -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Breathtaking aerial drone view looking down through low-lying futuristic smog over Tokyo megalopolis at midnight, endless grid of pulsing neon towers, glowing light highways with flying vehicle traffic trails, epic retro-futurism cityscape." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBlReUj9btZDChLXEXXTbd0Fch_ZX4flsm1dHV2NTShrt-hlrf4b4dSwBs8SCDN5CjUKt8IDa7xh4QmsvrISKTokxYizTZheJhovYFOa6jcnZ9XO3FtQRJd2C9T0N4EqJw7p8XIx7r79NqnSV8BsN89Hqsx0uHw7mLhiGlZeJrMJlnD3-QQXHs1k4h4_4ZM9HaM6AlK2LxYEsQhQYpZ0RvS7iRYclJpICwZ0JmZ-0Cg1lFGVkuKt4Mp')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white/90 text-[18px] drop-shadow-md">photo_library</span>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-on-surface-variant group-hover:text-secondary transition-colors">#AeroDrone</div>
+</div>
+<!-- Left Stack Item 2: Synth DJ Console -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Close-up of a synthwave DJ hands tweaking illuminated sliders and modular synthesizer patch cords glowing with fiber optic neon colors inside an underground Tokyo nightclub, moody violet haze, vibrant club atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmWMb9QBfaDSlukonIaInrEJ2-0Ykzc36NVMkCulD5eYBf-fLUXxDdvxRSEmKk1xP78Bxt_XLWDQjCtx9aWFadTlAaY9bVkhzCXk5-_HKZ4Caov5zDcCJ2xJfli6Rey8RHE1j8Mw7adVOZHyDGuPIn8O5nAZcLffHqWaOlYB2QqMMILpD8YYF_faNLKjQs_9PERWBAVJLZyiuxQLklcjXr2GkDsN7kAJc2hiaQ0DphGofa6LN7XAs2')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white/90 text-[18px] drop-shadow-md">music_note</span>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-on-surface-variant group-hover:text-primary transition-colors">#CyberAudio</div>
+</div>
+<!-- Big Featured 2x2 Spotlight: Cyber Racer -->
+<div class="col-span-2 row-span-2 relative aspect-[2/2] rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Futuristic aerodynamic neon-lit street motorcycle speeding across the Rainbow Bridge in Neo Tokyo, cyan wheel trails leaving light streaks, rider in sleek carbon-fiber armor and tinted helmet with holographic HUD visor display, dynamic motion blur." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6lllZPCNYR6MFOA6-PAX1IC9_irqfB_h60RTBN1_z-S0aayiVT7i_x-rpOLPmRupsyjOQKwaGNnqe7X8aQaXkY59cXLonvMZW-WTfIE4uvmY6ulmKa52tqntSC8t_E2ASU3nnJ2xKKKttmF236ecvCF3zZt2jyEiQm8O_xPFgF6woBI_rpcOCQShm2eVJwW6_jKG1QgzM5dfe1gNynmMtkUogR5eqMvQ_wV9cSvPpXOEbc9MRVJDH')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-surface-container-lowest/20 to-transparent"></div>
+<!-- Top Badges -->
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-surface/80 backdrop-blur-md">
+<span class="material-symbols-outlined text-secondary text-[14px] drop-shadow-[0_0_6px_#00ffcc]">local_fire_department</span>
+<span class="text-[10px] font-label font-bold text-secondary tracking-wider uppercase">Editor's Pick</span>
+</div>
+<div class="absolute top-2.5 right-2.5">
+<span class="material-symbols-outlined text-white text-[20px] drop-shadow-[0_0_8px_rgba(0,0,0,0.8)]">movie</span>
+</div>
+<!-- Reel Stats / Play Prompt -->
+<div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-end justify-between">
+<div class="flex flex-col">
+<span class="text-xs font-headline font-bold text-on-surface drop-shadow-md">@shibuya_speed_unit</span>
+<div class="flex items-center gap-1 mt-0.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[14px]">favorite</span>
+<span class="text-[11px] font-label text-primary tracking-wider drop-shadow-[0_0_6px_#ff2d78]">1.2M</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary/20 backdrop-blur-md flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+</div>
+<!-- BLOCK 4: 3 Standard Uniform Bottom Tiles -->
+<div class="grid grid-cols-3 gap-1">
+<!-- Tile 1: Cyberpunk Tattoo Parlor -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Futuristic body modification and illuminated bioluminescent LED skin tattoo parlor in Shinjuku, artist using an optical laser needle to ink glowing cyan circuit patterns on client shoulder, sci-fi cyberpunk portrait." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCD4bKM5bjD4e75QQCJJR3XNPSWxiFOc-BLu2VMqcIX3xSJHG3wHVG__F8-prLmdAejZ2_sNC53sFPqSszK6LBOObia_C7Sb0J1hJ3KCNBkUQZyEoGd6gjzIYjOq0KGz5uthwzGmCtAyv8s_9f-Fa9c-ts-LtldXz3nTvqlek8LNdwyBbxKEuYSub6A7xrvsNxtdeQXl1BSgsVSiPyx-krWXB1VygcmdP4J5c62EekzYjoPNhCioUos')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white/90 text-[18px] drop-shadow-md">photo_library</span>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-on-surface-variant">#BioMod</div>
+</div>
+<!-- Tile 2: Hologram Arcade -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Retro-futuristic Akihabara arcade center filled with glowing vintage arcade cabinets and floating volumetric holographic fighting game characters battling in mid-air, purple and hot pink neon haze, excited retro gamer crowd." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdItWTTrAOqc5N6FDRb1BPjE7I1GKSvOFV_QFvt6lDJ1odD0L5Vh97NjFlkuKjaiTagaompp7ANZhar7TQ9LrsXtjp6_ygC_OzzeuvBIVgo82QCljQARMe5awUSfXKVyjWlGpB_ZwsKODCZOlCLqW_aQV5AXn5PUEkNLEYOMbhUWGEBUJFGesrVjp-7zPjqBzDe6iytQiwGyb8-TBg0KlCJyqLJS6mEX8qU65lZRpc0Rtspb20X2OT')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white/90 text-[18px] drop-shadow-md">movie</span>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">visibility</span>98K
+        </div>
+</div>
+<!-- Tile 3: Neon Capsule Pod -->
+<div class="relative aspect-square rounded-xl overflow-hidden group bg-surface-container-low cursor-pointer">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Inside a high-tech minimalist capsule hotel pod in Tokyo 2099 with rounded glass viewports, ambient neon teal trim illumination, digital interface screens glowing softly on the headboard, cozy sci-fi interior architecture." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjdnIyY8a-w8UQjAZDMlhsjPPVxRwRkMe0Yaf1cjdzGAhRwtI5TDL4ZCadOc6Mg4FsmVA3Bzd1LWW9VJyMdLdTJR3k3BuQPMHVkLfgatH3kxYiwqcpW7ZzKksjCclnDyWbwSpzcNQhf8MXBezTR-PLPoKyes3DSxXgWB05YBQG3hjidFmyQ7URhtBBtJ0-f5JFeNh83QEKeFIDrdNlrhhEL8-dMohaGocbE3OpvKqPYNqdEuJpBkse')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="absolute top-2 right-2 material-symbols-outlined text-white/90 text-[18px] drop-shadow-md">photo_library</span>
+<div class="absolute bottom-1.5 left-2 text-[10px] font-label text-on-surface-variant">#PodLiving</div>
+</div>
+</div>
+</div>
+<!-- End of Feed Refresh Signal -->
+<div class="flex flex-col items-center justify-center py-6 px-4 gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px] animate-spin" style="animation-duration: 2s;">sync</span>
+</div>
+<span class="text-xs font-label text-on-surface-variant tracking-wider uppercase">Synchronizing Sub-Net Grid...</span>
+</div>
+</div>
+<script>
+  (function() {
+    const pills = document.querySelectorAll('.category-pill');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => {
+          p.classList.remove('bg-primary/20', 'text-primary-fixed', 'shadow-[0_0_12px_rgba(255,45,120,0.25)]');
+          p.classList.add('bg-surface-container', 'text-on-surface-variant');
+          const dot = p.querySelector('.animate-pulse');
+          if (dot) dot.remove();
+        });
+        pill.classList.remove('bg-surface-container', 'text-on-surface-variant');
+        pill.classList.add('bg-primary/20', 'text-primary-fixed', 'shadow-[0_0_12px_rgba(255,45,120,0.25)]');
+        
+        const dot = document.createElement('span');
+        dot.className = 'w-1.5 h-1.5 rounded-full bg-primary animate-pulse mr-1.5';
+        pill.prepend(dot);
+      });
+    });
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.4)]" data-active-classes="text-primary [text-shadow:0_0_8px_currentColor]"><div class="flex justify-around items-center h-16 px-2"><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="home-feed" href="#"><span class="material-symbols-outlined text-[26px]">home</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-12 h-12 transition-all text-primary [text-shadow:0_0_8px_currentColor]" data-path="explore-search" href="#"><span class="material-symbols-outlined text-[26px]">search</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="reels" href="#"><span class="material-symbols-outlined text-[26px]">movie</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="cyber-shop" href="#"><span class="material-symbols-outlined text-[26px]">local_mall</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="user-profile" href="#"><span class="material-symbols-outlined text-[26px]">person</span></a></div></nav></body></html>

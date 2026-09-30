@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#0a0a12;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#ff2d78","tertiary-fixed":"#fff0c0","tertiary-container":"#665200","on-secondary-container":"#c0fff4","on-secondary-fixed":"#001a1a","surface-bright":"#1a1a2e","primary-fixed":"#ffe0ec","on-secondary":"#001a1a","error-container":"#3d0f0f","on-primary-container":"#ffe0ec","secondary":"#00ffcc","on-primary-fixed-variant":"#8c0038","on-surface":"#e8e0f0","surface-container-lowest":"#0a0a12","secondary-fixed":"#c0fff4","surface-container-high":"#1e1e30","on-error":"#1a0000","surface-container-highest":"#28283e","on-tertiary-container":"#fff0c0","primary-fixed-dim":"#ff80aa","on-secondary-fixed-variant":"#004d4d","outline-variant":"#302840","on-primary-fixed":"#3d0020","on-background":"#e8e0f0","background":"#0a0a12","inverse-on-surface":"#0a0a12","outline":"#5a5068","surface-container-low":"#111118","on-primary":"#1a0010","tertiary-fixed-dim":"#ffe04a","primary":"#ff2d78","surface-container":"#141422","on-error-container":"#ffa0a0","on-tertiary-fixed":"#1a1000","inverse-surface":"#e8e0f0","surface-variant":"#1e1e30","surface":"#0f0f1a","error":"#ff4444","secondary-fixed-dim":"#00e6b8","primary-container":"#b3004e","inverse-primary":"#8c0038","on-tertiary":"#1a1000","surface-dim":"#0f0f1a","tertiary":"#ffe04a","on-surface-variant":"#a098b0","secondary-container":"#004d3d","on-tertiary-fixed-variant":"#665200"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{},"fontFamily":{"headline":["Sora"],"display":["Sora"],"body":["Inter"],"label":["Space Grotesk"]},"fontSize":{}}}}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-4 flex items-center justify-between"><div class="flex items-center gap-2"><span class="font-headline font-bold text-xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary via-surface-tint to-secondary drop-shadow-[0_0_8px_rgba(255,45,120,0.5)]">TOKYO.GRAM</span><span class="hidden">Home Feed</span></div><div class="flex items-center gap-1"><button class="w-11 h-11 flex items-center justify-center relative text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined text-[24px]">favorite</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#ff2d78]"></span></button><button class="w-11 h-11 flex items-center justify-center relative text-on-surface hover:text-secondary transition-colors"><span class="material-symbols-outlined text-[24px]">send</span><span class="absolute top-1.5 right-1.5 min-w-[16px] h-4 px-1 rounded-full bg-secondary text-on-secondary font-label text-[10px] font-bold flex items-center justify-center shadow-[0_0_8px_#00ffcc]">4</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ml-1" src="https://lh3.googleusercontent.com/aida/AEtjO1WsqngmXAEQ8AumlYFjWD3bvdBWydF7p0yTUtziK_RnKYuGqE1PH3veqW0VuV1G9VlrdlOlRMy9_9NoV4Pdvv5_4GFAOLoU8ocCmQQxc8lZqq4TXgYqQZm0e5VD1T-cpUUuboqBa0xkaPbmGtn-sQMyAt6dg3BkBVrw4UMmOnxKuJd9Gr7y2kv6oaeBn_w50OJgHFTpJDhCOjGbyRr3AKMVI1STrGQGMvmw8crmgdQeM8HRskgQF5DNbg"/></div></div></header><main class="flex flex-col relative w-full pt-14 pb-20 bg-background"><div class="flex flex-col w-full pb-8 select-none">
+<!-- Ambient Scanline Overlay Texture -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-40 bg-[radial-gradient(#00ffcc_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<!-- STORIES TRAY -->
+<section class="w-full pt-2 pb-4 overflow-x-auto no-scrollbar scroll-smooth flex items-center gap-3.5 px-4 bg-surface-container-lowest/60 backdrop-blur-md">
+<!-- User Story (Add) -->
+<div class="flex flex-col items-center gap-1.5 shrink-0 cursor-pointer group">
+<div class="relative w-[68px] h-[68px] rounded-full p-[2px] flex items-center justify-center bg-surface-container-high transition-transform duration-300 group-hover:scale-105">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container p-0.5">
+<img class="w-full h-full object-cover rounded-full filter brightness-90 contrast-125" data-alt="Cyberpunk street runner with glowing cyan neural jack ports on the neck and subtle reflective aviator visor against deep violet ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoQsSK1L9C2XHUhFqhIp_8EcrJbR7hHxkK_i5d3KXGqhsQVZC8rxWkQFzWxQYoDGbCLqkIZvizN1Hn6ypwomHmfEBlZYPOovGkJPmQTkLnaQ8Cy2q7OEsIn2zjZoZTs2_zBWUPGOq6z2f6BNB3zgrEYhiQCl8BtJjOhZuq-5nHA90CAGUg9mi-IS94yHPyztCPkfCP5aHimbF2--_xeW-59RGHSVoaav4Grwg6VcifnyYT4mKHKq37"/>
+</div>
+<span class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-[0_0_12px_#ff2d78] transition-transform duration-200 group-hover:scale-110">
+<span class="material-symbols-outlined text-[16px] font-bold">add</span>
+</span>
+</div>
+<span class="font-label text-[11px] text-on-surface-variant group-hover:text-on-surface tracking-tight">Your Story</span>
+</div>
+<!-- Friend 1: @k1ra_neo (Active Neon Ring) -->
+<div class="flex flex-col items-center gap-1.5 shrink-0 cursor-pointer group story-node" data-user="k1ra_neo">
+<div class="relative w-[68px] h-[68px] rounded-full p-[2.5px] bg-gradient-to-tr from-primary via-surface-tint to-secondary shadow-[0_0_12px_rgba(255,45,120,0.5)] transition-all duration-300 group-hover:shadow-[0_0_16px_rgba(0,255,204,0.7)] group-hover:scale-105">
+<div class="w-full h-full rounded-full p-[2px] bg-surface-container-lowest">
+<img class="w-full h-full object-cover rounded-full" data-alt="Futuristic Japanese girl portrait with electric pink asymmetric bob haircut, neon blue eye augmentation, cinematic Tokyo rain bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7vM5fVbVgWRQf1w-dwiQfWq0PB96JxoANgXgEcZbe8t3hZnEagJYeWbhGD9YQMgEN3NZitRQYxdbtoO5m5Ga3BvFP6aZ2VL7EI8GPWNvIBaZjU-uh5Q-1bz2spYAIkEZ9VxPy1LKW_kP2LC9y8nLIRWWtx_UwyNZk8wf-itE2i6p_WeVS-P_u4iiY3Nzqmt-2aC6lPUoNDyRNScNipfiDLwxn1FZXZs6PNE48ecoy5gSoI-P4jBQt"/>
+</div>
+<span class="absolute top-0 right-1 w-2.5 h-2.5 rounded-full bg-secondary shadow-[0_0_8px_#00ffcc] animate-ping"></span>
+</div>
+<span class="font-label text-[11px] text-on-surface truncate max-w-[64px] text-center tracking-tight">k1ra_neo</span>
+</div>
+<!-- Friend 2: @cyber_ren -->
+<div class="flex flex-col items-center gap-1.5 shrink-0 cursor-pointer group story-node" data-user="cyber_ren">
+<div class="relative w-[68px] h-[68px] rounded-full p-[2.5px] bg-gradient-to-tr from-primary via-surface-tint to-secondary shadow-[0_0_10px_rgba(255,45,120,0.35)] transition-all duration-300 group-hover:scale-105">
+<div class="w-full h-full rounded-full p-[2px] bg-surface-container-lowest">
+<img class="w-full h-full object-cover rounded-full" data-alt="Moody male cyberpunk hacker illuminated by multiple glowing green holographic data terminals wearing sleek high collar techwear jacket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEtlNAchmhOXuHOmWRLWN6OiBpV_jPD79oKrx3U6dr3uCi4SHK2tmG5VQT2-nb-xLAQ8unMqfLVqkPC8JZKL4XHIZUgAn2ptsTj_vsQ1kHnTuN-z1XHQYBoPAs5ly_hGmbDS4wMG4kix3uINyqnnq1bLou9YQu5sss4kW9WUUUkRfvCxlE1Cxibb0YuI6wTF2jOrjwmsTq_-hqWSdfxhQlik-IIvrXNq2xt8mhoIbQkuHZqW8t_Ibn"/>
+</div>
+</div>
+<span class="font-label text-[11px] text-on-surface truncate max-w-[64px] text-center tracking-tight">cyber_ren</span>
+</div>
+<!-- Friend 3: @tokyo_drifter -->
+<div class="flex flex-col items-center gap-1.5 shrink-0 cursor-pointer group story-node" data-user="tokyo_drifter">
+<div class="relative w-[68px] h-[68px] rounded-full p-[2.5px] bg-gradient-to-tr from-secondary via-surface-tint to-primary shadow-[0_0_10px_rgba(0,255,204,0.35)] transition-all duration-300 group-hover:scale-105">
+<div class="w-full h-full rounded-full p-[2px] bg-surface-container-lowest">
+<img class="w-full h-full object-cover rounded-full" data-alt="Underground street racer wearing customized glossy carbon fiber helmet with glowing magenta visor slit standing in neon drenched tunnel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLTcJXXDoqo-IZLaC0OPjJ39q0lA6qTZlYCI1n5y5wPwbgQHTkrmp7vqJ0Nzh6syRgNsp8AXSG24iOz41rHBxoobsgM_6VHuXAwhJjvTUhKMycu-ejmjwogG5fGnsyn9oY3YS6Qk6jrRHq5Xl9-NnjjbYEDCtMa2vt1Flu0V_Hyx4E-qV76e_GNEP9bmzE9uyC-I9oZ0U1mH7eZ7viaV5D53mNKmtLJGtcoxiShiP56dCq5NJ8SAYD"/>
+</div>
+</div>
+<span class="font-label text-[11px] text-on-surface truncate max-w-[64px] text-center tracking-tight">tokyo_drifter</span>
+</div>
+<!-- Friend 4: @synth_miku -->
+<div class="flex flex-col items-center gap-1.5 shrink-0 cursor-pointer group story-node" data-user="synth_miku">
+<div class="relative w-[68px] h-[68px] rounded-full p-[2.5px] bg-gradient-to-tr from-primary via-tertiary to-secondary shadow-[0_0_10px_rgba(255,45,120,0.35)] transition-all duration-300 group-hover:scale-105">
+<div class="w-full h-full rounded-full p-[2px] bg-surface-container-lowest">
+<img class="w-full h-full object-cover rounded-full" data-alt="Android idol singer with turquoise fiber-optic braided pigtails and subtle chrome skin panels smiling warmly under club lasers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7Zejkk0kDS5iqupJZ_xcxISMSIZSaqsEf4cqRUvhq7nf1R8BamJN9JiiQATDuMjPRfCL01us5g3a2xSzpJJbXfNtWl726e5KNbm8e4aTkTLnZTIX7j3YWsihiGcb-c6XnMfbW4ryPvlJ68DafefElQzhSVrXNktNv2DUlQsmYwBk2YghikCcO4_7KhJ_anSEgiXziv1J49lsKkOSt8XnAxpcxli5WJnF0vcCllfuuDJQkogiiOMi4"/>
+</div>
+</div>
+<span class="font-label text-[11px] text-on-surface truncate max-w-[64px] text-center tracking-tight">synth_miku</span>
+</div>
+<!-- Friend 5: @void_runner -->
+<div class="flex flex-col items-center gap-1.5 shrink-0 cursor-pointer group story-node" data-user="void_runner">
+<div class="relative w-[68px] h-[68px] rounded-full p-[2.5px] bg-gradient-to-tr from-surface-tint via-primary to-secondary shadow-[0_0_10px_rgba(255,45,120,0.35)] transition-all duration-300 group-hover:scale-105">
+<div class="w-full h-full rounded-full p-[2px] bg-surface-container-lowest">
+<img class="w-full h-full object-cover rounded-full" data-alt="Shadowy courier figure perched on high-rise skyscraper ledge overlooking vast foggy cyberpunk skyline drenched in magenta light beams" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFVXyI6FMxAx1hacpndywLrVX0baj77g9CLdymyrNfKxVFuMZXT_l4SPBRbjxFlEXEUUc-o4V6NwG4tGnx1ea6IQWnxL4WcBmNY8Eapn11vv_bDWkMHf8o8oi07UURkayEaUy2dMO4SLGhUdtnOUTXmOl7PP4HVPWkFjLgHwa2IRZVRB9NdaTjyCIJq2ZMqH8APdVT-JbwY1fEvKsE9kTTU7nK9z2HPSTLfDAbNmemrxe2_dwjpzlX"/>
+</div>
+</div>
+<span class="font-label text-[11px] text-on-surface truncate max-w-[64px] text-center tracking-tight">void_runner</span>
+</div>
+</section>
+<!-- FEED FEED CONTAINER -->
+<div class="flex flex-col gap-6 px-3 pt-2">
+<!-- POST 1: @k1ra_neo -->
+<article class="feed-card bg-surface-container/80 rounded-xl overflow-hidden shadow-xl backdrop-blur-md flex flex-col transition-all duration-300" style="box-shadow: 0 4px 20px rgba(0,0,0,0.6);">
+<!-- Creator Header -->
+<div class="flex items-center justify-between px-3.5 py-3">
+<div class="flex items-center gap-2.5">
+<div class="relative w-10 h-10 rounded-full p-[1.5px] bg-gradient-to-r from-primary to-secondary">
+<img class="w-full h-full object-cover rounded-full" data-alt="Cyberpunk woman avatar portrait with hot pink fringe hair, augmented ocular lenses glowing teal, Tokyo rainy night background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvsS5ZzcQVhQtYH4STvmutM_yfsQuB_RqSz17pVhBSuYja0I3QDTi9QCbm0rjLbG4dw3BWxUwxq6TfNg7McKaWTHMQzEkm-gwgcfEXJJ-Zwye9EgMs-fA6xjMwrO9oxdzkz28-VLr71-Ssh8cIQ8snJKlHOKLK7kEra6j4hUkGX12bq8enXb9R_L97Kwfl2kK6q0VesefXtaBwaUtH9pugrJkHL3ZjG0zNc-J0oZUpdqC-4nNMKX23"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label font-bold text-sm text-on-surface tracking-wide hover:text-primary transition-colors cursor-pointer">k1ra_neo</span>
+<span class="material-symbols-outlined text-[15px] text-secondary [text-shadow:0_0_6px_#00ffcc]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[11px] text-primary">near_me</span>
+<span class="font-label text-[10px] text-on-surface-variant tracking-wider uppercase">Shinjuku Sector 4</span>
+</div>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+</div>
+<!-- Media Visual Container (Double Tap to Like) -->
+<div class="relative w-full aspect-square bg-surface-container-lowest overflow-hidden cursor-pointer select-none post-media-wrapper group" data-post-id="post-1">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Stunning rain slicked Shinjuku night street packed with towering holographic anime advertisements, pink and cyan neon Kanji sign reflections on wet asphalt, flying sleek aero-cars, hyper realistic photorealistic 8k render" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7MXeQZOTmBybk2Xvf3pZCCb-Et89Le3vEstTAtw_rlJdMAj_U9GC31vLB0q3uf1fr4eymZs9ce73N-YEPP9VkkUZygwCB70yieZD9S5sIm2kv9hIhKgXd8RVTUhGsRpNV_we4bCFVxVqjUM3d3i7NYrFT-pzZdSxr-kR-Gec_VpmUqtot85jojihkXDFVVNH4jbq6G3L4yNlDSqAbKC3rsxkCW_PMPBBTkPD0p_Xwrm42TMUbd-do"/>
+<!-- Subtle Neon Vignette -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent pointer-events-none"></div>
+<!-- Live Audio Track Pill Overlay -->
+<div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface/85 backdrop-blur-md shadow-md text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[14px] animate-pulse">graphic_eq</span>
+<span class="font-label text-[10px] tracking-wide truncate max-w-[190px]">Kavinsky • Nightcall (Remix)</span>
+</div>
+<!-- System HUD Stamp Overlay -->
+<div class="absolute top-3 right-3 px-2 py-0.5 rounded bg-surface/70 backdrop-blur-sm text-secondary font-label text-[9px] uppercase tracking-widest [text-shadow:0_0_6px_#00ffcc]">
+          REC // 60FPS • 4K
+        </div>
+<!-- Double-tap Heart Burst Icon -->
+<div class="double-heart-icon pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 scale-50 transition-all duration-300 ease-out z-20">
+<span class="material-symbols-outlined text-[88px] text-primary drop-shadow-[0_0_24px_#ff2d78]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<!-- Interaction Bar & Feedback -->
+<div class="flex flex-col px-3.5 pt-3 pb-4">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-4">
+<!-- Like Button -->
+<button class="like-btn flex items-center gap-1.5 transition-transform active:scale-75 group" data-liked="true">
+<span class="material-symbols-outlined heart-icon text-[26px] text-primary [text-shadow:0_0_10px_#ff2d78] transition-colors" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="like-count font-label text-xs font-bold text-on-surface">14.8k</span>
+</button>
+<!-- Comment Button -->
+<button class="comment-trigger flex items-center gap-1.5 text-on-surface hover:text-secondary transition-all active:scale-90 group">
+<span class="material-symbols-outlined text-[24px] group-hover:[text-shadow:0_0_8px_#00ffcc]">chat_bubble</span>
+<span class="font-label text-xs font-semibold text-on-surface-variant group-hover:text-secondary">412</span>
+</button>
+<!-- Share Button -->
+<button class="text-on-surface hover:text-secondary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[24px] hover:[text-shadow:0_0_8px_#00ffcc]">send</span>
+</button>
+</div>
+<!-- Save/Bookmark -->
+<button class="bookmark-btn text-on-surface hover:text-primary transition-all active:scale-90" data-saved="true">
+<span class="material-symbols-outlined text-[25px] text-primary [text-shadow:0_0_8px_#ff2d78]" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</button>
+</div>
+<!-- Caption Body -->
+<div class="text-xs leading-relaxed text-on-surface space-y-1">
+<p>
+<span class="font-label font-bold text-on-surface mr-1.5 hover:text-primary transition-colors cursor-pointer">k1ra_neo</span>
+            Rainy midnight runs testing the new optical implants. Chromatic dispersion at max. ⚡️
+            <span class="text-secondary font-label text-[11px] block mt-1 hover:underline cursor-pointer">#cyberpunk #neotokyo #nightcity</span>
+</p>
+</div>
+<!-- Inline Comment Preview -->
+<div class="mt-2.5 pt-2 flex items-center justify-between text-[11px] text-on-surface-variant font-label">
+<span class="cursor-pointer hover:text-secondary transition-colors">View all 412 neural responses...</span>
+<span class="text-[10px] tracking-wider text-outline font-label uppercase">2 HOURS AGO</span>
+</div>
+<!-- Micro Quick-Reply Input -->
+<div class="mt-2.5 flex items-center gap-2 bg-surface-container-high/60 rounded-lg px-2.5 py-1.5">
+<div class="w-5 h-5 rounded-full overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="User tiny avatar wearing glowing visor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZH86OEb33QZLaiWGl-eTCTOYIb-lfxHqmTdGkINlI5mSdUsWT8nY8Z_vqQa2zkqCchlVQ1HzZ2UmGf-34XKpWUho_iFBZKX-Ay-8lUrr6iwAJfoKKhvOnZE-gGTzOO6GJxVr4Y4t14aZeR5lMwI--n-qP-48nKtZTdskP06dcrOWT3miyeyirdBBU8x1cdHNfSUGl_3IqfIgCxMNXny75G76c8FRMJcYyxs9vTvdBUI3wxw4b7fxP"/>
+</div>
+<input class="w-full bg-transparent text-[11px] text-on-surface placeholder:text-on-surface-variant/60 focus:outline-none font-body" placeholder="Transmit a pulse..." type="text"/>
+<button class="text-secondary text-[11px] font-label font-bold hover:[text-shadow:0_0_6px_#00ffcc] uppercase px-1">Send</button>
+</div>
+</div>
+</article>
+<!-- POST 2: @mech_automata -->
+<article class="feed-card bg-surface-container/80 rounded-xl overflow-hidden shadow-xl backdrop-blur-md flex flex-col transition-all duration-300" style="box-shadow: 0 4px 20px rgba(0,0,0,0.6);">
+<!-- Creator Header -->
+<div class="flex items-center justify-between px-3.5 py-3">
+<div class="flex items-center gap-2.5">
+<div class="relative w-10 h-10 rounded-full p-[1.5px] bg-gradient-to-br from-secondary to-surface-tint">
+<img class="w-full h-full object-cover rounded-full" data-alt="Mecha robotic engineer anime portrait with orange cybernetic eye optic and futuristic carbon fiber neck plating" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABgz1djNwT7vhdvc0SjUvW2RO3QCObxgxHkbrA8_WZrv20afrzJ0ael0aXmMFmwkU181FFVaS5By66eToXsAPrDAoRaFqX3lRHOhDk0_IAFbVd_QmKEHm12crBxUUCBTzFKO7RHLObM9h2XvZb_Fe78oJ8pwsGs6X5RAuQWDb2zw2g5_3uMCj8oyLT73OBeBDbV6xYSZf8EK4JJ9t7Jz8UFFxIl6jT93v1JI29JUrN65MKNHnWnllm"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label font-bold text-sm text-on-surface tracking-wide hover:text-secondary transition-colors cursor-pointer">mech_automata</span>
+<span class="material-symbols-outlined text-[15px] text-secondary [text-shadow:0_0_6px_#00ffcc]" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[11px] text-secondary">explore</span>
+<span class="font-label text-[10px] text-on-surface-variant tracking-wider uppercase">Akihabara Underground</span>
+</div>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-bright transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+</div>
+<!-- Media Visual Container (Double Tap to Like) -->
+<div class="relative w-full aspect-[4/5] bg-surface-container-lowest overflow-hidden cursor-pointer select-none post-media-wrapper group" data-post-id="post-2">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High-concept cyberpunk hypercar concept in dark high-tech Akihabara subterranean garage, matte black body with luminous exposed cyan neon wiring, active aerodynamic spoilers, dramatic mist reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyOrp5Lcg-li3yq3xF3xUI5-MpVcU12DwdxkjlMsE23LLPOu2rw4INausaM-yHysmrlcOl0T6qQ0Nbbd1lcCyemz1nkN-x065vsiHoenWtQzIF4BvWyFKUZNYf_uFwvrL1K15W--pReTmK_UdEqakGvu2Tr6TSah9OL56svndiNgoNBucEUkYWA6Nx6ad4uoL5JxSTEm1HPeaPKeXBfWSguhDEfC15OHEg-HtQHV_KJI1zZfTk5Ybh"/>
+<!-- Hologram Spec Badge -->
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface/80 backdrop-blur-md shadow-md">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_#00ffcc]"></span>
+<span class="font-label text-[10px] tracking-wider text-secondary uppercase font-bold">TYPE-99 PROTOTYPE</span>
+</div>
+<!-- Double-tap Heart Burst Icon -->
+<div class="double-heart-icon pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 scale-50 transition-all duration-300 ease-out z-20">
+<span class="material-symbols-outlined text-[88px] text-primary drop-shadow-[0_0_24px_#ff2d78]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<!-- Interaction Bar & Feedback -->
+<div class="flex flex-col px-3.5 pt-3 pb-4">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-4">
+<!-- Like Button -->
+<button class="like-btn flex items-center gap-1.5 transition-transform active:scale-75 group" data-liked="false">
+<span class="material-symbols-outlined heart-icon text-[26px] text-on-surface group-hover:text-primary transition-colors">favorite</span>
+<span class="like-count font-label text-xs font-bold text-on-surface">32.1k</span>
+</button>
+<!-- Comment Button -->
+<button class="comment-trigger flex items-center gap-1.5 text-on-surface hover:text-secondary transition-all active:scale-90 group">
+<span class="material-symbols-outlined text-[24px] group-hover:[text-shadow:0_0_8px_#00ffcc]">chat_bubble</span>
+<span class="font-label text-xs font-semibold text-on-surface-variant group-hover:text-secondary">895</span>
+</button>
+<!-- Share Button -->
+<button class="text-on-surface hover:text-secondary transition-all active:scale-90">
+<span class="material-symbols-outlined text-[24px] hover:[text-shadow:0_0_8px_#00ffcc]">send</span>
+</button>
+</div>
+<!-- Save/Bookmark -->
+<button class="bookmark-btn text-on-surface hover:text-primary transition-all active:scale-90" data-saved="false">
+<span class="material-symbols-outlined text-[25px]">bookmark</span>
+</button>
+</div>
+<!-- Caption Body -->
+<div class="text-xs leading-relaxed text-on-surface space-y-1">
+<p>
+<span class="font-label font-bold text-on-surface mr-1.5 hover:text-secondary transition-colors cursor-pointer">mech_automata</span>
+            Unveiled the 'Kurogane Mk-IV' in the underground vault. 1,200 kW plasma drive, bio-neural steering matrix. Would you ride or drive? 🏎️💨
+            <span class="text-secondary font-label text-[11px] block mt-1 hover:underline cursor-pointer">#cybercar #futuristic #automata #tokyo</span>
+</p>
+</div>
+<!-- Latest High-Engagement Comment Preview -->
+<div class="mt-2.5 p-2 rounded-lg bg-surface-container-high/50 flex flex-col gap-1">
+<div class="flex items-center justify-between text-[11px]">
+<span class="font-label font-semibold text-secondary hover:underline cursor-pointer">@tokyo_drifter</span>
+<span class="text-[10px] text-on-surface-variant font-label">18m ago</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">That plasma manifold glow is insane. Does it clear the Shibuya toll gates?</p>
+</div>
+<div class="mt-2.5 flex items-center justify-between text-[11px] text-on-surface-variant font-label">
+<span class="cursor-pointer hover:text-secondary transition-colors">View all 895 neural responses...</span>
+<span class="text-[10px] tracking-wider text-outline font-label uppercase">5 HOURS AGO</span>
+</div>
+</div>
+</article>
+<!-- FEED END NOTIFICATION DELIGHT -->
+<div class="my-4 p-4 rounded-xl bg-surface-container-low flex flex-col items-center justify-center text-center relative overflow-hidden shadow-inner">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-2 shadow-[0_0_12px_rgba(0,255,204,0.3)]">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+</div>
+<h4 class="font-headline font-bold text-sm text-on-surface">You're All Synced</h4>
+<p class="font-body text-xs text-on-surface-variant mt-1 max-w-[220px]">You have consumed all fresh neural feeds for the Tokyo sector.</p>
+<button class="mt-3 px-4 py-1.5 rounded-full bg-surface-bright text-secondary font-label text-xs tracking-wider uppercase font-semibold hover:bg-secondary hover:text-on-secondary transition-all">
+        Sync Older Transmissions
+      </button>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interactions: Double Tap, Like, Bookmark, and Audio toggles
+  document.addEventListener('DOMContentLoaded', () => {
+    // Like button interactions
+    document.querySelectorAll('.like-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleLike(btn);
+      });
+    });
+
+    // Double tap media interaction
+    document.querySelectorAll('.post-media-wrapper').forEach(wrapper => {
+      let lastTap = 0;
+      wrapper.addEventListener('click', (e) => {
+        const currentTime = new Date().getTime();
+        const tapLength = currentTime - lastTap;
+        if (tapLength < 320 && tapLength > 0) {
+          triggerDoubleTapLike(wrapper);
+          e.preventDefault();
+        }
+        lastTap = currentTime;
+      });
+    });
+
+    function triggerDoubleTapLike(wrapper) {
+      const heartAnim = wrapper.querySelector('.double-heart-icon');
+      const article = wrapper.closest('article');
+      const likeBtn = article.querySelector('.like-btn');
+      
+      // Animate center heart
+      heartAnim.classList.remove('opacity-0', 'scale-50');
+      heartAnim.classList.add('opacity-100', 'scale-125');
+      setTimeout(() => {
+        heartAnim.classList.remove('scale-125');
+        heartAnim.classList.add('scale-100');
+      }, 150);
+
+      setTimeout(() => {
+        heartAnim.classList.add('opacity-0', 'scale-50');
+        heartAnim.classList.remove('scale-100');
+      }, 650);
+
+      // Force like state if not already liked
+      if (likeBtn.getAttribute('data-liked') !== 'true') {
+        toggleLike(likeBtn, true);
+      }
+    }
+
+    function toggleLike(btn, forceLike = false) {
+      const isLiked = btn.getAttribute('data-liked') === 'true';
+      const heartIcon = btn.querySelector('.heart-icon');
+      const likeCount = btn.querySelector('.like-count');
+
+      if (!isLiked || forceLike) {
+        btn.setAttribute('data-liked', 'true');
+        heartIcon.style.fontVariationSettings = "'FILL' 1";
+        heartIcon.classList.remove('text-on-surface');
+        heartIcon.classList.add('text-primary', '[text-shadow:0_0_10px_#ff2d78]');
+      } else {
+        btn.setAttribute('data-liked', 'false');
+        heartIcon.style.fontVariationSettings = "'FILL' 0";
+        heartIcon.classList.remove('text-primary', '[text-shadow:0_0_10px_#ff2d78]');
+        heartIcon.classList.add('text-on-surface');
+      }
+    }
+
+    // Bookmark toggle
+    document.querySelectorAll('.bookmark-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isSaved = btn.getAttribute('data-saved') === 'true';
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (isSaved) {
+          btn.setAttribute('data-saved', 'false');
+          icon.style.fontVariationSettings = "'FILL' 0";
+          icon.classList.remove('text-primary', '[text-shadow:0_0_8px_#ff2d78]');
+        } else {
+          btn.setAttribute('data-saved', 'true');
+          icon.style.fontVariationSettings = "'FILL' 1";
+          icon.classList.add('text-primary', '[text-shadow:0_0_8px_#ff2d78]');
+        }
+      });
+    });
+
+    // Stories click animation effect
+    document.querySelectorAll('.story-node').forEach(story => {
+      story.addEventListener('click', () => {
+        story.classList.add('scale-95');
+        setTimeout(() => story.classList.remove('scale-95'), 180);
+      });
+    });
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-1px_12px_rgba(0,0,0,0.4)]" data-active-classes="text-primary [text-shadow:0_0_8px_currentColor]"><div class="flex justify-around items-center h-16 px-2"><a aria-current="page" class="flex flex-col items-center justify-center w-12 h-12 transition-all text-primary [text-shadow:0_0_8px_currentColor]" data-path="home-feed" href="#"><span class="material-symbols-outlined text-[26px]">home</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="explore-search" href="#"><span class="material-symbols-outlined text-[26px]">search</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="reels" href="#"><span class="material-symbols-outlined text-[26px]">movie</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="cyber-shop" href="#"><span class="material-symbols-outlined text-[26px]">local_mall</span></a><a class="flex flex-col items-center justify-center w-12 h-12 text-on-surface-variant transition-all" data-path="user-profile" href="#"><span class="material-symbols-outlined text-[26px]">person</span></a></div></nav></body></html>
