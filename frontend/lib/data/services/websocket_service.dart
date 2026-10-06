@@ -19,8 +19,13 @@ class WebSocketService {
   bool get isConnected => _isConnected;
 
   String get _wsUrl {
-    final base = ApiService.defaultBaseUrl;
-    return base.replaceFirst('http', 'ws');
+    final base = ApiService().baseUrl;
+    if (base.startsWith('https://')) {
+      return base.replaceFirst('https://', 'wss://');
+    } else if (base.startsWith('http://')) {
+      return base.replaceFirst('http://', 'ws://');
+    }
+    return 'ws://$base';
   }
 
   void connect() {

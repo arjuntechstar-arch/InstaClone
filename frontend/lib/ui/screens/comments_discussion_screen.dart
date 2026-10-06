@@ -1,5 +1,8 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../data/models/comment_model.dart';
+import '../../data/models/feed_model.dart';
+import '../../data/services/websocket_service.dart';
 import '../core/cyber_colors.dart';
 import '../core/cyber_typography.dart';
 import '../core/cyber_widgets.dart';
@@ -24,25 +27,113 @@ class CommentsDiscussionScreen extends StatefulWidget {
 
 class _CommentsDiscussionScreenState extends State<CommentsDiscussionScreen> {
   final TextEditingController _commentController = TextEditingController();
+  late List<CommentItem> _commentList;
   String? _replyingToUsername;
   String? _replyingToId;
   bool _isSubmitting = false;
+  StreamSubscription<Map<String, dynamic>>? _wsSub;
+
+  @override
+  void initState() {
+    super.initState();
+    _commentList = List<CommentItem>.from(widget.comments);
+    _wsSub = WebSocketService().stream.listen((event) {
+      if (event['type'] == 'COMMENT_ADDED' && event['postId']?.toString() == widget.postId) {
+        final raw = event['comment'];
+        if (raw != null) {
+          final incoming = CommentItem.fromJson(Map<String, dynamic>.from(raw));
+          final exists = _commentList.any((c) => c.id == incoming.id);
+          if (!exists && mounted) {
+            setState(() {
+              _commentList.insert(0, incoming);
+            });
+          }
+        }
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _wsSub?.cancel();
+    _commentController.dispose();
+    super.dispose();
+  }
 
   void _submitComment() async {
     final text = _commentController.text.trim();
     if (text.isEmpty || _isSubmitting) return;
 
     setState(() => _isSubmitting = true);
-    await widget.onAddComment(text, replyToId: _replyingToId);
 
-    if (mounted) {
-      _commentController.clear();
-      setState(() {
-        _isSubmitting = false;
-        _replyingToId = null;
-        _replyingToUsername = null;
-      });
+    // Optimistically create and insert new comment
+    final newComment = CommentItem(
+      id: 'c_${DateTime.now().millisecondsSinceEpoch}',
+      postId: widget.postId,
+      author: PostAuthor(
+        id: 'u1',
+        username: 'cyber_ren',
+        displayName: 'Ren Tanaka',
+        avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
+        isVerified: true,
+      ),
+      text: text,
+      timestamp: 'Just now',
+      likesCount: 0,
+      isLiked: false,
+    );
+
+    if (_replyingToId != null) {
+      final parentIdx = _commentList.indexWhere((c) => c.id == _replyingToId);
+      if (parentIdx != -1) {
+        final parent = _commentList[parentIdx];
+        final updatedReplies = List<CommentItem>.from(parent.replies)..add(newComment);
+        _commentList[parentIdx] = parent.copyWith(replies: updatedReplies);
+      } else {
+        _commentList.insert(0, newComment);
+      }
+    } else {
+      _commentList.insert(0, newComment);
     }
+
+    _commentController.clear();
+    final replyId = _replyingToId;
+    setState(() {
+      _isSubmitting = false;
+      _replyingToId = null;
+      _replyingToUsername = null;
+    });
+
+    try {
+      await widget.onAddComment(text, replyToId: replyId);
+    } catch (e) {
+      debugPrint('[CommentsDiscussionScreen] onAddComment error: $e');
+    }
+  }
+
+  void _toggleLikeComment(CommentItem comment) {
+    setState(() {
+      _toggleLikeInList(_commentList, comment.id);
+    });
+  }
+
+  bool _toggleLikeInList(List<CommentItem> list, String commentId) {
+    for (int i = 0; i < list.length; i++) {
+      if (list[i].id == commentId) {
+        final newLiked = !list[i].isLiked;
+        final newCount = newLiked ? list[i].likesCount + 1 : (list[i].likesCount > 0 ? list[i].likesCount - 1 : 0);
+        list[i] = list[i].copyWith(isLiked: newLiked, likesCount: newCount);
+        return true;
+      }
+      if (list[i].replies.isNotEmpty) {
+        final updatedReplies = List<CommentItem>.from(list[i].replies);
+        if (_toggleLikeInList(updatedReplies, commentId)) {
+          list[i] = list[i].copyWith(replies: updatedReplies);
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   void _setReply(CommentItem comment) {
@@ -53,11 +144,6 @@ class _CommentsDiscussionScreenState extends State<CommentsDiscussionScreen> {
     });
   }
 
-  @override
-  void dispose() {
-    _commentController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -108,9 +194,9 @@ class _CommentsDiscussionScreenState extends State<CommentsDiscussionScreen> {
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-              itemCount: widget.comments.length,
+              itemCount: _commentList.length,
               itemBuilder: (context, index) {
-                final comment = widget.comments[index];
+                final comment = _commentList[index];
                 return _buildCommentTile(comment);
               },
             ),
@@ -286,15 +372,25 @@ class _CommentsDiscussionScreenState extends State<CommentsDiscussionScreen> {
                   ],
                 ),
               ),
-              Column(
-                children: [
-                  const Icon(Icons.favorite_border, size: 16, color: CyberColors.textMuted),
-                  if (comment.likesCount > 0)
-                    Text(
-                      '${comment.likesCount}',
-                      style: CyberTypography.hudCaption.copyWith(fontSize: 10, color: CyberColors.textMuted),
+              GestureDetector(
+                onTap: () => _toggleLikeComment(comment),
+                child: Column(
+                  children: [
+                    Icon(
+                      comment.isLiked ? Icons.favorite : Icons.favorite_border,
+                      size: 16,
+                      color: comment.isLiked ? CyberColors.primaryHotPink : CyberColors.textMuted,
                     ),
-                ],
+                    if (comment.likesCount > 0)
+                      Text(
+                        '${comment.likesCount}',
+                        style: CyberTypography.hudCaption.copyWith(
+                          fontSize: 10,
+                          color: comment.isLiked ? CyberColors.primaryHotPink : CyberColors.textMuted,
+                        ),
+                      ),
+                  ],
+                ),
               ),
             ],
           ),

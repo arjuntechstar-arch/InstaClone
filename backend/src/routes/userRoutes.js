@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { store } from "../data/store.js";
+import { broadcast } from "../ws/websocketHandler.js";
 
 const router = Router();
 
@@ -18,7 +19,13 @@ router.put("/me", (req, res) => {
 // GET /api/users - Get all creators list
 router.get("/", (req, res) => {
   const users = store.getUsers();
-  res.json({ success: true, count: users.length, data: users });
+  res.json({ success: true, count: users.length, data: users, users });
+});
+
+// GET /api/users/suggestions - Get suggested users to follow
+router.get("/suggestions", (req, res) => {
+  const suggestions = store.getSuggestedUsers();
+  res.json({ success: true, count: suggestions.length, data: suggestions });
 });
 
 // GET /api/users/:username - Get a specific user profile
@@ -36,7 +43,18 @@ router.post("/:username/follow", (req, res) => {
   if (!user) {
     return res.status(404).json({ success: false, message: "User not found" });
   }
-  res.json({ success: true, data: user });
+  broadcast({
+    type: "USER_FOLLOWED",
+    username: req.params.username,
+    isFollowing: user.isFollowing,
+    synapsesCount: user.synapsesCount
+  });
+  res.json({
+    success: true,
+    data: user,
+    isFollowing: user.isFollowing,
+    isFollowRequested: user.isFollowRequested ?? false,
+  });
 });
 
 export default router;

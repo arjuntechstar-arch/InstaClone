@@ -14,6 +14,8 @@ import shopRoutes from "./routes/shopRoutes.js";
 import collectionRoutes from "./routes/collectionRoutes.js";
 import liveRoutes from "./routes/liveRoutes.js";
 import settingsRoutes from "./routes/settingsRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import { store } from "./data/store.js";
 
 export function createApp() {
   const app = express();
@@ -32,6 +34,7 @@ export function createApp() {
   });
 
   // Mount API routers
+  app.use("/api/auth", authRoutes);
   app.use("/api/feed", feedRoutes);
   app.use("/api/stories", storyRoutes);
   app.use("/api/reels", reelRoutes);
@@ -45,6 +48,10 @@ export function createApp() {
   app.use("/api/collections", collectionRoutes);
   app.use("/api/live", liveRoutes);
   app.use("/api/settings", settingsRoutes);
+  app.get("/api/search", (req, res) => {
+    const { q } = req.query;
+    res.json({ success: true, query: q || "", data: store.search(q) });
+  });
 
   return app;
 }

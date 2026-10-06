@@ -18,9 +18,23 @@ class ApiService {
   factory ApiService() => _instance;
   ApiService._internal();
 
-  /// Default Base URL dynamically chosen depending on web/desktop vs Android emulator
+  static const String _envApiUrl = String.fromEnvironment('API_URL');
+
+  /// Default Base URL dynamically chosen depending on environment variable, web query parameter, or platform
   static String get defaultBaseUrl {
-    if (kIsWeb) return 'http://localhost:4000';
+    if (_envApiUrl.isNotEmpty) {
+      return _envApiUrl.replaceAll(RegExp(r'/+$'), '');
+    }
+    if (kIsWeb) {
+      try {
+        final uri = Uri.base;
+        final queryParam = uri.queryParameters['apiUrl'] ?? uri.queryParameters['api'];
+        if (queryParam != null && queryParam.isNotEmpty) {
+          return queryParam.replaceAll(RegExp(r'/+$'), '');
+        }
+      } catch (_) {}
+      return 'http://localhost:4000';
+    }
     if (defaultTargetPlatform == TargetPlatform.android) {
       return 'http://10.0.2.2:4000';
     }
@@ -29,12 +43,190 @@ class ApiService {
 
   String baseUrl = defaultBaseUrl;
 
+  void setBaseUrl(String url) {
+    baseUrl = url.replaceAll(RegExp(r'/+$'), '');
+  }
+
   final http.Client _client = http.Client();
 
   Map<String, String> get _headers => {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       };
+
+  // ===================== AUTHENTICATION & ROLES =====================
+  static const List<Map<String, dynamic>> defaultRoles = [
+    {
+      'id': 'u1',
+      'username': 'cyber_ren',
+      'displayName': 'Ren Tanaka',
+      'role': 'Creator / Photographer',
+      'accessLevel': 5,
+      'passkey': 'neon_ren_2088',
+      'avatar': 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300',
+      'bio': 'Cybernetic optics architect & nightscape photographer. ⚡🌆 Shooting Neo-Tokyo at 03:00 AM.',
+      'badge': 'VERIFIED CREATOR',
+      'isVerified': true,
+    },
+    {
+      'id': 'u2',
+      'username': 'neon_kaito',
+      'displayName': 'Kaito Vance',
+      'role': 'Cyber Modder / Crypto Specialist',
+      'accessLevel': 4,
+      'passkey': 'quantum_kaito_42',
+      'avatar': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300',
+      'bio': 'Overclocking quantum cyberdecks & neural relays. 🦾 Akihabara Underground Sector 9.',
+      'badge': 'VERIFIED MODDER',
+      'isVerified': true,
+    },
+    {
+      'id': 'u3',
+      'username': 'kira_synth',
+      'displayName': 'Kira Oshiro',
+      'role': 'Live Streamer / Audio DJ',
+      'accessLevel': 5,
+      'passkey': 'synth_kira_99',
+      'avatar': 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300',
+      'bio': 'Synthwave audio producer & live holographic streamer. 🎧⚡ 140BPM pure cyber vibes.',
+      'badge': 'BROADCAST HOST',
+      'isVerified': true,
+    },
+    {
+      'id': 'u4',
+      'username': 'neotech_admin',
+      'displayName': 'NeoTech Corp',
+      'role': 'Marketplace Merchant / Brand Partner',
+      'accessLevel': 3,
+      'passkey': 'neotech_drop_77',
+      'avatar': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300',
+      'bio': 'Official Neo-Tokyo cyberware distributor. Tactical visors, cyberdecks & neural suits. 🛒⚡',
+      'badge': 'OFFICIAL MERCHANT',
+      'isVerified': true,
+    },
+    {
+      'id': 'guest',
+      'username': 'anon_mesh',
+      'displayName': 'Anonymous Explorer',
+      'role': 'Consumer / Guest User',
+      'accessLevel': 1,
+      'passkey': 'guest_token_00',
+      'avatar': 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300',
+      'bio': 'Wandering through the digital neon fog. Unregistered neural link node. 🌐',
+      'badge': 'GUEST NODE',
+      'isVerified': false,
+    },
+  ];
+
+  Future<List<Map<String, dynamic>>> getAuthRoles() async {
+    try {
+      final res = await _client.get(Uri.parse('$baseUrl/api/auth/roles'), headers: _headers)
+          .timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        final list = (data['roles'] as List<dynamic>?) ?? [];
+        return list.map((e) => Map<String, dynamic>.from(e)).toList();
+      }
+    } catch (e) {
+      debugPrint('[ApiService] getAuthRoles fallback: $e');
+    }
+    return defaultRoles;
+  }
+
+  Future<UserProfile?> login(String username, String passkey) async {
+    try {
+      final res = await _client.post(
+        Uri.parse('$baseUrl/api/auth/login'),
+        headers: _headers,
+        body: jsonEncode({'username': username, 'passkey': passkey}),
+      ).timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        final userMap = data['user'] ?? data['data'];
+        if (userMap != null) {
+          return UserProfile.fromJson(Map<String, dynamic>.from(userMap));
+        }
+      }
+    } catch (e) {
+      debugPrint('[ApiService] login fallback: $e');
+    }
+    final match = defaultRoles.firstWhere(
+      (r) => (r['username'] as String).toLowerCase() == username.toLowerCase() && r['passkey'] == passkey,
+      orElse: () => {},
+    );
+    if (match.isNotEmpty) {
+      return UserProfile.fromJson(Map<String, dynamic>.from(match));
+    }
+    return null;
+  }
+
+  Future<UserProfile?> register({
+    required String username,
+    required String passkey,
+    String? displayName,
+    String? role,
+  }) async {
+    try {
+      final res = await _client.post(
+        Uri.parse('$baseUrl/api/auth/register'),
+        headers: _headers,
+        body: jsonEncode({
+          'username': username,
+          'passkey': passkey,
+          'displayName': displayName,
+          'role': role,
+        }),
+      ).timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200 || res.statusCode == 201) {
+        final data = jsonDecode(res.body);
+        final userMap = data['user'] ?? data['data'];
+        if (userMap != null) {
+          return UserProfile.fromJson(Map<String, dynamic>.from(userMap));
+        }
+      }
+    } catch (e) {
+      debugPrint('[ApiService] register fallback: $e');
+    }
+    return UserProfile(
+      id: 'u_${DateTime.now().millisecondsSinceEpoch}',
+      username: username,
+      displayName: displayName ?? username,
+      avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300',
+      bio: 'Newly registered on Tokyo.Gram grid. ⚡',
+      badge: 'INITIATE',
+      followersCount: 1,
+      followingCount: 1,
+      postsCount: 0,
+      isVerified: false,
+    );
+  }
+
+  Future<UserProfile?> switchPersona(String username) async {
+    try {
+      final res = await _client.post(
+        Uri.parse('$baseUrl/api/auth/switch-persona'),
+        headers: _headers,
+        body: jsonEncode({'username': username}),
+      ).timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        final userMap = data['user'] ?? data['data'];
+        if (userMap != null) {
+          return UserProfile.fromJson(Map<String, dynamic>.from(userMap));
+        }
+      }
+    } catch (e) {
+      debugPrint('[ApiService] switchPersona fallback: $e');
+    }
+    final match = defaultRoles.firstWhere(
+      (r) => (r['username'] as String).toLowerCase() == username.toLowerCase(),
+      orElse: () => {},
+    );
+    if (match.isNotEmpty) {
+      return UserProfile.fromJson(Map<String, dynamic>.from(match));
+    }
+    return null;
+  }
 
   // ===================== FEED =====================
   Future<List<PostItem>> getFeed({int page = 1, int limit = 10}) async {
@@ -44,7 +236,7 @@ class ApiService {
           .timeout(const Duration(seconds: 4));
       if (res.statusCode == 200) {
         final data = jsonDecode(res.body);
-        final list = (data['posts'] as List<dynamic>?) ?? [];
+        final list = ((data['posts'] ?? data['data']) as List<dynamic>?) ?? [];
         return list.map((e) => PostItem.fromJson(Map<String, dynamic>.from(e))).toList();
       }
     } catch (e) {
@@ -90,6 +282,22 @@ class ApiService {
       return true;
     }
   }
+
+  Future<Map<String, dynamic>?> repostPost(String postId) async {
+    try {
+      final res = await _client.post(
+        Uri.parse('$baseUrl/api/feed/$postId/repost'),
+        headers: _headers,
+      ).timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200) {
+        return jsonDecode(res.body) as Map<String, dynamic>;
+      }
+    } catch (e) {
+      debugPrint('[ApiService] repostPost fallback: $e');
+    }
+    return null;
+  }
+
 
   Future<PostItem?> createPost(Map<String, dynamic> postData) async {
     try {
@@ -201,19 +409,40 @@ class ApiService {
   }
 
   // ===================== MESSAGES =====================
+  // ===================== MESSAGES =====================
   Future<List<ChatThread>> getMessageThreads() async {
     try {
       final res = await _client.get(Uri.parse('$baseUrl/api/messages'), headers: _headers)
           .timeout(const Duration(seconds: 4));
       if (res.statusCode == 200) {
         final data = jsonDecode(res.body);
-        final list = (data['threads'] as List<dynamic>?) ?? [];
+        final list = (data['threads'] ?? data['data']) as List<dynamic>? ?? [];
         return list.map((e) => ChatThread.fromJson(Map<String, dynamic>.from(e))).toList();
       }
     } catch (e) {
       debugPrint('[ApiService] getMessageThreads fallback: $e');
     }
     return _fallbackThreads;
+  }
+
+  Future<ChatThread?> startChatThread(String participantUsername) async {
+    try {
+      final res = await _client.post(
+        Uri.parse('$baseUrl/api/messages/start'),
+        headers: _headers,
+        body: jsonEncode({'participantUsername': participantUsername}),
+      ).timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200 || res.statusCode == 201) {
+        final data = jsonDecode(res.body);
+        final threadData = data['thread'] ?? data['data'];
+        if (threadData != null) {
+          return ChatThread.fromJson(Map<String, dynamic>.from(threadData));
+        }
+      }
+    } catch (e) {
+      debugPrint('[ApiService] startChatThread error: $e');
+    }
+    return null;
   }
 
   Future<ChatMessage?> sendMessage(String threadId, Map<String, dynamic> messageData) async {
@@ -223,9 +452,12 @@ class ApiService {
         headers: _headers,
         body: jsonEncode(messageData),
       ).timeout(const Duration(seconds: 4));
-      if (res.statusCode == 201) {
+      if (res.statusCode == 200 || res.statusCode == 201) {
         final data = jsonDecode(res.body);
-        return ChatMessage.fromJson(Map<String, dynamic>.from(data['message']));
+        final msgData = data['message'] ?? data['data'];
+        if (msgData != null) {
+          return ChatMessage.fromJson(Map<String, dynamic>.from(msgData));
+        }
       }
     } catch (e) {
       debugPrint('[ApiService] sendMessage fallback: $e');
@@ -245,7 +477,7 @@ class ApiService {
           .timeout(const Duration(seconds: 4));
       if (res.statusCode == 200) {
         final data = jsonDecode(res.body);
-        final list = (data['comments'] as List<dynamic>?) ?? [];
+        final list = (data['comments'] ?? data['data']) as List<dynamic>? ?? [];
         return list.map((e) => CommentItem.fromJson(Map<String, dynamic>.from(e))).toList();
       }
     } catch (e) {
@@ -254,16 +486,24 @@ class ApiService {
     return _fallbackComments;
   }
 
-  Future<CommentItem?> addComment(String postId, String text, {String? replyToId}) async {
+  Future<CommentItem?> addComment(String postId, String text, {String? replyToId, Map<String, dynamic>? user}) async {
     try {
       final res = await _client.post(
         Uri.parse('$baseUrl/api/comments/$postId'),
         headers: _headers,
-        body: jsonEncode({'text': text, 'replyToId': replyToId}),
+        body: jsonEncode({
+          'text': text,
+          'replyToId': replyToId,
+          'parentCommentId': replyToId,
+          if (user != null) 'user': user,
+        }),
       ).timeout(const Duration(seconds: 4));
-      if (res.statusCode == 201) {
+      if (res.statusCode == 200 || res.statusCode == 201) {
         final data = jsonDecode(res.body);
-        return CommentItem.fromJson(Map<String, dynamic>.from(data['comment']));
+        final commentData = data['comment'] ?? data['data'];
+        if (commentData != null) {
+          return CommentItem.fromJson(Map<String, dynamic>.from(commentData));
+        }
       }
     } catch (e) {
       debugPrint('[ApiService] addComment fallback: $e');
@@ -306,7 +546,10 @@ class ApiService {
           .timeout(const Duration(seconds: 4));
       if (res.statusCode == 200) {
         final data = jsonDecode(res.body);
-        return UserProfile.fromJson(Map<String, dynamic>.from(data['profile']));
+        final profileMap = data['profile'] ?? data['data'];
+        if (profileMap != null) {
+          return UserProfile.fromJson(Map<String, dynamic>.from(profileMap));
+        }
       }
     } catch (e) {
       debugPrint('[ApiService] getMe fallback: $e');
@@ -320,7 +563,10 @@ class ApiService {
           .timeout(const Duration(seconds: 4));
       if (res.statusCode == 200) {
         final data = jsonDecode(res.body);
-        return UserProfile.fromJson(Map<String, dynamic>.from(data['profile']));
+        final profileMap = data['profile'] ?? data['data'];
+        if (profileMap != null) {
+          return UserProfile.fromJson(Map<String, dynamic>.from(profileMap));
+        }
       }
     } catch (e) {
       debugPrint('[ApiService] getUserProfile fallback: $e');
@@ -328,18 +574,93 @@ class ApiService {
     return null;
   }
 
-  Future<bool> toggleFollow(String userId) async {
+  Future<UserProfile?> updateProfile(Map<String, dynamic> updates) async {
+    try {
+      final res = await _client.put(
+        Uri.parse('$baseUrl/api/users/me'),
+        headers: _headers,
+        body: jsonEncode(updates),
+      ).timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        final profileMap = data['profile'] ?? data['data'];
+        if (profileMap != null) {
+          return UserProfile.fromJson(Map<String, dynamic>.from(profileMap));
+        }
+      }
+    } catch (e) {
+      debugPrint('[ApiService] updateProfile fallback: $e');
+    }
+    return null;
+  }
+
+
+  Future<List<UserProfile>> getSuggestedUsers() async {
+    try {
+      final res = await _client
+          .get(Uri.parse('$baseUrl/api/users/suggestions'), headers: _headers)
+          .timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        final list = (data['data'] as List<dynamic>?) ?? [];
+        return list.map((e) => UserProfile.fromJson(Map<String, dynamic>.from(e))).toList();
+      }
+    } catch (e) {
+      debugPrint('[ApiService] getSuggestedUsers fallback: $e');
+    }
+    return _fallbackSuggestedUsers;
+  }
+
+  Future<List<UserProfile>> getAllUsers() async {
+    try {
+      final res = await _client
+          .get(Uri.parse('$baseUrl/api/users'), headers: _headers)
+          .timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        final list = (data['users'] ?? data['data']) as List<dynamic>? ?? [];
+        return list.map((e) => UserProfile.fromJson(Map<String, dynamic>.from(e))).toList();
+      }
+    } catch (e) {
+      debugPrint('[ApiService] getAllUsers fallback: $e');
+    }
+    return _fallbackSuggestedUsers;
+  }
+
+  Future<Map<String, dynamic>> search(String query) async {
+    try {
+      final q = Uri.encodeQueryComponent(query);
+      final res = await _client
+          .get(Uri.parse('$baseUrl/api/explore/search?q=$q'), headers: _headers)
+          .timeout(const Duration(seconds: 4));
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        final resData = data['data'] as Map<String, dynamic>? ?? {};
+        final rawUsers = (resData['users'] as List<dynamic>?) ?? [];
+        final users = rawUsers.map((e) => UserProfile.fromJson(Map<String, dynamic>.from(e))).toList();
+        return {
+          'users': users,
+          'posts': resData['posts'] ?? [],
+          'exploreItems': resData['exploreItems'] ?? [],
+        };
+      }
+    } catch (e) {
+      debugPrint('[ApiService] search fallback: $e');
+    }
+    return {'users': <UserProfile>[], 'posts': [], 'exploreItems': []};
+  }
+
+  Future<Map<String, dynamic>?> toggleFollow(String userId) async {
     try {
       final res = await _client.post(Uri.parse('$baseUrl/api/users/$userId/follow'), headers: _headers)
           .timeout(const Duration(seconds: 4));
       if (res.statusCode == 200) {
-        final data = jsonDecode(res.body);
-        return data['isFollowing'] as bool? ?? false;
+        return jsonDecode(res.body) as Map<String, dynamic>;
       }
     } catch (e) {
       debugPrint('[ApiService] toggleFollow fallback: $e');
     }
-    return true;
+    return null;
   }
 
   // ===================== SHOP =====================
@@ -683,4 +1004,64 @@ class ApiService {
     ],
     'reactions': {'heart': 4892, 'flame': 3104, 'neon': 1920},
   });
+
+  static final List<UserProfile> _fallbackSuggestedUsers = [
+    UserProfile.fromJson({
+      'id': 'usr_kira',
+      'username': 'k1ra_neo',
+      'displayName': 'Kira // 雲雀 キラ',
+      'avatar': 'https://lh3.googleusercontent.com/aida-public/AB6AXuBVVHe-EHFdcdYsnnBWVT8tvj-puFT-ibf-GfvABu1OtzzMK8LTk9wJmUYNfrasFseqOM9i7e6s9Vm4JbNSfYnmQ_LIk1vjf0UiPMpOaJrSLOxtxKGKcaY3UGvL65qiURdmfzZA1FlVMHn_k7JF0If7ki89fof9qC8YGk1TOfgWAO8gtv-4VY6dAtcnlf4VIbBc7FuKEYgDTQZqTywlCCPs8HmgooVeBMtaYe6jtvUDQDKfrqO_M5NQ',
+      'badge': 'SYNTHWAVE PRODUCER',
+      'isVerified': true,
+      'isFollowing': false,
+      'isPrivate': false,
+      'followersCount': 182400,
+      'followingCount': 319,
+      'postsCount': 248,
+      'bio': 'Sound designer @kurogane_audio 🎛️ Glitch in the neon matrix.',
+    }),
+    UserProfile.fromJson({
+      'id': 'usr_valkyrie',
+      'username': 'cyber_valkyrie',
+      'displayName': 'Cyber Valkyrie',
+      'avatar': 'https://lh3.googleusercontent.com/aida-public/AB6AXuBDYL-s3CJmDNWyo9oFTLQcTcMMmDSDX16cVLaV8JAiEf5hOANlIlFhMrIG_fHBMew7uINwdkUTnQZHrqhZXDT9_Vsc9QT5_2YB129koT0xmOAXubxSV5CXPKxdCW1yvuNCDRnuh_6vFZ0ilBgiotbKUFvexnrkgewP1NCudkAtLem7NiHc5DEu8515aiEL_oZZq1JXfpLsC-aOHPcMrY8OLnH18EQH2tQmHccJSgvJruXR52uw23B8',
+      'badge': 'STREET SAMURAI',
+      'isVerified': true,
+      'isFollowing': false,
+      'isPrivate': false,
+      'followersCount': 342900,
+      'followingCount': 145,
+      'postsCount': 310,
+      'bio': 'Chasing the neon sunrise above Sector 7 before grid reset. 🌆✨',
+    }),
+    UserProfile.fromJson({
+      'id': 'usr_rei',
+      'username': 'rei_kusanagi',
+      'displayName': 'Rei Kusanagi',
+      'avatar': 'https://lh3.googleusercontent.com/aida-public/AB6AXuDyUb083Zqd8xe992LgA35XrjBrHLhhm7P3ZEy8ZfzCeuXvfkFzIjVjz-9Vt98EeFTQ4jiID9kYyrdNwMO60gcPmLNg-ZgtU71mj9awGjMnp3zb3UIz7QjurWkZTH_l7JND_t55NulWD9vShQo_TBg6sn4_keJnW7Wng5A1X62iW-Tx1SJNKXpXSvQK_olIpP8Su4GEbHIaMYXSTv-c0pQC0E3DEBliX98v_9cQuOtBs86oPiF_b_PD',
+      'badge': 'NETRUNNER',
+      'isVerified': false,
+      'isFollowing': false,
+      'isPrivate': true,
+      'followersCount': 45200,
+      'followingCount': 110,
+      'postsCount': 76,
+      'bio': 'Netrunner // Neural Investigator. Shibuya underground never sleeps.',
+    }),
+    UserProfile.fromJson({
+      'id': 'usr_speed',
+      'username': 'shibuya_speed_unit',
+      'displayName': 'Shibuya Speed Unit',
+      'avatar': 'https://lh3.googleusercontent.com/aida-public/AB6AXuDegTA7tA0I94hcmgkI_HJf2xuwrIOD3TtQhnSGZiLFfA0Rux1mc3qlXzyxNPnNxmApbvD9u6TvsExnQtB8CMr2Zs8T74KYGwD9mEGoPicl78KxujlBdREucMcxKaKLJkc-Rxpj8DvjMEFbq8j4Lxpx-e2V6IE84L4bQkPi0hH2s7M1ImLEFrVAcEM4LJake2ws7wd3MRybPltfA_gbHapRgH_08LQWW9IXPIijPY01z_6jf9iibGV8',
+      'badge': 'MIDNIGHT RACING',
+      'isVerified': true,
+      'isFollowing': false,
+      'isPrivate': false,
+      'followersCount': 1200000,
+      'followingCount': 88,
+      'postsCount': 92,
+      'bio': '02:00 AM Grid Battles. Plasma manifolds uncapped. 🏎️🔥',
+    }),
+  ];
 }
+

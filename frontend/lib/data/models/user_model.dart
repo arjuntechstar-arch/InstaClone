@@ -40,6 +40,8 @@ class UserProfile {
   final int postsCount;
   final bool isFollowing;
   final bool isVerified;
+  final bool isPrivate;
+  final bool isFollowRequested;
   final String pronouns;
   final String location;
   final String badge;
@@ -56,6 +58,8 @@ class UserProfile {
     required this.postsCount,
     this.isFollowing = false,
     this.isVerified = false,
+    this.isPrivate = false,
+    this.isFollowRequested = false,
     this.pronouns = '',
     this.location = '',
     this.badge = 'CYBERPUNK CREATOR',
@@ -73,6 +77,8 @@ class UserProfile {
     int? postsCount,
     bool? isFollowing,
     bool? isVerified,
+    bool? isPrivate,
+    bool? isFollowRequested,
     String? pronouns,
     String? location,
     String? badge,
@@ -89,6 +95,8 @@ class UserProfile {
       postsCount: postsCount ?? this.postsCount,
       isFollowing: isFollowing ?? this.isFollowing,
       isVerified: isVerified ?? this.isVerified,
+      isPrivate: isPrivate ?? this.isPrivate,
+      isFollowRequested: isFollowRequested ?? this.isFollowRequested,
       pronouns: pronouns ?? this.pronouns,
       location: location ?? this.location,
       badge: badge ?? this.badge,
@@ -101,16 +109,18 @@ class UserProfile {
       id: json['id'] as String? ?? '',
       username: json['username'] as String? ?? '',
       displayName: json['displayName'] as String? ?? '',
-      avatarUrl: json['avatarUrl'] as String? ?? '',
+      avatarUrl: (json['avatarUrl'] ?? json['avatar']) as String? ?? '',
       bio: json['bio'] as String? ?? '',
       followersCount: json['followersCount'] as int? ?? 0,
       followingCount: json['followingCount'] as int? ?? 0,
       postsCount: json['postsCount'] as int? ?? 0,
       isFollowing: json['isFollowing'] as bool? ?? false,
       isVerified: json['isVerified'] as bool? ?? false,
+      isPrivate: json['isPrivate'] as bool? ?? false,
+      isFollowRequested: json['isFollowRequested'] as bool? ?? false,
       pronouns: json['pronouns'] as String? ?? '',
-      location: json['location'] as String? ?? '',
-      badge: json['badge'] as String? ?? 'CYBER CREATOR',
+      location: (json['location'] ?? json['subNet']) as String? ?? '',
+      badge: (json['badge'] ?? json['role'] ?? json['category']) as String? ?? 'CYBER CREATOR',
       gallery: (json['gallery'] as List<dynamic>?)
               ?.map((g) => GalleryItem.fromJson(Map<String, dynamic>.from(g)))
               .toList() ??
@@ -129,6 +139,8 @@ class UserProfile {
     'postsCount': postsCount,
     'isFollowing': isFollowing,
     'isVerified': isVerified,
+    'isPrivate': isPrivate,
+    'isFollowRequested': isFollowRequested,
     'pronouns': pronouns,
     'location': location,
     'badge': badge,

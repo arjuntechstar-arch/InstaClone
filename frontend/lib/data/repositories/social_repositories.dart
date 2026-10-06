@@ -31,6 +31,8 @@ class MessageRepository {
   MessageRepository({ApiService? api}) : _api = api ?? ApiService();
 
   Future<List<ChatThread>> fetchThreads() => _api.getMessageThreads();
+  Future<ChatThread?> startThread(String participantUsername) =>
+      _api.startChatThread(participantUsername);
   Future<ChatMessage?> sendMessage(String threadId, Map<String, dynamic> messageData) =>
       _api.sendMessage(threadId, messageData);
 }
@@ -40,8 +42,8 @@ class CommentRepository {
   CommentRepository({ApiService? api}) : _api = api ?? ApiService();
 
   Future<List<CommentItem>> fetchComments(String postId) => _api.getComments(postId);
-  Future<CommentItem?> addComment(String postId, String text, {String? replyToId}) =>
-      _api.addComment(postId, text, replyToId: replyToId);
+  Future<CommentItem?> addComment(String postId, String text, {String? replyToId, Map<String, dynamic>? user}) =>
+      _api.addComment(postId, text, replyToId: replyToId, user: user);
 }
 
 class NotificationRepository {
@@ -57,7 +59,20 @@ class UserRepository {
 
   Future<UserProfile> fetchMe() => _api.getMe();
   Future<UserProfile?> fetchProfile(String userId) => _api.getUserProfile(userId);
-  Future<bool> toggleFollow(String userId) => _api.toggleFollow(userId);
+  Future<Map<String, dynamic>?> toggleFollow(String userId) => _api.toggleFollow(userId);
+  Future<List<UserProfile>> fetchSuggestedUsers() => _api.getSuggestedUsers();
+  Future<List<UserProfile>> fetchAllUsers() => _api.getAllUsers();
+  Future<Map<String, dynamic>> search(String query) => _api.search(query);
+  Future<List<Map<String, dynamic>>> fetchRoles() => _api.getAuthRoles();
+  Future<UserProfile?> login(String username, String passkey) => _api.login(username, passkey);
+  Future<UserProfile?> register({
+    required String username,
+    required String passkey,
+    String? displayName,
+    String? role,
+  }) => _api.register(username: username, passkey: passkey, displayName: displayName, role: role);
+  Future<UserProfile?> switchPersona(String username) => _api.switchPersona(username);
+  Future<UserProfile?> updateProfile(Map<String, dynamic> updates) => _api.updateProfile(updates);
 }
 
 class ShopRepository {

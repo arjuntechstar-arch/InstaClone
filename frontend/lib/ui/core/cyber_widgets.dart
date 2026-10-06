@@ -142,11 +142,15 @@ class CyberButton extends StatelessWidget {
                   Icon(icon, size: isSmall ? 16 : 18, color: textColor),
                   const SizedBox(width: 8),
                 ],
-                Text(
-                  label,
-                  style: isSmall
-                      ? CyberTypography.titleSmall.copyWith(color: textColor, fontSize: 13)
-                      : CyberTypography.buttonText.copyWith(color: textColor),
+                Flexible(
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: isSmall
+                        ? CyberTypography.titleSmall.copyWith(color: textColor, fontSize: 13)
+                        : CyberTypography.buttonText.copyWith(color: textColor),
+                  ),
                 ),
               ],
             ),

@@ -7,12 +7,14 @@ class SettingsScreen extends StatefulWidget {
   final Map<String, dynamic> initialSettings;
   final ValueChanged<Map<String, dynamic>> onUpdateSettings;
   final VoidCallback onBack;
+  final VoidCallback? onLogout;
 
   const SettingsScreen({
     super.key,
     required this.initialSettings,
     required this.onUpdateSettings,
     required this.onBack,
+    this.onLogout,
   });
 
   @override
@@ -20,6 +22,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  late bool _isPrivateAccount;
   late bool _quantumEncryption;
   late bool _hologramPreview;
   late bool _biometricAuth;
@@ -30,6 +33,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void initState() {
     super.initState();
+    _isPrivateAccount = widget.initialSettings['isPrivateAccount'] as bool? ?? false;
     _quantumEncryption = widget.initialSettings['quantumEncryption'] as bool? ?? true;
     _hologramPreview = widget.initialSettings['hologramPreview'] as bool? ?? true;
     _biometricAuth = widget.initialSettings['biometricAuth'] as bool? ?? true;
@@ -40,6 +44,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   void _syncSettings() {
     widget.onUpdateSettings({
+      'isPrivateAccount': _isPrivateAccount,
       'quantumEncryption': _quantumEncryption,
       'hologramPreview': _hologramPreview,
       'biometricAuth': _biometricAuth,
@@ -131,6 +136,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     _syncSettings();
                   },
                 ),
+                const Divider(color: CyberColors.borderSubtle, height: 1),
+                _buildSwitchTile(
+                  title: 'Private Account Node',
+                  subtitle: 'When private, only approved nodes can decrypt your feed & stories',
+                  value: _isPrivateAccount,
+                  onChanged: (v) {
+                    setState(() => _isPrivateAccount = v);
+                    _syncSettings();
+                  },
+                ),
               ],
             ),
           ),
@@ -169,15 +184,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           // Disconnect / Logout
           CyberButton(
-            label: 'DISCONNECT NEURAL SESSION',
+            label: 'DISCONNECT NEURAL SESSION (SIGN OUT)',
             isOutlined: true,
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   backgroundColor: CyberColors.surfaceModal,
-                  content: Text('Neural session reset to anonymous profile'),
+                  content: Text('Neural session disconnected. Returning to access terminal.'),
                 ),
               );
+              widget.onLogout?.call();
             },
           ),
         ],
@@ -194,7 +210,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Material(
       color: Colors.transparent,
       child: SwitchListTile(
-        activeColor: CyberColors.secondaryCyan,
+        activeThumbColor: CyberColors.secondaryCyan,
         activeTrackColor: CyberColors.secondaryCyan.withValues(alpha: 0.4),
         title: Text(title, style: CyberTypography.bodyBold.copyWith(fontSize: 13)),
         subtitle: Text(subtitle, style: CyberTypography.bodySecondary.copyWith(fontSize: 11)),

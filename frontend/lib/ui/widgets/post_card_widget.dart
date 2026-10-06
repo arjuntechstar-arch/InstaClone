@@ -10,6 +10,7 @@ class PostCardWidget extends StatefulWidget {
   final VoidCallback onSave;
   final VoidCallback onComment;
   final VoidCallback onShare;
+  final VoidCallback? onRepost;
   final VoidCallback? onAuthorTap;
 
   const PostCardWidget({
@@ -19,6 +20,7 @@ class PostCardWidget extends StatefulWidget {
     required this.onSave,
     required this.onComment,
     required this.onShare,
+    this.onRepost,
     this.onAuthorTap,
   });
 
@@ -135,14 +137,7 @@ class _PostCardWidgetState extends State<PostCardWidget>
                 ),
                 IconButton(
                   icon: const Icon(Icons.more_vert, color: CyberColors.textSecondary, size: 20),
-                  onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor: CyberColors.surfaceModal,
-                        content: Text('Post options for ${post.id}', style: CyberTypography.bodyMedium),
-                      ),
-                    );
-                  },
+                  onPressed: () => _showPostOptions(context, post),
                 ),
               ],
             ),
@@ -241,6 +236,7 @@ class _PostCardWidgetState extends State<PostCardWidget>
             child: Row(
               children: [
                 IconButton(
+                  tooltip: 'Like Post',
                   icon: Icon(
                     post.isLiked ? Icons.favorite : Icons.favorite_border,
                     color: post.isLiked ? CyberColors.primaryHotPink : CyberColors.textPrimary,
@@ -249,6 +245,7 @@ class _PostCardWidgetState extends State<PostCardWidget>
                   onPressed: widget.onLike,
                 ),
                 IconButton(
+                  tooltip: 'Comments & Discussion',
                   icon: const Icon(
                     Icons.chat_bubble_outline,
                     color: CyberColors.textPrimary,
@@ -256,7 +253,34 @@ class _PostCardWidgetState extends State<PostCardWidget>
                   ),
                   onPressed: widget.onComment,
                 ),
+                // Repost / Retweet Button
                 IconButton(
+                  tooltip: 'Repost to Grid',
+                  icon: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.repeat_rounded,
+                        color: post.isReposted ? CyberColors.secondaryCyan : CyberColors.textPrimary,
+                        size: 24,
+                      ),
+                      if (post.repostsCount > 0) ...[
+                        const SizedBox(width: 4),
+                        Text(
+                          '${post.repostsCount}',
+                          style: CyberTypography.hudCaption.copyWith(
+                            color: post.isReposted ? CyberColors.secondaryCyan : CyberColors.textSecondary,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 11,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                  onPressed: widget.onRepost ?? () {},
+                ),
+                IconButton(
+                  tooltip: 'Share via Quantum Mesh',
                   icon: const Icon(
                     Icons.send_rounded,
                     color: CyberColors.textPrimary,
@@ -266,6 +290,7 @@ class _PostCardWidgetState extends State<PostCardWidget>
                 ),
                 const Spacer(),
                 IconButton(
+                  tooltip: 'Save to Vault Collection',
                   icon: Icon(
                     post.isSaved ? Icons.bookmark : Icons.bookmark_border,
                     color: post.isSaved ? CyberColors.secondaryCyan : CyberColors.textPrimary,
@@ -283,9 +308,25 @@ class _PostCardWidgetState extends State<PostCardWidget>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  '${post.likesCount} likes',
-                  style: CyberTypography.hudMetric.copyWith(fontSize: 13),
+                Row(
+                  children: [
+                    Text(
+                      '${post.likesCount} likes',
+                      style: CyberTypography.hudMetric.copyWith(fontSize: 13),
+                    ),
+                    if (post.repostsCount > 0) ...[
+                      const SizedBox(width: 10),
+                      const Text('•', style: TextStyle(color: CyberColors.textMuted)),
+                      const SizedBox(width: 10),
+                      Text(
+                        '${post.repostsCount} reposts',
+                        style: CyberTypography.hudMetric.copyWith(
+                          fontSize: 13,
+                          color: post.isReposted ? CyberColors.secondaryCyan : CyberColors.textSecondary,
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
                 const SizedBox(height: 6),
                 RichText(
@@ -323,6 +364,95 @@ class _PostCardWidgetState extends State<PostCardWidget>
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  void _showPostOptions(BuildContext context, PostItem post) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: CyberColors.surfaceModal,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (ctx) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 36,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: CyberColors.borderHighlight,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              const SizedBox(height: 12),
+              ListTile(
+                leading: Icon(
+                  post.isSaved ? Icons.bookmark : Icons.bookmark_border,
+                  color: post.isSaved ? CyberColors.secondaryCyan : Colors.white,
+                ),
+                title: Text(
+                  post.isSaved ? 'Remove from Saved Vault' : 'Save to Vault Collection',
+                  style: CyberTypography.bodyBold,
+                ),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  widget.onSave();
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.link, color: CyberColors.secondaryCyan),
+                title: Text('Copy Neural Link', style: CyberTypography.bodyBold),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: CyberColors.surfaceDark,
+                      content: Text(
+                        'Neural Link copied: https://tokyo.gram/p/${post.id} ⚡',
+                        style: CyberTypography.bodyMedium,
+                      ),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.send_rounded, color: CyberColors.primaryHotPink),
+                title: Text('Share via Quantum Mesh', style: CyberTypography.bodyBold),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  widget.onShare();
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.person_pin_outlined, color: CyberColors.tertiaryYellow),
+                title: Text('About @${post.author.username}', style: CyberTypography.bodyBold),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  widget.onAuthorTap?.call();
+                },
+              ),
+              const Divider(color: CyberColors.borderSubtle),
+              ListTile(
+                leading: const Icon(Icons.remove_circle_outline, color: Colors.redAccent),
+                title: Text('Unfollow @${post.author.username}', style: CyberTypography.bodyBold.copyWith(color: Colors.redAccent)),
+                onTap: () {
+                  Navigator.of(ctx).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: CyberColors.surfaceModal,
+                      content: Text('Unfollowed @${post.author.username}'),
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

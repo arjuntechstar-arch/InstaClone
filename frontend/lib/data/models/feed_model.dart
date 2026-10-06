@@ -41,8 +41,10 @@ class PostItem {
   final String timestamp;
   final int likesCount;
   final int commentsCount;
+  final int repostsCount;
   final bool isLiked;
   final bool isSaved;
+  final bool isReposted;
   final String musicTrack;
   final String location;
   final String filterName;
@@ -56,8 +58,10 @@ class PostItem {
     required this.timestamp,
     required this.likesCount,
     required this.commentsCount,
+    this.repostsCount = 0,
     this.isLiked = false,
     this.isSaved = false,
+    this.isReposted = false,
     this.musicTrack = '',
     this.location = '',
     this.filterName = 'Normal',
@@ -72,8 +76,10 @@ class PostItem {
     String? timestamp,
     int? likesCount,
     int? commentsCount,
+    int? repostsCount,
     bool? isLiked,
     bool? isSaved,
+    bool? isReposted,
     String? musicTrack,
     String? location,
     String? filterName,
@@ -87,8 +93,10 @@ class PostItem {
       timestamp: timestamp ?? this.timestamp,
       likesCount: likesCount ?? this.likesCount,
       commentsCount: commentsCount ?? this.commentsCount,
+      repostsCount: repostsCount ?? this.repostsCount,
       isLiked: isLiked ?? this.isLiked,
       isSaved: isSaved ?? this.isSaved,
+      isReposted: isReposted ?? this.isReposted,
       musicTrack: musicTrack ?? this.musicTrack,
       location: location ?? this.location,
       filterName: filterName ?? this.filterName,
@@ -107,8 +115,10 @@ class PostItem {
       timestamp: json['timestamp'] as String? ?? 'just now',
       likesCount: json['likesCount'] as int? ?? 0,
       commentsCount: json['commentsCount'] as int? ?? 0,
+      repostsCount: json['repostsCount'] as int? ?? 0,
       isLiked: json['isLiked'] as bool? ?? false,
       isSaved: json['isSaved'] as bool? ?? false,
+      isReposted: json['isReposted'] as bool? ?? false,
       musicTrack: json['musicTrack'] as String? ?? '',
       location: json['location'] as String? ?? '',
       filterName: json['filterName'] as String? ?? 'Normal',
@@ -124,8 +134,10 @@ class PostItem {
     'timestamp': timestamp,
     'likesCount': likesCount,
     'commentsCount': commentsCount,
+    'repostsCount': repostsCount,
     'isLiked': isLiked,
     'isSaved': isSaved,
+    'isReposted': isReposted,
     'musicTrack': musicTrack,
     'location': location,
     'filterName': filterName,

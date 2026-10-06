@@ -84,6 +84,15 @@ class CyberColors {
     ),
   ];
 
+  static List<BoxShadow> yellowGlowShadow({double spread = 0, double blur = 14}) => [
+    BoxShadow(
+      color: tertiaryYellow.withValues(alpha: 0.45),
+      spreadRadius: spread,
+      blurRadius: blur,
+    ),
+  ];
+
+
   static List<BoxShadow> cardElevationShadow = [
     BoxShadow(
       color: Colors.black.withValues(alpha: 0.6),

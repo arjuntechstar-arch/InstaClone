@@ -1,8 +1,21 @@
 import { WebSocketServer } from "ws";
 import { store } from "../data/store.js";
 
+let wssInstance = null;
+
+export function broadcast(event) {
+  if (!wssInstance) return;
+  const raw = JSON.stringify(event);
+  wssInstance.clients.forEach(client => {
+    if (client.readyState === 1) {
+      client.send(raw);
+    }
+  });
+}
+
 export function setupWebSocket(server) {
   const wss = new WebSocketServer({ server });
+  wssInstance = wss;
 
   wss.on("connection", (ws) => {
     ws.isAlive = true;
@@ -18,6 +31,57 @@ export function setupWebSocket(server) {
       try {
         const data = JSON.parse(raw.toString());
         switch (data.type) {
+          case "DIRECT_MESSAGE":
+          case "CHAT_MESSAGE": {
+            const threadId = data.threadId;
+            const msgData = data.message || {
+              text: data.text,
+              sender: data.sender || data.user,
+              type: data.messageType || data.type || "text",
+            };
+            const savedMsg = store.sendDirectMessage(threadId, msgData);
+            const thread = store.getThread(threadId);
+            broadcast({
+              type: "DIRECT_MESSAGE",
+              threadId,
+              message: savedMsg,
+              lastMessage: thread ? thread.lastMessage : msgData.text,
+              lastTime: "Just now"
+            });
+            break;
+          }
+
+          case "POST_LIKE": {
+            const post = store.togglePostLike(data.postId);
+            if (post) {
+              broadcast({
+                type: "POST_LIKED",
+                postId: data.postId,
+                isLiked: post.isLiked,
+                likesCount: post.likesCount
+              });
+            }
+            break;
+          }
+
+          case "COMMENT_ADD": {
+            const comment = store.addComment(data.postId, {
+              text: data.text,
+              parentCommentId: data.parentCommentId || data.replyToId,
+              user: data.user
+            });
+            const post = store.getPost(data.postId);
+            if (comment) {
+              broadcast({
+                type: "COMMENT_ADDED",
+                postId: data.postId,
+                comment,
+                commentsCount: post ? post.commentsCount : undefined
+              });
+            }
+            break;
+          }
+
           case "CHAT_TYPING":
             // Broadcast typing event to all clients except sender
             wss.clients.forEach(client => {
@@ -33,28 +97,21 @@ export function setupWebSocket(server) {
 
           case "LIVE_REACTION":
             // Broadcast floating emoji particle reaction
-            wss.clients.forEach(client => {
-              if (client.readyState === 1) {
-                client.send(JSON.stringify({
-                  type: "LIVE_REACTION",
-                  emoji: data.emoji || "💖",
-                  timestamp: Date.now()
-                }));
-              }
+            broadcast({
+              type: "LIVE_REACTION",
+              emoji: data.emoji || "💖",
+              timestamp: Date.now()
             });
             break;
 
-          case "LIVE_CHAT_MESSAGE":
+          case "LIVE_CHAT_MESSAGE": {
             const newChat = store.sendLiveChat({ text: data.text, user: data.user });
-            wss.clients.forEach(client => {
-              if (client.readyState === 1) {
-                client.send(JSON.stringify({
-                  type: "LIVE_CHAT_MESSAGE",
-                  data: newChat
-                }));
-              }
+            broadcast({
+              type: "LIVE_CHAT_MESSAGE",
+              data: newChat
             });
             break;
+          }
 
           default:
             break;

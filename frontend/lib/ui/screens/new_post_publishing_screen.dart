@@ -294,7 +294,7 @@ class _NewPostPublishingScreenState extends State<NewPostPublishingScreen> {
                 color: Colors.transparent,
                 child: SwitchListTile(
                   contentPadding: EdgeInsets.zero,
-                  activeColor: CyberColors.primaryHotPink,
+                  activeThumbColor: CyberColors.primaryHotPink,
                   activeTrackColor: CyberColors.primaryHotPink.withValues(alpha: 0.4),
                   title: Text(
                     'Mint as Digital Hologram',

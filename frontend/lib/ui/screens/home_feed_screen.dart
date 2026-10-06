@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import '../../data/models/feed_model.dart';
 import '../../data/models/story_model.dart';
+import '../../data/models/user_model.dart';
 import '../core/cyber_colors.dart';
 import '../core/cyber_typography.dart';
 import '../widgets/post_card_widget.dart';
 import '../widgets/story_tray_widget.dart';
+import '../widgets/suggested_users_tray.dart';
 
 class HomeFeedScreen extends StatelessWidget {
   final List<PostItem> posts;
   final List<StoryItem> stories;
+  final List<UserProfile> suggestedUsers;
   final bool isLoading;
   final Future<void> Function() onRefresh;
   final ValueChanged<String> onLikePost;
   final ValueChanged<String> onSavePost;
   final ValueChanged<String> onCommentPost;
   final ValueChanged<String> onSharePost;
+  final ValueChanged<String>? onRepostPost;
+  final ValueChanged<String>? onFollowSuggestion;
+  final ValueChanged<String>? onDismissSuggestion;
+  final ValueChanged<UserProfile>? onSelectSuggestedUser;
   final ValueChanged<String>? onAuthorTap;
   final ValueChanged<StoryItem> onStorySelected;
   final VoidCallback onAddStory;
@@ -27,12 +34,17 @@ class HomeFeedScreen extends StatelessWidget {
     super.key,
     required this.posts,
     required this.stories,
+    this.suggestedUsers = const [],
     required this.isLoading,
     required this.onRefresh,
     required this.onLikePost,
     required this.onSavePost,
     required this.onCommentPost,
     required this.onSharePost,
+    this.onRepostPost,
+    this.onFollowSuggestion,
+    this.onDismissSuggestion,
+    this.onSelectSuggestedUser,
     this.onAuthorTap,
     required this.onStorySelected,
     required this.onAddStory,
@@ -154,7 +166,16 @@ class HomeFeedScreen extends StatelessWidget {
                   ),
 
                   // Feed Posts
-                  if (posts.isEmpty)
+                  if (posts.isEmpty) ...[
+                    if (suggestedUsers.isNotEmpty)
+                      SliverToBoxAdapter(
+                        child: SuggestedUsersTray(
+                          users: suggestedUsers,
+                          onFollow: onFollowSuggestion ?? (_) {},
+                          onDismiss: onDismissSuggestion ?? (_) {},
+                          onSelectUser: onSelectSuggestedUser,
+                        ),
+                      ),
                     SliverFillRemaining(
                       hasScrollBody: false,
                       child: Center(
@@ -170,24 +191,52 @@ class HomeFeedScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                    )
-                  else
-                    SliverList(
-                      delegate: SliverChildBuilderDelegate(
-                        (context, index) {
-                          final post = posts[index];
-                          return PostCardWidget(
-                            post: post,
-                            onLike: () => onLikePost(post.id),
-                            onSave: () => onSavePost(post.id),
-                            onComment: () => onCommentPost(post.id),
-                            onShare: () => onSharePost(post.id),
-                            onAuthorTap: () => onAuthorTap?.call(post.author.id),
-                          );
-                        },
-                        childCount: posts.length,
+                    ),
+                  ] else ...[
+                    // Post 0
+                    SliverToBoxAdapter(
+                      child: PostCardWidget(
+                        post: posts[0],
+                        onLike: () => onLikePost(posts[0].id),
+                        onSave: () => onSavePost(posts[0].id),
+                        onComment: () => onCommentPost(posts[0].id),
+                        onShare: () => onSharePost(posts[0].id),
+                        onRepost: () => onRepostPost?.call(posts[0].id),
+                        onAuthorTap: () => onAuthorTap?.call(posts[0].author.id),
                       ),
                     ),
+
+                    // Suggested Users Tray between post 0 and rest of feed
+                    if (suggestedUsers.isNotEmpty)
+                      SliverToBoxAdapter(
+                        child: SuggestedUsersTray(
+                          users: suggestedUsers,
+                          onFollow: onFollowSuggestion ?? (_) {},
+                          onDismiss: onDismissSuggestion ?? (_) {},
+                          onSelectUser: onSelectSuggestedUser,
+                        ),
+                      ),
+
+                    // Remaining Posts from index 1
+                    if (posts.length > 1)
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          (context, index) {
+                            final post = posts[index + 1];
+                            return PostCardWidget(
+                              post: post,
+                              onLike: () => onLikePost(post.id),
+                              onSave: () => onSavePost(post.id),
+                              onComment: () => onCommentPost(post.id),
+                              onShare: () => onSharePost(post.id),
+                              onRepost: () => onRepostPost?.call(post.id),
+                              onAuthorTap: () => onAuthorTap?.call(post.author.id),
+                            );
+                          },
+                          childCount: posts.length - 1,
+                        ),
+                      ),
+                  ],
                 ],
               ),
             ),

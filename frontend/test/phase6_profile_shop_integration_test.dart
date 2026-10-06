@@ -228,8 +228,18 @@ void main() {
       await tester.pumpWidget(const TokyoGramApp());
       await tester.pump();
 
+      // Verify Auth Terminal is displayed
       expect(find.text('TOKYO'), findsOneWidget);
       expect(find.text('.GRAM'), findsOneWidget);
+      expect(find.text('SIGN IN'), findsOneWidget);
+      expect(find.text('CONNECT TO NEURAL GRID'), findsOneWidget);
+
+      // Perform login handshake
+      await tester.tap(find.text('CONNECT TO NEURAL GRID'));
+      await tester.pump(const Duration(milliseconds: 500));
+      await tester.pump(const Duration(milliseconds: 500));
+
+      // Verify main shell navigation icons are now active
       expect(find.byIcon(Icons.home_filled), findsOneWidget);
       expect(find.byIcon(Icons.explore_outlined), findsOneWidget);
       expect(find.byIcon(Icons.movie_filter_outlined), findsOneWidget);

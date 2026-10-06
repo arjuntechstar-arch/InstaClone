@@ -55,6 +55,13 @@ test("Feed Endpoints: GET, LIKE, SAVE, CREATE", async () => {
   const saved = await saveRes.json();
   assert.equal(saved.success, true);
 
+  // Toggle repost
+  const repostRes = await fetch(`${baseUrl}/api/feed/${firstPostId}/repost`, { method: "POST" });
+  assert.equal(repostRes.status, 200);
+  const reposted = await repostRes.json();
+  assert.equal(reposted.success, true);
+  assert.equal(reposted.isReposted, true);
+
   // Create new post
   const createRes = await fetch(`${baseUrl}/api/feed`, {
     method: "POST",
@@ -174,7 +181,14 @@ test("Users Endpoints: ME, Public Profile, Follow", async () => {
   const meRes = await fetch(`${baseUrl}/api/users/me`);
   assert.equal(meRes.status, 200);
   const me = await meRes.json();
-  assert.equal(me.data.username, "aoi_kurogane");
+  assert.equal(me.data.username, "cyber_ren");
+
+  // Suggestions
+  const sugRes = await fetch(`${baseUrl}/api/users/suggestions`);
+  assert.equal(sugRes.status, 200);
+  const sugs = await sugRes.json();
+  assert.equal(sugs.success, true);
+  assert.ok(sugs.data.length > 0);
 
   // Public user
   const userRes = await fetch(`${baseUrl}/api/users/k1ra_neo`);
@@ -281,3 +295,42 @@ test("Settings & Update Preferences", async () => {
   const updated = await updateRes.json();
   assert.equal(updated.data.isPrivateAccount, true);
 });
+
+test("Auth & Role Personas Endpoints", async () => {
+  // Roles list
+  const rolesRes = await fetch(`${baseUrl}/api/auth/roles`);
+  assert.equal(rolesRes.status, 200);
+  const rolesData = await rolesRes.json();
+  assert.equal(rolesData.success, true);
+  assert.ok(rolesData.count >= 5);
+
+  // Valid Login
+  const loginRes = await fetch(`${baseUrl}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: "neon_kaito", passkey: "quantum_kaito_42" })
+  });
+  assert.equal(loginRes.status, 200);
+  const loginData = await loginRes.json();
+  assert.equal(loginData.success, true);
+  assert.equal(loginData.user.username, "neon_kaito");
+
+  // Invalid Login
+  const failRes = await fetch(`${baseUrl}/api/auth/login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: "neon_kaito", passkey: "wrong_key" })
+  });
+  assert.equal(failRes.status, 401);
+
+  // Switch Persona
+  const switchRes = await fetch(`${baseUrl}/api/auth/switch-persona`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username: "kira_synth" })
+  });
+  assert.equal(switchRes.status, 200);
+  const switchData = await switchRes.json();
+  assert.equal(switchData.user.username, "kira_synth");
+});
+
